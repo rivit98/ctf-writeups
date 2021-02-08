@@ -1,0 +1,173 @@
+  'Data Table: 401DD4
+  loc_402A30: FLdRfVar var_AC
+  loc_402A33: FLdPrThis
+  loc_402A34: VCallAd Control_ID_we
+  loc_402A37: FStAdFunc var_A8
+  loc_402A3A: FLdPr var_A8
+  loc_402A3D:  = Me.Text
+  loc_402A42: ILdRf var_AC
+  loc_402A45: LitStr vbNullString
+  loc_402A48: EqStr
+  loc_402A4A: FLdRfVar var_B4
+  loc_402A4D: FLdPrThis
+  loc_402A4E: VCallAd Control_ID_er
+  loc_402A51: FStAdFunc var_B0
+  loc_402A54: FLdPr var_B0
+  loc_402A57:  = Me.Text
+  loc_402A5C: ILdRf var_B4
+  loc_402A5F: LitStr vbNullString
+  loc_402A62: EqStr
+  loc_402A64: OrI4
+  loc_402A65: FFreeStr var_AC = ""
+  loc_402A6C: FFreeAd var_A8 = ""
+  loc_402A73: BranchF loc_402A7B
+  loc_402A76: End
+  loc_402A78: Branch loc_402C36
+  loc_402A7B: FLdRfVar var_AC
+  loc_402A7E: FLdPrThis
+  loc_402A7F: VCallAd Control_ID_we
+  loc_402A82: FStAdFunc var_A8
+  loc_402A85: FLdPr var_A8
+  loc_402A88:  = Me.Text
+  loc_402A8D: FLdZeroAd var_AC
+  loc_402A90: FStStr var_88
+  loc_402A93: FFree1Ad var_A8
+  loc_402A96: LitI4 1
+  loc_402A9B: FLdRfVar var_88
+  loc_402A9E: CVarRef
+  loc_402AA3: FLdRfVar var_D4
+  loc_402AA6: ImpAdCallFPR4  = Left(, )
+  loc_402AAB: FLdRfVar var_D4
+  loc_402AAE: CStrVarTmp
+  loc_402AAF: FStStr var_90
+  loc_402AB2: FFree1Var var_D4 = ""
+  loc_402AB5: ILdRf var_90
+  loc_402AB8: ImpAdCallI2 Asc()
+  loc_402ABD: CStrUI1
+  loc_402ABF: FStStr var_8C
+  loc_402AC2: LitI4 1
+  loc_402AC7: FLdRfVar var_88
+  loc_402ACA: CVarRef
+  loc_402ACF: FLdRfVar var_D4
+  loc_402AD2: ImpAdCallFPR4  = Right(, )
+  loc_402AD7: FLdRfVar var_D4
+  loc_402ADA: CStrVarTmp
+  loc_402ADB: FStStr var_94
+  loc_402ADE: FFree1Var var_D4 = ""
+  loc_402AE1: ILdRf var_94
+  loc_402AE4: ImpAdCallI2 Asc()
+  loc_402AE9: CStrUI1
+  loc_402AEB: FStStr var_9C
+  loc_402AEE: LitI4 2
+  loc_402AF3: FLdRfVar var_88
+  loc_402AF6: CVarRef
+  loc_402AFB: FLdRfVar var_D4
+  loc_402AFE: ImpAdCallFPR4  = Right(, )
+  loc_402B03: FLdRfVar var_D4
+  loc_402B06: CStrVarTmp
+  loc_402B07: FStStr var_A4
+  loc_402B0A: FFree1Var var_D4 = ""
+  loc_402B0D: ILdRf var_A4
+  loc_402B10: ImpAdCallI2 Asc()
+  loc_402B15: CStrUI1
+  loc_402B17: FStStr var_A0
+  loc_402B1A: ILdRf var_8C
+  loc_402B1D: ILdRf var_9C
+  loc_402B20: ConcatStr
+  loc_402B21: FStStrNoPop var_AC
+  loc_402B24: ILdRf var_A0
+  loc_402B27: ConcatStr
+  loc_402B28: FStStrNoPop var_B4
+  loc_402B2B: CR8Str
+  loc_402B2D: LitI2_Byte 1
+  loc_402B2F: CR8I2
+  loc_402B30: AddR8
+  loc_402B31: CStrR8
+  loc_402B33: FStStr var_98
+  loc_402B36: FFreeStr var_AC = ""
+  loc_402B3D: ILdRf var_8C
+  loc_402B40: ILdRf var_9C
+  loc_402B43: ConcatStr
+  loc_402B44: FStStrNoPop var_AC
+  loc_402B47: ILdRf var_A0
+  loc_402B4A: ConcatStr
+  loc_402B4B: FStStrNoPop var_B4
+  loc_402B4E: CR8Str
+  loc_402B50: LitI2_Byte 1
+  loc_402B52: CR8I2
+  loc_402B53: SubR4
+  loc_402B54: CStrR8
+  loc_402B56: FStStr var_9C
+  loc_402B59: FFreeStr var_AC = ""
+  loc_402B60: ILdRf var_98
+  loc_402B63: FLdRfVar var_AC
+  loc_402B66: FLdPrThis
+  loc_402B67: VCallAd Control_ID_er
+  loc_402B6A: FStAdFunc var_A8
+  loc_402B6D: FLdPr var_A8
+  loc_402B70:  = Me.Text
+  loc_402B75: ILdRf var_AC
+  loc_402B78: GtStr
+  loc_402B7A: FFree1Str var_AC
+  loc_402B7D: FFree1Ad var_A8
+  loc_402B80: BranchF loc_402C20
+  loc_402B83: ILdRf var_9C
+  loc_402B86: FLdRfVar var_AC
+  loc_402B89: FLdPrThis
+  loc_402B8A: VCallAd Control_ID_er
+  loc_402B8D: FStAdFunc var_A8
+  loc_402B90: FLdPr var_A8
+  loc_402B93:  = Me.Text
+  loc_402B98: ILdRf var_AC
+  loc_402B9B: LtStr
+  loc_402B9D: FFree1Str var_AC
+  loc_402BA0: FFree1Ad var_A8
+  loc_402BA3: BranchF loc_402C0A
+  loc_402BA6: LitStr "This CrackMe is Registered to: "
+  loc_402BA9: FLdRfVar var_AC
+  loc_402BAC: FLdPrThis
+  loc_402BAD: VCallAd Control_ID_we
+  loc_402BB0: FStAdFunc var_A8
+  loc_402BB3: FLdPr var_A8
+  loc_402BB6:  = Me.Text
+  loc_402BBB: ILdRf var_AC
+  loc_402BBE: ConcatStr
+  loc_402BBF: FStStrNoPop var_B4
+  loc_402BC2: LitStr " "
+  loc_402BC5: ConcatStr
+  loc_402BC6: FStStrNoPop var_DC
+  loc_402BC9: FLdRfVar var_D8
+  loc_402BCC: FLdPrThis
+  loc_402BCD: VCallAd Control_ID_rt
+  loc_402BD0: FStAdFunc var_B0
+  loc_402BD3: FLdPr var_B0
+  loc_402BD6:  = Me.Text
+  loc_402BDB: ILdRf var_D8
+  loc_402BDE: ConcatStr
+  loc_402BDF: FStStrNoPop var_E0
+  loc_402BE2: FLdPrThis
+  loc_402BE3: VCallAd Control_ID_io
+  loc_402BE6: FStAdFunc var_E4
+  loc_402BE9: FLdPr var_E4
+  loc_402BEC: Me.Caption = from_stack_1
+  loc_402BF1: FFreeStr var_AC = "": var_B4 = "": var_DC = "": var_D8 = ""
+  loc_402BFE: FFreeAd var_A8 = "": var_B0 = ""
+  loc_402C07: Branch loc_402C1F
+  loc_402C0A: LitStr "This CrackMe is: UnRegistered"
+  loc_402C0D: FLdPrThis
+  loc_402C0E: VCallAd Control_ID_io
+  loc_402C11: FStAdFunc var_A8
+  loc_402C14: FLdPr var_A8
+  loc_402C17: Me.Caption = from_stack_1
+  loc_402C1C: FFree1Ad var_A8
+  loc_402C1F: ExitProcHresult
+  loc_402C20: LitStr "This CrackMe is: UnRegistered"
+  loc_402C23: FLdPrThis
+  loc_402C24: VCallAd Control_ID_io
+  loc_402C27: FStAdFunc var_A8
+  loc_402C2A: FLdPr var_A8
+  loc_402C2D: Me.Caption = from_stack_1
+  loc_402C32: FFree1Ad var_A8
+  loc_402C35: ExitProcHresult
+  loc_402C36: ExitProcHresult
+  loc_402C37: UMiI4
