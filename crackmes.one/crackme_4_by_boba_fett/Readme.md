@@ -2,8 +2,8 @@
 
 ## Solution
 Binary is packed with UPX and Aspack, so we have to unpack it.
-[AspackDie](https://www.aldeid.com/wiki/AspackDie)
-For UPX unpacking I used x32dbg + Scylla plugin and dumped PE after code unpacked itself.
+* [AspackDie](https://www.aldeid.com/wiki/AspackDie)
+* For UPX unpacking I used x32dbg + Scylla plugin and dumped PE after code unpacked itself.
 
 Quick analysis and we know that binary is using Visual Basic. VB Decompiler Lite gives us disassembled functions (our target is login button handler). I used some tool with `vitamine` and got decompiled VB code ;)
 
@@ -34,12 +34,12 @@ Private Sub jk_Click() '402C38
 End Sub
 ```
 
-`Me.io` - label with text "This CrackMe is Registered to..."
-`Me.we` - name
-`Me.er` - serial
+`Me.io` - label with text "This CrackMe is Registered to..." \
+`Me.we` - name \
+`Me.er` - serial \
 `Me.rt` - company
 
-as we can see the serial for our name is concatenated decimal ascii values of first char of name and two last chars (but reversed).
+As we can see the serial for our name is concatenated decimal ascii values of first char of name and two last chars (but reversed).
 e.g.
 name - "ABCDEFG"
 serial = "657170"
