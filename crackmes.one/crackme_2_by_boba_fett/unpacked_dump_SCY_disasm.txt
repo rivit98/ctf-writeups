@@ -1,0 +1,2113 @@
+File: D:\vv\unpacked_dump_SCY.exe
+P32Dasm v2.80
+
+VB6 Application detected ... Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+Error - 0  - unknown Import Dll Entry
+PCode
+
+
+Private Kanel.Form_Load() ----
+00004BA8: 04   FLdRfVar var_90
+00004BAB: 05   ImpAdLdRf
+00004BAE: 24   NewIfNullPr Kanel
+00004BB1: 0D   VCallHresult Form.Get_Width()
+00004BB6: 04   FLdRfVar var_8C
+00004BB9: 04   FLdRfVar var_88
+00004BBC: 05   ImpAdLdRf
+00004BBF: 24   NewIfNullPr GLOBAL
+00004BC2: 0D   VCallHresult Global.Get_Screen() As Screen
+00004BC7: 08   FLdPr var_88
+00004BCA: 0D   VCallHresult Screen.Get_Width()
+00004BCF: 6E   FLdFPR4 var_8C
+00004BD2: 6E   FLdFPR4 var_90
+00004BD5: AF   SubR4 -
+00004BD6: F4   LitI2_Byte: 2 (0x2)
+00004BD8: EB   CR8I2 Int(number)
+00004BD9: B6   DivR8 /
+00004BDA: 37   PopFPR4
+00004BDB: 05   ImpAdLdRf
+00004BDE: 24   NewIfNullPr Kanel
+00004BE1: 0D   VCallHresult Form.Set_Left()
+00004BE6: 1A   FFree1Ad var_88
+00004BE9: 04   FLdRfVar var_90
+00004BEC: 05   ImpAdLdRf
+00004BEF: 24   NewIfNullPr Kanel
+00004BF2: 0D   VCallHresult Form.Get_Height()
+00004BF7: 04   FLdRfVar var_8C
+00004BFA: 04   FLdRfVar var_88
+00004BFD: 05   ImpAdLdRf
+00004C00: 24   NewIfNullPr GLOBAL
+00004C03: 0D   VCallHresult Global.Get_Screen() As Screen
+00004C08: 08   FLdPr var_88
+00004C0B: 0D   VCallHresult Screen.Get_Width()
+00004C10: 6E   FLdFPR4 var_8C
+00004C13: 6E   FLdFPR4 var_90
+00004C16: AF   SubR4 -
+00004C17: F4   LitI2_Byte: 2 (0x2)
+00004C19: EB   CR8I2 Int(number)
+00004C1A: B6   DivR8 /
+00004C1B: 37   PopFPR4
+00004C1C: 05   ImpAdLdRf
+00004C1F: 24   NewIfNullPr Kanel
+00004C22: 0D   VCallHresult Form.Set_Top()
+00004C27: 1A   FFree1Ad var_88
+00004C2A: 27   LitVar_Missing var_B0 = Missing
+00004C2D: 25   PopAdLdVar
+00004C2E: 27   LitVar_Missing var_A0 = Missing
+00004C31: 25   PopAdLdVar
+00004C32: 08   FLdPr param_8
+00004C35: 0D   VCallHresult Form._Show(Modal As Variant, OwnerForm As Variant)
+00004C3A: 04   FLdRfVar var_B4
+00004C3D: 21   FLdPrThis
+00004C3E: 0F   VCallAd Kanel.ct
+00004C41: 19   FStAdFunc var_88
+00004C44: 08   FLdPr var_88
+00004C47: 0D   VCallHresult TextBox.Get_Text()
+00004C4C: 6C   ILdRf var_B4
+00004C4F: 1B   LitStr: "G"
+00004C52: 2A   ConcatStr
+00004C53: 23   FStStrNoPop var_B8
+00004C56: 21   FLdPrThis
+00004C57: 0F   VCallAd Kanel.ct
+00004C5A: 19   FStAdFunc var_BC
+00004C5D: 08   FLdPr var_BC
+00004C60: 0D   VCallHresult TextBox.Set_Text()
+00004C65: 32   FFreeStr var_B4 var_B8
+00004C6C: 29   FFreeAd: var_88 var_BC
+00004C73: 28   LitVarI2: var_CC = 2 (0x2)
+00004C78: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004C7D: 35   FFree1Var var_CC
+00004C80: 04   FLdRfVar var_B4
+00004C83: 21   FLdPrThis
+00004C84: 0F   VCallAd Kanel.ct
+00004C87: 19   FStAdFunc var_88
+00004C8A: 08   FLdPr var_88
+00004C8D: 0D   VCallHresult TextBox.Get_Text()
+00004C92: 6C   ILdRf var_B4
+00004C95: 1B   LitStr: "o"
+00004C98: 2A   ConcatStr
+00004C99: 23   FStStrNoPop var_B8
+00004C9C: 21   FLdPrThis
+00004C9D: 0F   VCallAd Kanel.ct
+00004CA0: 19   FStAdFunc var_BC
+00004CA3: 08   FLdPr var_BC
+00004CA6: 0D   VCallHresult TextBox.Set_Text()
+00004CAB: 32   FFreeStr var_B4 var_B8
+00004CB2: 29   FFreeAd: var_88 var_BC
+00004CB9: 28   LitVarI2: var_CC = 2 (0x2)
+00004CBE: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004CC3: 35   FFree1Var var_CC
+00004CC6: 04   FLdRfVar var_B4
+00004CC9: 21   FLdPrThis
+00004CCA: 0F   VCallAd Kanel.ct
+00004CCD: 19   FStAdFunc var_88
+00004CD0: 08   FLdPr var_88
+00004CD3: 0D   VCallHresult TextBox.Get_Text()
+00004CD8: 6C   ILdRf var_B4
+00004CDB: 1B   LitStr: "o"
+00004CDE: 2A   ConcatStr
+00004CDF: 23   FStStrNoPop var_B8
+00004CE2: 21   FLdPrThis
+00004CE3: 0F   VCallAd Kanel.ct
+00004CE6: 19   FStAdFunc var_BC
+00004CE9: 08   FLdPr var_BC
+00004CEC: 0D   VCallHresult TextBox.Set_Text()
+00004CF1: 32   FFreeStr var_B4 var_B8
+00004CF8: 29   FFreeAd: var_88 var_BC
+00004CFF: 28   LitVarI2: var_CC = 2 (0x2)
+00004D04: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004D09: 35   FFree1Var var_CC
+00004D0C: 04   FLdRfVar var_B4
+00004D0F: 21   FLdPrThis
+00004D10: 0F   VCallAd Kanel.ct
+00004D13: 19   FStAdFunc var_88
+00004D16: 08   FLdPr var_88
+00004D19: 0D   VCallHresult TextBox.Get_Text()
+00004D1E: 6C   ILdRf var_B4
+00004D21: 1B   LitStr: "d"
+00004D24: 2A   ConcatStr
+00004D25: 23   FStStrNoPop var_B8
+00004D28: 21   FLdPrThis
+00004D29: 0F   VCallAd Kanel.ct
+00004D2C: 19   FStAdFunc var_BC
+00004D2F: 08   FLdPr var_BC
+00004D32: 0D   VCallHresult TextBox.Set_Text()
+00004D37: 32   FFreeStr var_B4 var_B8
+00004D3E: 29   FFreeAd: var_88 var_BC
+00004D45: 28   LitVarI2: var_CC = 2 (0x2)
+00004D4A: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004D4F: 35   FFree1Var var_CC
+00004D52: 04   FLdRfVar var_B4
+00004D55: 21   FLdPrThis
+00004D56: 0F   VCallAd Kanel.ct
+00004D59: 19   FStAdFunc var_88
+00004D5C: 08   FLdPr var_88
+00004D5F: 0D   VCallHresult TextBox.Get_Text()
+00004D64: 6C   ILdRf var_B4
+00004D67: 1B   LitStr: " "
+00004D6A: 2A   ConcatStr
+00004D6B: 23   FStStrNoPop var_B8
+00004D6E: 21   FLdPrThis
+00004D6F: 0F   VCallAd Kanel.ct
+00004D72: 19   FStAdFunc var_BC
+00004D75: 08   FLdPr var_BC
+00004D78: 0D   VCallHresult TextBox.Set_Text()
+00004D7D: 32   FFreeStr var_B4 var_B8
+00004D84: 29   FFreeAd: var_88 var_BC
+00004D8B: 28   LitVarI2: var_CC = 2 (0x2)
+00004D90: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004D95: 35   FFree1Var var_CC
+00004D98: 04   FLdRfVar var_B4
+00004D9B: 21   FLdPrThis
+00004D9C: 0F   VCallAd Kanel.ct
+00004D9F: 19   FStAdFunc var_88
+00004DA2: 08   FLdPr var_88
+00004DA5: 0D   VCallHresult TextBox.Get_Text()
+00004DAA: 6C   ILdRf var_B4
+00004DAD: 1B   LitStr: "w"
+00004DB0: 2A   ConcatStr
+00004DB1: 23   FStStrNoPop var_B8
+00004DB4: 21   FLdPrThis
+00004DB5: 0F   VCallAd Kanel.ct
+00004DB8: 19   FStAdFunc var_BC
+00004DBB: 08   FLdPr var_BC
+00004DBE: 0D   VCallHresult TextBox.Set_Text()
+00004DC3: 32   FFreeStr var_B4 var_B8
+00004DCA: 29   FFreeAd: var_88 var_BC
+00004DD1: 28   LitVarI2: var_CC = 2 (0x2)
+00004DD6: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004DDB: 35   FFree1Var var_CC
+00004DDE: 04   FLdRfVar var_B4
+00004DE1: 21   FLdPrThis
+00004DE2: 0F   VCallAd Kanel.ct
+00004DE5: 19   FStAdFunc var_88
+00004DE8: 08   FLdPr var_88
+00004DEB: 0D   VCallHresult TextBox.Get_Text()
+00004DF0: 6C   ILdRf var_B4
+00004DF3: 1B   LitStr: "o"
+00004DF6: 2A   ConcatStr
+00004DF7: 23   FStStrNoPop var_B8
+00004DFA: 21   FLdPrThis
+00004DFB: 0F   VCallAd Kanel.ct
+00004DFE: 19   FStAdFunc var_BC
+00004E01: 08   FLdPr var_BC
+00004E04: 0D   VCallHresult TextBox.Set_Text()
+00004E09: 32   FFreeStr var_B4 var_B8
+00004E10: 29   FFreeAd: var_88 var_BC
+00004E17: 28   LitVarI2: var_CC = 2 (0x2)
+00004E1C: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004E21: 35   FFree1Var var_CC
+00004E24: 04   FLdRfVar var_B4
+00004E27: 21   FLdPrThis
+00004E28: 0F   VCallAd Kanel.ct
+00004E2B: 19   FStAdFunc var_88
+00004E2E: 08   FLdPr var_88
+00004E31: 0D   VCallHresult TextBox.Get_Text()
+00004E36: 6C   ILdRf var_B4
+00004E39: 1B   LitStr: "r"
+00004E3C: 2A   ConcatStr
+00004E3D: 23   FStStrNoPop var_B8
+00004E40: 21   FLdPrThis
+00004E41: 0F   VCallAd Kanel.ct
+00004E44: 19   FStAdFunc var_BC
+00004E47: 08   FLdPr var_BC
+00004E4A: 0D   VCallHresult TextBox.Set_Text()
+00004E4F: 32   FFreeStr var_B4 var_B8
+00004E56: 29   FFreeAd: var_88 var_BC
+00004E5D: 28   LitVarI2: var_CC = 2 (0x2)
+00004E62: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004E67: 35   FFree1Var var_CC
+00004E6A: 04   FLdRfVar var_B4
+00004E6D: 21   FLdPrThis
+00004E6E: 0F   VCallAd Kanel.ct
+00004E71: 19   FStAdFunc var_88
+00004E74: 08   FLdPr var_88
+00004E77: 0D   VCallHresult TextBox.Get_Text()
+00004E7C: 6C   ILdRf var_B4
+00004E7F: 1B   LitStr: "k"
+00004E82: 2A   ConcatStr
+00004E83: 23   FStStrNoPop var_B8
+00004E86: 21   FLdPrThis
+00004E87: 0F   VCallAd Kanel.ct
+00004E8A: 19   FStAdFunc var_BC
+00004E8D: 08   FLdPr var_BC
+00004E90: 0D   VCallHresult TextBox.Set_Text()
+00004E95: 32   FFreeStr var_B4 var_B8
+00004E9C: 29   FFreeAd: var_88 var_BC
+00004EA3: 28   LitVarI2: var_CC = 2 (0x2)
+00004EA8: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004EAD: 35   FFree1Var var_CC
+00004EB0: 04   FLdRfVar var_B4
+00004EB3: 21   FLdPrThis
+00004EB4: 0F   VCallAd Kanel.ct
+00004EB7: 19   FStAdFunc var_88
+00004EBA: 08   FLdPr var_88
+00004EBD: 0D   VCallHresult TextBox.Get_Text()
+00004EC2: 6C   ILdRf var_B4
+00004EC5: 1B   LitStr: "!"
+00004EC8: 2A   ConcatStr
+00004EC9: 23   FStStrNoPop var_B8
+00004ECC: 21   FLdPrThis
+00004ECD: 0F   VCallAd Kanel.ct
+00004ED0: 19   FStAdFunc var_BC
+00004ED3: 08   FLdPr var_BC
+00004ED6: 0D   VCallHresult TextBox.Set_Text()
+00004EDB: 32   FFreeStr var_B4 var_B8
+00004EE2: 29   FFreeAd: var_88 var_BC
+00004EE9: 28   LitVarI2: var_CC = 2 (0x2)
+00004EEE: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004EF3: 35   FFree1Var var_CC
+00004EF6: 04   FLdRfVar var_B4
+00004EF9: 21   FLdPrThis
+00004EFA: 0F   VCallAd Kanel.ct
+00004EFD: 19   FStAdFunc var_88
+00004F00: 08   FLdPr var_88
+00004F03: 0D   VCallHresult TextBox.Get_Text()
+00004F08: 6C   ILdRf var_B4
+00004F0B: 1B   LitStr: " "
+00004F0E: 2A   ConcatStr
+00004F0F: 23   FStStrNoPop var_B8
+00004F12: 21   FLdPrThis
+00004F13: 0F   VCallAd Kanel.ct
+00004F16: 19   FStAdFunc var_BC
+00004F19: 08   FLdPr var_BC
+00004F1C: 0D   VCallHresult TextBox.Set_Text()
+00004F21: 32   FFreeStr var_B4 var_B8
+00004F28: 29   FFreeAd: var_88 var_BC
+00004F2F: 28   LitVarI2: var_CC = 2 (0x2)
+00004F34: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004F39: 35   FFree1Var var_CC
+00004F3C: 04   FLdRfVar var_B4
+00004F3F: 21   FLdPrThis
+00004F40: 0F   VCallAd Kanel.ct
+00004F43: 19   FStAdFunc var_88
+00004F46: 08   FLdPr var_88
+00004F49: 0D   VCallHresult TextBox.Get_Text()
+00004F4E: 6C   ILdRf var_B4
+00004F51: 1B   LitStr: "T"
+00004F54: 2A   ConcatStr
+00004F55: 23   FStStrNoPop var_B8
+00004F58: 21   FLdPrThis
+00004F59: 0F   VCallAd Kanel.ct
+00004F5C: 19   FStAdFunc var_BC
+00004F5F: 08   FLdPr var_BC
+00004F62: 0D   VCallHresult TextBox.Set_Text()
+00004F67: 32   FFreeStr var_B4 var_B8
+00004F6E: 29   FFreeAd: var_88 var_BC
+00004F75: 28   LitVarI2: var_CC = 2 (0x2)
+00004F7A: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004F7F: 35   FFree1Var var_CC
+00004F82: 04   FLdRfVar var_B4
+00004F85: 21   FLdPrThis
+00004F86: 0F   VCallAd Kanel.ct
+00004F89: 19   FStAdFunc var_88
+00004F8C: 08   FLdPr var_88
+00004F8F: 0D   VCallHresult TextBox.Get_Text()
+00004F94: 6C   ILdRf var_B4
+00004F97: 1B   LitStr: "y"
+00004F9A: 2A   ConcatStr
+00004F9B: 23   FStStrNoPop var_B8
+00004F9E: 21   FLdPrThis
+00004F9F: 0F   VCallAd Kanel.ct
+00004FA2: 19   FStAdFunc var_BC
+00004FA5: 08   FLdPr var_BC
+00004FA8: 0D   VCallHresult TextBox.Set_Text()
+00004FAD: 32   FFreeStr var_B4 var_B8
+00004FB4: 29   FFreeAd: var_88 var_BC
+00004FBB: 28   LitVarI2: var_CC = 2 (0x2)
+00004FC0: 10   ThisVCallHresult Kanel.Wait (seconds)
+00004FC5: 35   FFree1Var var_CC
+00004FC8: 04   FLdRfVar var_B4
+00004FCB: 21   FLdPrThis
+00004FCC: 0F   VCallAd Kanel.ct
+00004FCF: 19   FStAdFunc var_88
+00004FD2: 08   FLdPr var_88
+00004FD5: 0D   VCallHresult TextBox.Get_Text()
+00004FDA: 6C   ILdRf var_B4
+00004FDD: 1B   LitStr: "p"
+00004FE0: 2A   ConcatStr
+00004FE1: 23   FStStrNoPop var_B8
+00004FE4: 21   FLdPrThis
+00004FE5: 0F   VCallAd Kanel.ct
+00004FE8: 19   FStAdFunc var_BC
+00004FEB: 08   FLdPr var_BC
+00004FEE: 0D   VCallHresult TextBox.Set_Text()
+00004FF3: 32   FFreeStr var_B4 var_B8
+00004FFA: 29   FFreeAd: var_88 var_BC
+00005001: 28   LitVarI2: var_CC = 2 (0x2)
+00005006: 10   ThisVCallHresult Kanel.Wait (seconds)
+0000500B: 35   FFree1Var var_CC
+0000500E: 04   FLdRfVar var_B4
+00005011: 21   FLdPrThis
+00005012: 0F   VCallAd Kanel.ct
+00005015: 19   FStAdFunc var_88
+00005018: 08   FLdPr var_88
+0000501B: 0D   VCallHresult TextBox.Get_Text()
+00005020: 6C   ILdRf var_B4
+00005023: 1B   LitStr: "e"
+00005026: 2A   ConcatStr
+00005027: 23   FStStrNoPop var_B8
+0000502A: 21   FLdPrThis
+0000502B: 0F   VCallAd Kanel.ct
+0000502E: 19   FStAdFunc var_BC
+00005031: 08   FLdPr var_BC
+00005034: 0D   VCallHresult TextBox.Set_Text()
+00005039: 32   FFreeStr var_B4 var_B8
+00005040: 29   FFreeAd: var_88 var_BC
+00005047: 28   LitVarI2: var_CC = 2 (0x2)
+0000504C: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005051: 35   FFree1Var var_CC
+00005054: 04   FLdRfVar var_B4
+00005057: 21   FLdPrThis
+00005058: 0F   VCallAd Kanel.ct
+0000505B: 19   FStAdFunc var_88
+0000505E: 08   FLdPr var_88
+00005061: 0D   VCallHresult TextBox.Get_Text()
+00005066: 6C   ILdRf var_B4
+00005069: 1B   LitStr: " "
+0000506C: 2A   ConcatStr
+0000506D: 23   FStStrNoPop var_B8
+00005070: 21   FLdPrThis
+00005071: 0F   VCallAd Kanel.ct
+00005074: 19   FStAdFunc var_BC
+00005077: 08   FLdPr var_BC
+0000507A: 0D   VCallHresult TextBox.Set_Text()
+0000507F: 32   FFreeStr var_B4 var_B8
+00005086: 29   FFreeAd: var_88 var_BC
+0000508D: 28   LitVarI2: var_CC = 2 (0x2)
+00005092: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005097: 35   FFree1Var var_CC
+0000509A: 04   FLdRfVar var_B4
+0000509D: 21   FLdPrThis
+0000509E: 0F   VCallAd Kanel.ct
+000050A1: 19   FStAdFunc var_88
+000050A4: 08   FLdPr var_88
+000050A7: 0D   VCallHresult TextBox.Get_Text()
+000050AC: 6C   ILdRf var_B4
+000050AF: 1B   LitStr: "E"
+000050B2: 2A   ConcatStr
+000050B3: 23   FStStrNoPop var_B8
+000050B6: 21   FLdPrThis
+000050B7: 0F   VCallAd Kanel.ct
+000050BA: 19   FStAdFunc var_BC
+000050BD: 08   FLdPr var_BC
+000050C0: 0D   VCallHresult TextBox.Set_Text()
+000050C5: 32   FFreeStr var_B4 var_B8
+000050CC: 29   FFreeAd: var_88 var_BC
+000050D3: 28   LitVarI2: var_CC = 2 (0x2)
+000050D8: 10   ThisVCallHresult Kanel.Wait (seconds)
+000050DD: 35   FFree1Var var_CC
+000050E0: 04   FLdRfVar var_B4
+000050E3: 21   FLdPrThis
+000050E4: 0F   VCallAd Kanel.ct
+000050E7: 19   FStAdFunc var_88
+000050EA: 08   FLdPr var_88
+000050ED: 0D   VCallHresult TextBox.Get_Text()
+000050F2: 6C   ILdRf var_B4
+000050F5: 1B   LitStr: "x"
+000050F8: 2A   ConcatStr
+000050F9: 23   FStStrNoPop var_B8
+000050FC: 21   FLdPrThis
+000050FD: 0F   VCallAd Kanel.ct
+00005100: 19   FStAdFunc var_BC
+00005103: 08   FLdPr var_BC
+00005106: 0D   VCallHresult TextBox.Set_Text()
+0000510B: 32   FFreeStr var_B4 var_B8
+00005112: 29   FFreeAd: var_88 var_BC
+00005119: 28   LitVarI2: var_CC = 2 (0x2)
+0000511E: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005123: 35   FFree1Var var_CC
+00005126: 04   FLdRfVar var_B4
+00005129: 21   FLdPrThis
+0000512A: 0F   VCallAd Kanel.ct
+0000512D: 19   FStAdFunc var_88
+00005130: 08   FLdPr var_88
+00005133: 0D   VCallHresult TextBox.Get_Text()
+00005138: 6C   ILdRf var_B4
+0000513B: 1B   LitStr: " "
+0000513E: 2A   ConcatStr
+0000513F: 23   FStStrNoPop var_B8
+00005142: 21   FLdPrThis
+00005143: 0F   VCallAd Kanel.ct
+00005146: 19   FStAdFunc var_BC
+00005149: 08   FLdPr var_BC
+0000514C: 0D   VCallHresult TextBox.Set_Text()
+00005151: 32   FFreeStr var_B4 var_B8
+00005158: 29   FFreeAd: var_88 var_BC
+0000515F: 28   LitVarI2: var_CC = 2 (0x2)
+00005164: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005169: 35   FFree1Var var_CC
+0000516C: 04   FLdRfVar var_B4
+0000516F: 21   FLdPrThis
+00005170: 0F   VCallAd Kanel.ct
+00005173: 19   FStAdFunc var_88
+00005176: 08   FLdPr var_88
+00005179: 0D   VCallHresult TextBox.Get_Text()
+0000517E: 6C   ILdRf var_B4
+00005181: 1B   LitStr: "t"
+00005184: 2A   ConcatStr
+00005185: 23   FStStrNoPop var_B8
+00005188: 21   FLdPrThis
+00005189: 0F   VCallAd Kanel.ct
+0000518C: 19   FStAdFunc var_BC
+0000518F: 08   FLdPr var_BC
+00005192: 0D   VCallHresult TextBox.Set_Text()
+00005197: 32   FFreeStr var_B4 var_B8
+0000519E: 29   FFreeAd: var_88 var_BC
+000051A5: 28   LitVarI2: var_CC = 2 (0x2)
+000051AA: 10   ThisVCallHresult Kanel.Wait (seconds)
+000051AF: 35   FFree1Var var_CC
+000051B2: 04   FLdRfVar var_B4
+000051B5: 21   FLdPrThis
+000051B6: 0F   VCallAd Kanel.ct
+000051B9: 19   FStAdFunc var_88
+000051BC: 08   FLdPr var_88
+000051BF: 0D   VCallHresult TextBox.Get_Text()
+000051C4: 6C   ILdRf var_B4
+000051C7: 1B   LitStr: "o"
+000051CA: 2A   ConcatStr
+000051CB: 23   FStStrNoPop var_B8
+000051CE: 21   FLdPrThis
+000051CF: 0F   VCallAd Kanel.ct
+000051D2: 19   FStAdFunc var_BC
+000051D5: 08   FLdPr var_BC
+000051D8: 0D   VCallHresult TextBox.Set_Text()
+000051DD: 32   FFreeStr var_B4 var_B8
+000051E4: 29   FFreeAd: var_88 var_BC
+000051EB: 28   LitVarI2: var_CC = 2 (0x2)
+000051F0: 10   ThisVCallHresult Kanel.Wait (seconds)
+000051F5: 35   FFree1Var var_CC
+000051F8: 04   FLdRfVar var_B4
+000051FB: 21   FLdPrThis
+000051FC: 0F   VCallAd Kanel.ct
+000051FF: 19   FStAdFunc var_88
+00005202: 08   FLdPr var_88
+00005205: 0D   VCallHresult TextBox.Get_Text()
+0000520A: 6C   ILdRf var_B4
+0000520D: 1B   LitStr: " "
+00005210: 2A   ConcatStr
+00005211: 23   FStStrNoPop var_B8
+00005214: 21   FLdPrThis
+00005215: 0F   VCallAd Kanel.ct
+00005218: 19   FStAdFunc var_BC
+0000521B: 08   FLdPr var_BC
+0000521E: 0D   VCallHresult TextBox.Set_Text()
+00005223: 32   FFreeStr var_B4 var_B8
+0000522A: 29   FFreeAd: var_88 var_BC
+00005231: 28   LitVarI2: var_CC = 2 (0x2)
+00005236: 10   ThisVCallHresult Kanel.Wait (seconds)
+0000523B: 35   FFree1Var var_CC
+0000523E: 04   FLdRfVar var_B4
+00005241: 21   FLdPrThis
+00005242: 0F   VCallAd Kanel.ct
+00005245: 19   FStAdFunc var_88
+00005248: 08   FLdPr var_88
+0000524B: 0D   VCallHresult TextBox.Get_Text()
+00005250: 6C   ILdRf var_B4
+00005253: 1B   LitStr: "E"
+00005256: 2A   ConcatStr
+00005257: 23   FStStrNoPop var_B8
+0000525A: 21   FLdPrThis
+0000525B: 0F   VCallAd Kanel.ct
+0000525E: 19   FStAdFunc var_BC
+00005261: 08   FLdPr var_BC
+00005264: 0D   VCallHresult TextBox.Set_Text()
+00005269: 32   FFreeStr var_B4 var_B8
+00005270: 29   FFreeAd: var_88 var_BC
+00005277: 28   LitVarI2: var_CC = 2 (0x2)
+0000527C: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005281: 35   FFree1Var var_CC
+00005284: 04   FLdRfVar var_B4
+00005287: 21   FLdPrThis
+00005288: 0F   VCallAd Kanel.ct
+0000528B: 19   FStAdFunc var_88
+0000528E: 08   FLdPr var_88
+00005291: 0D   VCallHresult TextBox.Get_Text()
+00005296: 6C   ILdRf var_B4
+00005299: 1B   LitStr: "x"
+0000529C: 2A   ConcatStr
+0000529D: 23   FStStrNoPop var_B8
+000052A0: 21   FLdPrThis
+000052A1: 0F   VCallAd Kanel.ct
+000052A4: 19   FStAdFunc var_BC
+000052A7: 08   FLdPr var_BC
+000052AA: 0D   VCallHresult TextBox.Set_Text()
+000052AF: 32   FFreeStr var_B4 var_B8
+000052B6: 29   FFreeAd: var_88 var_BC
+000052BD: 28   LitVarI2: var_CC = 2 (0x2)
+000052C2: 10   ThisVCallHresult Kanel.Wait (seconds)
+000052C7: 35   FFree1Var var_CC
+000052CA: 04   FLdRfVar var_B4
+000052CD: 21   FLdPrThis
+000052CE: 0F   VCallAd Kanel.ct
+000052D1: 19   FStAdFunc var_88
+000052D4: 08   FLdPr var_88
+000052D7: 0D   VCallHresult TextBox.Get_Text()
+000052DC: 6C   ILdRf var_B4
+000052DF: 1B   LitStr: "i"
+000052E2: 2A   ConcatStr
+000052E3: 23   FStStrNoPop var_B8
+000052E6: 21   FLdPrThis
+000052E7: 0F   VCallAd Kanel.ct
+000052EA: 19   FStAdFunc var_BC
+000052ED: 08   FLdPr var_BC
+000052F0: 0D   VCallHresult TextBox.Set_Text()
+000052F5: 32   FFreeStr var_B4 var_B8
+000052FC: 29   FFreeAd: var_88 var_BC
+00005303: 28   LitVarI2: var_CC = 2 (0x2)
+00005308: 10   ThisVCallHresult Kanel.Wait (seconds)
+0000530D: 35   FFree1Var var_CC
+00005310: 04   FLdRfVar var_B4
+00005313: 21   FLdPrThis
+00005314: 0F   VCallAd Kanel.ct
+00005317: 19   FStAdFunc var_88
+0000531A: 08   FLdPr var_88
+0000531D: 0D   VCallHresult TextBox.Get_Text()
+00005322: 6C   ILdRf var_B4
+00005325: 1B   LitStr: "t"
+00005328: 2A   ConcatStr
+00005329: 23   FStStrNoPop var_B8
+0000532C: 21   FLdPrThis
+0000532D: 0F   VCallAd Kanel.ct
+00005330: 19   FStAdFunc var_BC
+00005333: 08   FLdPr var_BC
+00005336: 0D   VCallHresult TextBox.Set_Text()
+0000533B: 32   FFreeStr var_B4 var_B8
+00005342: 29   FFreeAd: var_88 var_BC
+00005349: 28   LitVarI2: var_CC = 2 (0x2)
+0000534E: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005353: 35   FFree1Var var_CC
+00005356: 04   FLdRfVar var_B4
+00005359: 21   FLdPrThis
+0000535A: 0F   VCallAd Kanel.ct
+0000535D: 19   FStAdFunc var_88
+00005360: 08   FLdPr var_88
+00005363: 0D   VCallHresult TextBox.Get_Text()
+00005368: 6C   ILdRf var_B4
+0000536B: 1B   LitStr: " "
+0000536E: 2A   ConcatStr
+0000536F: 23   FStStrNoPop var_B8
+00005372: 21   FLdPrThis
+00005373: 0F   VCallAd Kanel.ct
+00005376: 19   FStAdFunc var_BC
+00005379: 08   FLdPr var_BC
+0000537C: 0D   VCallHresult TextBox.Set_Text()
+00005381: 32   FFreeStr var_B4 var_B8
+00005388: 29   FFreeAd: var_88 var_BC
+0000538F: 28   LitVarI2: var_CC = 2 (0x2)
+00005394: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005399: 35   FFree1Var var_CC
+0000539C: 04   FLdRfVar var_B4
+0000539F: 21   FLdPrThis
+000053A0: 0F   VCallAd Kanel.ct
+000053A3: 19   FStAdFunc var_88
+000053A6: 08   FLdPr var_88
+000053A9: 0D   VCallHresult TextBox.Get_Text()
+000053AE: 6C   ILdRf var_B4
+000053B1: 1B   LitStr: "o"
+000053B4: 2A   ConcatStr
+000053B5: 23   FStStrNoPop var_B8
+000053B8: 21   FLdPrThis
+000053B9: 0F   VCallAd Kanel.ct
+000053BC: 19   FStAdFunc var_BC
+000053BF: 08   FLdPr var_BC
+000053C2: 0D   VCallHresult TextBox.Set_Text()
+000053C7: 32   FFreeStr var_B4 var_B8
+000053CE: 29   FFreeAd: var_88 var_BC
+000053D5: 28   LitVarI2: var_CC = 2 (0x2)
+000053DA: 10   ThisVCallHresult Kanel.Wait (seconds)
+000053DF: 35   FFree1Var var_CC
+000053E2: 04   FLdRfVar var_B4
+000053E5: 21   FLdPrThis
+000053E6: 0F   VCallAd Kanel.ct
+000053E9: 19   FStAdFunc var_88
+000053EC: 08   FLdPr var_88
+000053EF: 0D   VCallHresult TextBox.Get_Text()
+000053F4: 6C   ILdRf var_B4
+000053F7: 1B   LitStr: "r"
+000053FA: 2A   ConcatStr
+000053FB: 23   FStStrNoPop var_B8
+000053FE: 21   FLdPrThis
+000053FF: 0F   VCallAd Kanel.ct
+00005402: 19   FStAdFunc var_BC
+00005405: 08   FLdPr var_BC
+00005408: 0D   VCallHresult TextBox.Set_Text()
+0000540D: 32   FFreeStr var_B4 var_B8
+00005414: 29   FFreeAd: var_88 var_BC
+0000541B: 28   LitVarI2: var_CC = 2 (0x2)
+00005420: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005425: 35   FFree1Var var_CC
+00005428: 04   FLdRfVar var_B4
+0000542B: 21   FLdPrThis
+0000542C: 0F   VCallAd Kanel.ct
+0000542F: 19   FStAdFunc var_88
+00005432: 08   FLdPr var_88
+00005435: 0D   VCallHresult TextBox.Get_Text()
+0000543A: 6C   ILdRf var_B4
+0000543D: 1B   LitStr: " "
+00005440: 2A   ConcatStr
+00005441: 23   FStStrNoPop var_B8
+00005444: 21   FLdPrThis
+00005445: 0F   VCallAd Kanel.ct
+00005448: 19   FStAdFunc var_BC
+0000544B: 08   FLdPr var_BC
+0000544E: 0D   VCallHresult TextBox.Set_Text()
+00005453: 32   FFreeStr var_B4 var_B8
+0000545A: 29   FFreeAd: var_88 var_BC
+00005461: 28   LitVarI2: var_CC = 2 (0x2)
+00005466: 10   ThisVCallHresult Kanel.Wait (seconds)
+0000546B: 35   FFree1Var var_CC
+0000546E: 04   FLdRfVar var_B4
+00005471: 21   FLdPrThis
+00005472: 0F   VCallAd Kanel.ct
+00005475: 19   FStAdFunc var_88
+00005478: 08   FLdPr var_88
+0000547B: 0D   VCallHresult TextBox.Get_Text()
+00005480: 6C   ILdRf var_B4
+00005483: 1B   LitStr: "A"
+00005486: 2A   ConcatStr
+00005487: 23   FStStrNoPop var_B8
+0000548A: 21   FLdPrThis
+0000548B: 0F   VCallAd Kanel.ct
+0000548E: 19   FStAdFunc var_BC
+00005491: 08   FLdPr var_BC
+00005494: 0D   VCallHresult TextBox.Set_Text()
+00005499: 32   FFreeStr var_B4 var_B8
+000054A0: 29   FFreeAd: var_88 var_BC
+000054A7: 28   LitVarI2: var_CC = 2 (0x2)
+000054AC: 10   ThisVCallHresult Kanel.Wait (seconds)
+000054B1: 35   FFree1Var var_CC
+000054B4: 04   FLdRfVar var_B4
+000054B7: 21   FLdPrThis
+000054B8: 0F   VCallAd Kanel.ct
+000054BB: 19   FStAdFunc var_88
+000054BE: 08   FLdPr var_88
+000054C1: 0D   VCallHresult TextBox.Get_Text()
+000054C6: 6C   ILdRf var_B4
+000054C9: 1B   LitStr: "b"
+000054CC: 2A   ConcatStr
+000054CD: 23   FStStrNoPop var_B8
+000054D0: 21   FLdPrThis
+000054D1: 0F   VCallAd Kanel.ct
+000054D4: 19   FStAdFunc var_BC
+000054D7: 08   FLdPr var_BC
+000054DA: 0D   VCallHresult TextBox.Set_Text()
+000054DF: 32   FFreeStr var_B4 var_B8
+000054E6: 29   FFreeAd: var_88 var_BC
+000054ED: 28   LitVarI2: var_CC = 2 (0x2)
+000054F2: 10   ThisVCallHresult Kanel.Wait (seconds)
+000054F7: 35   FFree1Var var_CC
+000054FA: 04   FLdRfVar var_B4
+000054FD: 21   FLdPrThis
+000054FE: 0F   VCallAd Kanel.ct
+00005501: 19   FStAdFunc var_88
+00005504: 08   FLdPr var_88
+00005507: 0D   VCallHresult TextBox.Get_Text()
+0000550C: 6C   ILdRf var_B4
+0000550F: 1B   LitStr: " "
+00005512: 2A   ConcatStr
+00005513: 23   FStStrNoPop var_B8
+00005516: 21   FLdPrThis
+00005517: 0F   VCallAd Kanel.ct
+0000551A: 19   FStAdFunc var_BC
+0000551D: 08   FLdPr var_BC
+00005520: 0D   VCallHresult TextBox.Set_Text()
+00005525: 32   FFreeStr var_B4 var_B8
+0000552C: 29   FFreeAd: var_88 var_BC
+00005533: 28   LitVarI2: var_CC = 2 (0x2)
+00005538: 10   ThisVCallHresult Kanel.Wait (seconds)
+0000553D: 35   FFree1Var var_CC
+00005540: 04   FLdRfVar var_B4
+00005543: 21   FLdPrThis
+00005544: 0F   VCallAd Kanel.ct
+00005547: 19   FStAdFunc var_88
+0000554A: 08   FLdPr var_88
+0000554D: 0D   VCallHresult TextBox.Get_Text()
+00005552: 6C   ILdRf var_B4
+00005555: 1B   LitStr: "f"
+00005558: 2A   ConcatStr
+00005559: 23   FStStrNoPop var_B8
+0000555C: 21   FLdPrThis
+0000555D: 0F   VCallAd Kanel.ct
+00005560: 19   FStAdFunc var_BC
+00005563: 08   FLdPr var_BC
+00005566: 0D   VCallHresult TextBox.Set_Text()
+0000556B: 32   FFreeStr var_B4 var_B8
+00005572: 29   FFreeAd: var_88 var_BC
+00005579: 28   LitVarI2: var_CC = 2 (0x2)
+0000557E: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005583: 35   FFree1Var var_CC
+00005586: 04   FLdRfVar var_B4
+00005589: 21   FLdPrThis
+0000558A: 0F   VCallAd Kanel.ct
+0000558D: 19   FStAdFunc var_88
+00005590: 08   FLdPr var_88
+00005593: 0D   VCallHresult TextBox.Get_Text()
+00005598: 6C   ILdRf var_B4
+0000559B: 1B   LitStr: "o"
+0000559E: 2A   ConcatStr
+0000559F: 23   FStStrNoPop var_B8
+000055A2: 21   FLdPrThis
+000055A3: 0F   VCallAd Kanel.ct
+000055A6: 19   FStAdFunc var_BC
+000055A9: 08   FLdPr var_BC
+000055AC: 0D   VCallHresult TextBox.Set_Text()
+000055B1: 32   FFreeStr var_B4 var_B8
+000055B8: 29   FFreeAd: var_88 var_BC
+000055BF: 28   LitVarI2: var_CC = 2 (0x2)
+000055C4: 10   ThisVCallHresult Kanel.Wait (seconds)
+000055C9: 35   FFree1Var var_CC
+000055CC: 04   FLdRfVar var_B4
+000055CF: 21   FLdPrThis
+000055D0: 0F   VCallAd Kanel.ct
+000055D3: 19   FStAdFunc var_88
+000055D6: 08   FLdPr var_88
+000055D9: 0D   VCallHresult TextBox.Get_Text()
+000055DE: 6C   ILdRf var_B4
+000055E1: 1B   LitStr: "r"
+000055E4: 2A   ConcatStr
+000055E5: 23   FStStrNoPop var_B8
+000055E8: 21   FLdPrThis
+000055E9: 0F   VCallAd Kanel.ct
+000055EC: 19   FStAdFunc var_BC
+000055EF: 08   FLdPr var_BC
+000055F2: 0D   VCallHresult TextBox.Set_Text()
+000055F7: 32   FFreeStr var_B4 var_B8
+000055FE: 29   FFreeAd: var_88 var_BC
+00005605: 28   LitVarI2: var_CC = 2 (0x2)
+0000560A: 10   ThisVCallHresult Kanel.Wait (seconds)
+0000560F: 35   FFree1Var var_CC
+00005612: 04   FLdRfVar var_B4
+00005615: 21   FLdPrThis
+00005616: 0F   VCallAd Kanel.ct
+00005619: 19   FStAdFunc var_88
+0000561C: 08   FLdPr var_88
+0000561F: 0D   VCallHresult TextBox.Get_Text()
+00005624: 6C   ILdRf var_B4
+00005627: 1B   LitStr: " "
+0000562A: 2A   ConcatStr
+0000562B: 23   FStStrNoPop var_B8
+0000562E: 21   FLdPrThis
+0000562F: 0F   VCallAd Kanel.ct
+00005632: 19   FStAdFunc var_BC
+00005635: 08   FLdPr var_BC
+00005638: 0D   VCallHresult TextBox.Set_Text()
+0000563D: 32   FFreeStr var_B4 var_B8
+00005644: 29   FFreeAd: var_88 var_BC
+0000564B: 28   LitVarI2: var_CC = 2 (0x2)
+00005650: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005655: 35   FFree1Var var_CC
+00005658: 04   FLdRfVar var_B4
+0000565B: 21   FLdPrThis
+0000565C: 0F   VCallAd Kanel.ct
+0000565F: 19   FStAdFunc var_88
+00005662: 08   FLdPr var_88
+00005665: 0D   VCallHresult TextBox.Get_Text()
+0000566A: 6C   ILdRf var_B4
+0000566D: 1B   LitStr: "t"
+00005670: 2A   ConcatStr
+00005671: 23   FStStrNoPop var_B8
+00005674: 21   FLdPrThis
+00005675: 0F   VCallAd Kanel.ct
+00005678: 19   FStAdFunc var_BC
+0000567B: 08   FLdPr var_BC
+0000567E: 0D   VCallHresult TextBox.Set_Text()
+00005683: 32   FFreeStr var_B4 var_B8
+0000568A: 29   FFreeAd: var_88 var_BC
+00005691: 28   LitVarI2: var_CC = 2 (0x2)
+00005696: 10   ThisVCallHresult Kanel.Wait (seconds)
+0000569B: 35   FFree1Var var_CC
+0000569E: 04   FLdRfVar var_B4
+000056A1: 21   FLdPrThis
+000056A2: 0F   VCallAd Kanel.ct
+000056A5: 19   FStAdFunc var_88
+000056A8: 08   FLdPr var_88
+000056AB: 0D   VCallHresult TextBox.Get_Text()
+000056B0: 6C   ILdRf var_B4
+000056B3: 1B   LitStr: "h"
+000056B6: 2A   ConcatStr
+000056B7: 23   FStStrNoPop var_B8
+000056BA: 21   FLdPrThis
+000056BB: 0F   VCallAd Kanel.ct
+000056BE: 19   FStAdFunc var_BC
+000056C1: 08   FLdPr var_BC
+000056C4: 0D   VCallHresult TextBox.Set_Text()
+000056C9: 32   FFreeStr var_B4 var_B8
+000056D0: 29   FFreeAd: var_88 var_BC
+000056D7: 28   LitVarI2: var_CC = 2 (0x2)
+000056DC: 10   ThisVCallHresult Kanel.Wait (seconds)
+000056E1: 35   FFree1Var var_CC
+000056E4: 04   FLdRfVar var_B4
+000056E7: 21   FLdPrThis
+000056E8: 0F   VCallAd Kanel.ct
+000056EB: 19   FStAdFunc var_88
+000056EE: 08   FLdPr var_88
+000056F1: 0D   VCallHresult TextBox.Get_Text()
+000056F6: 6C   ILdRf var_B4
+000056F9: 1B   LitStr: "e"
+000056FC: 2A   ConcatStr
+000056FD: 23   FStStrNoPop var_B8
+00005700: 21   FLdPrThis
+00005701: 0F   VCallAd Kanel.ct
+00005704: 19   FStAdFunc var_BC
+00005707: 08   FLdPr var_BC
+0000570A: 0D   VCallHresult TextBox.Set_Text()
+0000570F: 32   FFreeStr var_B4 var_B8
+00005716: 29   FFreeAd: var_88 var_BC
+0000571D: 28   LitVarI2: var_CC = 2 (0x2)
+00005722: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005727: 35   FFree1Var var_CC
+0000572A: 04   FLdRfVar var_B4
+0000572D: 21   FLdPrThis
+0000572E: 0F   VCallAd Kanel.ct
+00005731: 19   FStAdFunc var_88
+00005734: 08   FLdPr var_88
+00005737: 0D   VCallHresult TextBox.Get_Text()
+0000573C: 6C   ILdRf var_B4
+0000573F: 1B   LitStr: " "
+00005742: 2A   ConcatStr
+00005743: 23   FStStrNoPop var_B8
+00005746: 21   FLdPrThis
+00005747: 0F   VCallAd Kanel.ct
+0000574A: 19   FStAdFunc var_BC
+0000574D: 08   FLdPr var_BC
+00005750: 0D   VCallHresult TextBox.Set_Text()
+00005755: 32   FFreeStr var_B4 var_B8
+0000575C: 29   FFreeAd: var_88 var_BC
+00005763: 28   LitVarI2: var_CC = 2 (0x2)
+00005768: 10   ThisVCallHresult Kanel.Wait (seconds)
+0000576D: 35   FFree1Var var_CC
+00005770: 04   FLdRfVar var_B4
+00005773: 21   FLdPrThis
+00005774: 0F   VCallAd Kanel.ct
+00005777: 19   FStAdFunc var_88
+0000577A: 08   FLdPr var_88
+0000577D: 0D   VCallHresult TextBox.Get_Text()
+00005782: 6C   ILdRf var_B4
+00005785: 1B   LitStr: "a"
+00005788: 2A   ConcatStr
+00005789: 23   FStStrNoPop var_B8
+0000578C: 21   FLdPrThis
+0000578D: 0F   VCallAd Kanel.ct
+00005790: 19   FStAdFunc var_BC
+00005793: 08   FLdPr var_BC
+00005796: 0D   VCallHresult TextBox.Set_Text()
+0000579B: 32   FFreeStr var_B4 var_B8
+000057A2: 29   FFreeAd: var_88 var_BC
+000057A9: 28   LitVarI2: var_CC = 2 (0x2)
+000057AE: 10   ThisVCallHresult Kanel.Wait (seconds)
+000057B3: 35   FFree1Var var_CC
+000057B6: 04   FLdRfVar var_B4
+000057B9: 21   FLdPrThis
+000057BA: 0F   VCallAd Kanel.ct
+000057BD: 19   FStAdFunc var_88
+000057C0: 08   FLdPr var_88
+000057C3: 0D   VCallHresult TextBox.Get_Text()
+000057C8: 6C   ILdRf var_B4
+000057CB: 1B   LitStr: "b"
+000057CE: 2A   ConcatStr
+000057CF: 23   FStStrNoPop var_B8
+000057D2: 21   FLdPrThis
+000057D3: 0F   VCallAd Kanel.ct
+000057D6: 19   FStAdFunc var_BC
+000057D9: 08   FLdPr var_BC
+000057DC: 0D   VCallHresult TextBox.Set_Text()
+000057E1: 32   FFreeStr var_B4 var_B8
+000057E8: 29   FFreeAd: var_88 var_BC
+000057EF: 28   LitVarI2: var_CC = 2 (0x2)
+000057F4: 10   ThisVCallHresult Kanel.Wait (seconds)
+000057F9: 35   FFree1Var var_CC
+000057FC: 04   FLdRfVar var_B4
+000057FF: 21   FLdPrThis
+00005800: 0F   VCallAd Kanel.ct
+00005803: 19   FStAdFunc var_88
+00005806: 08   FLdPr var_88
+00005809: 0D   VCallHresult TextBox.Get_Text()
+0000580E: 6C   ILdRf var_B4
+00005811: 1B   LitStr: "o"
+00005814: 2A   ConcatStr
+00005815: 23   FStStrNoPop var_B8
+00005818: 21   FLdPrThis
+00005819: 0F   VCallAd Kanel.ct
+0000581C: 19   FStAdFunc var_BC
+0000581F: 08   FLdPr var_BC
+00005822: 0D   VCallHresult TextBox.Set_Text()
+00005827: 32   FFreeStr var_B4 var_B8
+0000582E: 29   FFreeAd: var_88 var_BC
+00005835: 28   LitVarI2: var_CC = 2 (0x2)
+0000583A: 10   ThisVCallHresult Kanel.Wait (seconds)
+0000583F: 35   FFree1Var var_CC
+00005842: 04   FLdRfVar var_B4
+00005845: 21   FLdPrThis
+00005846: 0F   VCallAd Kanel.ct
+00005849: 19   FStAdFunc var_88
+0000584C: 08   FLdPr var_88
+0000584F: 0D   VCallHresult TextBox.Get_Text()
+00005854: 6C   ILdRf var_B4
+00005857: 1B   LitStr: "u"
+0000585A: 2A   ConcatStr
+0000585B: 23   FStStrNoPop var_B8
+0000585E: 21   FLdPrThis
+0000585F: 0F   VCallAd Kanel.ct
+00005862: 19   FStAdFunc var_BC
+00005865: 08   FLdPr var_BC
+00005868: 0D   VCallHresult TextBox.Set_Text()
+0000586D: 32   FFreeStr var_B4 var_B8
+00005874: 29   FFreeAd: var_88 var_BC
+0000587B: 28   LitVarI2: var_CC = 2 (0x2)
+00005880: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005885: 35   FFree1Var var_CC
+00005888: 04   FLdRfVar var_B4
+0000588B: 21   FLdPrThis
+0000588C: 0F   VCallAd Kanel.ct
+0000588F: 19   FStAdFunc var_88
+00005892: 08   FLdPr var_88
+00005895: 0D   VCallHresult TextBox.Get_Text()
+0000589A: 6C   ILdRf var_B4
+0000589D: 1B   LitStr: "t"
+000058A0: 2A   ConcatStr
+000058A1: 23   FStStrNoPop var_B8
+000058A4: 21   FLdPrThis
+000058A5: 0F   VCallAd Kanel.ct
+000058A8: 19   FStAdFunc var_BC
+000058AB: 08   FLdPr var_BC
+000058AE: 0D   VCallHresult TextBox.Set_Text()
+000058B3: 32   FFreeStr var_B4 var_B8
+000058BA: 29   FFreeAd: var_88 var_BC
+000058C1: 28   LitVarI2: var_CC = 2 (0x2)
+000058C6: 10   ThisVCallHresult Kanel.Wait (seconds)
+000058CB: 35   FFree1Var var_CC
+000058CE: 04   FLdRfVar var_B4
+000058D1: 21   FLdPrThis
+000058D2: 0F   VCallAd Kanel.ct
+000058D5: 19   FStAdFunc var_88
+000058D8: 08   FLdPr var_88
+000058DB: 0D   VCallHresult TextBox.Get_Text()
+000058E0: 6C   ILdRf var_B4
+000058E3: 1B   LitStr: " "
+000058E6: 2A   ConcatStr
+000058E7: 23   FStStrNoPop var_B8
+000058EA: 21   FLdPrThis
+000058EB: 0F   VCallAd Kanel.ct
+000058EE: 19   FStAdFunc var_BC
+000058F1: 08   FLdPr var_BC
+000058F4: 0D   VCallHresult TextBox.Set_Text()
+000058F9: 32   FFreeStr var_B4 var_B8
+00005900: 29   FFreeAd: var_88 var_BC
+00005907: 28   LitVarI2: var_CC = 2 (0x2)
+0000590C: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005911: 35   FFree1Var var_CC
+00005914: 04   FLdRfVar var_B4
+00005917: 21   FLdPrThis
+00005918: 0F   VCallAd Kanel.ct
+0000591B: 19   FStAdFunc var_88
+0000591E: 08   FLdPr var_88
+00005921: 0D   VCallHresult TextBox.Get_Text()
+00005926: 6C   ILdRf var_B4
+00005929: 1B   LitStr: "b"
+0000592C: 2A   ConcatStr
+0000592D: 23   FStStrNoPop var_B8
+00005930: 21   FLdPrThis
+00005931: 0F   VCallAd Kanel.ct
+00005934: 19   FStAdFunc var_BC
+00005937: 08   FLdPr var_BC
+0000593A: 0D   VCallHresult TextBox.Set_Text()
+0000593F: 32   FFreeStr var_B4 var_B8
+00005946: 29   FFreeAd: var_88 var_BC
+0000594D: 28   LitVarI2: var_CC = 2 (0x2)
+00005952: 10   ThisVCallHresult Kanel.Wait (seconds)
+00005957: 35   FFree1Var var_CC
+0000595A: 04   FLdRfVar var_B4
+0000595D: 21   FLdPrThis
+0000595E: 0F   VCallAd Kanel.ct
+00005961: 19   FStAdFunc var_88
+00005964: 08   FLdPr var_88
+00005967: 0D   VCallHresult TextBox.Get_Text()
+0000596C: 6C   ILdRf var_B4
+0000596F: 1B   LitStr: "o"
+00005972: 2A   ConcatStr
+00005973: 23   FStStrNoPop var_B8
+00005976: 21   FLdPrThis
+00005977: 0F   VCallAd Kanel.ct
+0000597A: 19   FStAdFunc var_BC
+0000597D: 08   FLdPr var_BC
+00005980: 0D   VCallHresult TextBox.Set_Text()
+00005985: 32   FFreeStr var_B4 var_B8
+0000598C: 29   FFreeAd: var_88 var_BC
+00005993: 28   LitVarI2: var_CC = 2 (0x2)
+00005998: 10   ThisVCallHresult Kanel.Wait (seconds)
+0000599D: 35   FFree1Var var_CC
+000059A0: 04   FLdRfVar var_B4
+000059A3: 21   FLdPrThis
+000059A4: 0F   VCallAd Kanel.ct
+000059A7: 19   FStAdFunc var_88
+000059AA: 08   FLdPr var_88
+000059AD: 0D   VCallHresult TextBox.Get_Text()
+000059B2: 6C   ILdRf var_B4
+000059B5: 1B   LitStr: "x"
+000059B8: 2A   ConcatStr
+000059B9: 23   FStStrNoPop var_B8
+000059BC: 21   FLdPrThis
+000059BD: 0F   VCallAd Kanel.ct
+000059C0: 19   FStAdFunc var_BC
+000059C3: 08   FLdPr var_BC
+000059C6: 0D   VCallHresult TextBox.Set_Text()
+000059CB: 32   FFreeStr var_B4 var_B8
+000059D2: 29   FFreeAd: var_88 var_BC
+000059D9: 13   ExitProcHresult
+
+Private Kanel.nm_Timer() ----
+00003B50: F5   LitI4: 0 (0x0)
+00003B55: 21   FLdPrThis
+00003B56: 0F   VCallAd Kanel.nm
+00003B59: 19   FStAdFunc var_88
+00003B5C: 08   FLdPr var_88
+00003B5F: 0D   VCallHresult Timer.Set_Interval()
+00003B64: 1A   FFree1Ad var_88
+00003B67: 13   ExitProcHresult
+
+Private Kanel.ct_Change() ----
+00003F78: 04   FLdRfVar var_8C
+00003F7B: 21   FLdPrThis
+00003F7C: 0F   VCallAd Kanel.ct
+00003F7F: 19   FStAdFunc var_88
+00003F82: 08   FLdPr var_88
+00003F85: 0D   VCallHresult TextBox.Get_Text()
+00003F8A: 6C   ILdRf var_8C
+00003F8D: 1B   LitStr: "Ex"
+00003F90: FB30 EqStr =
+00003F92: 2F   FFree1Str var_8C
+00003F95: 1A   FFree1Ad var_88
+00003F98: 1C   BranchF 00003FA0
+00003F9B: FCC8 End End
+00003F9D: 1E   Branch 00003FD6
+00003FA0: loc_00003F98
+00003FA0: 04   FLdRfVar var_8C
+00003FA3: 21   FLdPrThis
+00003FA4: 0F   VCallAd Kanel.ct
+00003FA7: 19   FStAdFunc var_88
+00003FAA: 08   FLdPr var_88
+00003FAD: 0D   VCallHresult TextBox.Get_Text()
+00003FB2: 6C   ILdRf var_8C
+00003FB5: 1B   LitStr: "Ab"
+00003FB8: FB30 EqStr =
+00003FBA: 2F   FFree1Str var_8C
+00003FBD: 1A   FFree1Ad var_88
+00003FC0: 1C   BranchF 00003FD6
+00003FC3: 27   LitVar_Missing var_AC = Missing
+00003FC6: 25   PopAdLdVar
+00003FC7: 27   LitVar_Missing var_9C = Missing
+00003FCA: 25   PopAdLdVar
+00003FCB: 05   ImpAdLdRf
+00003FCE: 24   NewIfNullPr df
+00003FD1: 0D   VCallHresult Form._Show(Modal As Variant, OwnerForm As Variant)
+00003FD6: loc_00003FC0
+00003FD6: loc_00003F9D
+00003FD6: 13   ExitProcHresult
+
+Private Kanel.ct_GotFocus() ----
+00003D1C: F4   LitI2_Byte: 0 (False)
+00003D1E: 21   FLdPrThis
+00003D1F: 0F   VCallAd Kanel.nm
+00003D22: 19   FStAdFunc var_88
+00003D25: 08   FLdPr var_88
+00003D28: 0D   VCallHresult Timer.Set_Enabled()
+00003D2D: 1A   FFree1Ad var_88
+00003D30: 1B   LitStr: ""
+00003D33: 21   FLdPrThis
+00003D34: 0F   VCallAd Kanel.ct
+00003D37: 19   FStAdFunc var_88
+00003D3A: 08   FLdPr var_88
+00003D3D: 0D   VCallHresult TextBox.Set_Text()
+00003D42: 1A   FFree1Ad var_88
+00003D45: 13   ExitProcHresult
+
+Sub Kanel.Wait (seconds) ----
+000040B0: F4   LitI2_Byte: 255 (True)
+000040B2: 21   FLdPrThis
+000040B3: 0F   VCallAd Kanel.nm
+000040B6: 19   FStAdFunc var_88
+000040B9: 08   FLdPr var_88
+000040BC: 0D   VCallHresult Timer.Set_Enabled()
+000040C1: 1A   FFree1Ad var_88
+000040C4: 28   LitVarI2: var_98 = 28 (0x1C)
+000040C9: FD16 ILdRfDarg param_C
+000040CF: FBB4 MulVar * var_B8
+000040D3: FC22 CI4Var
+000040D5: 08   FLdPr param_8
+000040D8: 0F   VCallAd Kanel.nm
+000040DB: 19   FStAdFunc var_88
+000040DE: 08   FLdPr var_88
+000040E1: 0D   VCallHresult Timer.Set_Interval()
+000040E6: 1A   FFree1Ad var_88
+000040E9: loc_00004111
+000040E9: 04   FLdRfVar var_BC
+000040EC: 08   FLdPr param_8
+000040EF: 0F   VCallAd Kanel.nm
+000040F2: 19   FStAdFunc var_88
+000040F5: 08   FLdPr var_88
+000040F8: 0D   VCallHresult Timer.Get_Interval()
+000040FD: 6C   ILdRf var_BC
+00004100: F5   LitI4: 0 (0x0)
+00004105: DB   GtI4 >
+00004106: 1A   FFree1Ad var_88
+00004109: 1C   BranchF 00004114
+0000410C: 0A   ImpAdCallFPR4 1.38 - unknown CALL 
+00004111: 1E   Branch 000040E9
+00004114: loc_00004109
+00004114: F4   LitI2_Byte: 0 (False)
+00004116: 21   FLdPrThis
+00004117: 0F   VCallAd Kanel.nm
+0000411A: 19   FStAdFunc var_88
+0000411D: 08   FLdPr var_88
+00004120: 0D   VCallHresult Timer.Set_Enabled()
+00004125: 1A   FFree1Ad var_88
+00004128: 13   ExitProcHresult
+
+Private Homo.Form_Load() ----
+000042D4: 04   FLdRfVar var_90
+000042D7: 05   ImpAdLdRf
+000042DA: 24   NewIfNullPr Homo
+000042DD: 0D   VCallHresult Form.Get_Width()
+000042E2: 04   FLdRfVar var_8C
+000042E5: 04   FLdRfVar var_88
+000042E8: 05   ImpAdLdRf
+000042EB: 24   NewIfNullPr GLOBAL
+000042EE: 0D   VCallHresult Global.Get_Screen() As Screen
+000042F3: 08   FLdPr var_88
+000042F6: 0D   VCallHresult Screen.Get_Width()
+000042FB: 6E   FLdFPR4 var_8C
+000042FE: 6E   FLdFPR4 var_90
+00004301: AF   SubR4 -
+00004302: F4   LitI2_Byte: 2 (0x2)
+00004304: EB   CR8I2 Int(number)
+00004305: B6   DivR8 /
+00004306: 37   PopFPR4
+00004307: 05   ImpAdLdRf
+0000430A: 24   NewIfNullPr Homo
+0000430D: 0D   VCallHresult Form.Set_Left()
+00004312: 1A   FFree1Ad var_88
+00004315: 04   FLdRfVar var_90
+00004318: 05   ImpAdLdRf
+0000431B: 24   NewIfNullPr Homo
+0000431E: 0D   VCallHresult Form.Get_Height()
+00004323: 04   FLdRfVar var_8C
+00004326: 04   FLdRfVar var_88
+00004329: 05   ImpAdLdRf
+0000432C: 24   NewIfNullPr GLOBAL
+0000432F: 0D   VCallHresult Global.Get_Screen() As Screen
+00004334: 08   FLdPr var_88
+00004337: 0D   VCallHresult Screen.Get_Width()
+0000433C: 6E   FLdFPR4 var_8C
+0000433F: 6E   FLdFPR4 var_90
+00004342: AF   SubR4 -
+00004343: F4   LitI2_Byte: 2 (0x2)
+00004345: EB   CR8I2 Int(number)
+00004346: B6   DivR8 /
+00004347: 37   PopFPR4
+00004348: 05   ImpAdLdRf
+0000434B: 24   NewIfNullPr Homo
+0000434E: 0D   VCallHresult Form.Set_Top()
+00004353: 1A   FFree1Ad var_88
+00004356: 13   ExitProcHresult
+
+Private Homo.we_Click() ----
+00004808: 1B   LitStr: ""
+0000480B: 21   FLdPrThis
+0000480C: 0F   VCallAd Homo.we
+0000480F: 19   FStAdFunc var_88
+00004812: 08   FLdPr var_88
+00004815: 0D   VCallHresult CommandButton.Set_Caption()
+0000481A: 1A   FFree1Ad var_88
+0000481D: 28   LitVarI2: var_1A8 = 144 (0x90)
+00004822: FCF6 FStVar var_98
+00004826: 28   LitVarI2: var_1A8 = 135 (0x87)
+0000482B: FCF6 FStVar var_A8
+0000482F: 28   LitVarI2: var_1A8 = 1234 (0x4D2)
+00004834: FCF6 FStVar var_B8
+00004838: 04   FLdRfVar var_1AC
+0000483B: 21   FLdPrThis
+0000483C: 0F   VCallAd Homo.kk
+0000483F: 19   FStAdFunc var_88
+00004842: 08   FLdPr var_88
+00004845: 0D   VCallHresult TextBox.Get_Text()
+0000484A: 6C   ILdRf var_1AC
+0000484D: 1B   LitStr: ""
+00004850: FB30 EqStr =
+00004852: 2F   FFree1Str var_1AC
+00004855: 1A   FFree1Ad var_88
+00004858: 1C   BranchF 00004860
+0000485B: FCC8 End End
+0000485D: 1E   Branch 00004860
+00004860: loc_0000485D
+00004860: loc_00004858
+00004860: 04   FLdRfVar var_1AC
+00004863: 05   ImpAdLdRf
+00004866: 24   NewIfNullPr blot
+00004869: 0F   VCallAd blot.lk
+0000486C: 19   FStAdFunc var_88
+0000486F: 08   FLdPr var_88
+00004872: 0D   VCallHresult TextBox.Get_Text()
+00004877: 6C   ILdRf var_1AC
+0000487A: 0A   ImpAdCallFPR4 2.12 - unknown CALL 
+0000487F: FD6B CVarR8 var_1A8
+00004883: FCF6 FStVar var_E8
+00004887: 2F   FFree1Str var_1AC
+0000488A: 1A   FFree1Ad var_88
+0000488D: 04   FLdRfVar var_E8
+00004890: 28   LitVarI2: var_1A8 = 100 (0x64)
+00004895: FBB4 MulVar * var_1BC
+00004899: FCF6 FStVar var_108
+0000489D: 04   FLdRfVar var_98
+000048A0: 04   FLdRfVar var_A8
+000048A3: FB17 XorVar var_1BC
+000048A7: FCF6 FStVar var_C8
+000048AB: 04   FLdRfVar var_B8
+000048AE: 04   FLdRfVar var_C8
+000048B1: FBA4 ModVar var_1BC
+000048B5: FCF6 FStVar var_D8
+000048B9: 04   FLdRfVar var_D8
+000048BC: 04   FLdRfVar var_108
+000048BF: FB94 AddVar + var_1BC
+000048C3: FCF6 FStVar var_F8
+000048C7: 04   FLdRfVar var_1AC
+000048CA: 21   FLdPrThis
+000048CB: 0F   VCallAd Homo.kk
+000048CE: 19   FStAdFunc var_88
+000048D1: 08   FLdPr var_88
+000048D4: 0D   VCallHresult TextBox.Get_Text()
+000048D9: 6C   ILdRf var_1AC
+000048DC: 4A   FnLenStr Len()
+000048DD: FD69 CVarI4 var_1A8
+000048E1: FCF6 FStVar var_1CC
+000048E5: 2F   FFree1Str var_1AC
+000048E8: 1A   FFree1Ad var_88
+000048EB: 28   LitVarI2: var_1A8 = 0 (0x0)
+000048F0: FCF6 FStVar var_1DC
+000048F4: 04   FLdRfVar var_1AC
+000048F7: 21   FLdPrThis
+000048F8: 0F   VCallAd Homo.kk
+000048FB: 19   FStAdFunc var_88
+000048FE: 08   FLdPr var_88
+00004901: 0D   VCallHresult TextBox.Get_Text()
+00004906: 3E   FLdZeroAd var_1AC
+00004909: 46   CVarStr var_1BC
+0000490C: FCF6 FStVar var_1EC
+00004910: 1A   FFree1Ad var_88
+00004913: loc_000049E3
+Error - Illegal jump 00004A93 to loc_00004B01
+00004913: 04   FLdRfVar var_1DC
+00004916: 28   LitVarI2: var_1A8 = 1 (0x1)
+0000491B: FB94 AddVar + var_1BC
+0000491F: FCF6 FStVar var_1DC
+00004923: 04   FLdRfVar var_1AC
+00004926: 21   FLdPrThis
+00004927: 0F   VCallAd Homo.kk
+0000492A: 19   FStAdFunc var_88
+0000492D: 08   FLdPr var_88
+00004930: 0D   VCallHresult TextBox.Get_Text()
+00004935: 04   FLdRfVar var_1DC
+00004938: FC22 CI4Var
+0000493A: 3E   FLdZeroAd var_1AC
+0000493D: 46   CVarStr var_1BC
+00004940: 04   FLdRfVar var_1FC
+00004943: 0A   ImpAdCallFPR4 2.13 - unknown CALL 
+00004948: 04   FLdRfVar var_1FC
+0000494B: FCF6 FStVar var_20C
+0000494F: 1A   FFree1Ad var_88
+00004952: 35   FFree1Var var_1BC
+00004955: F5   LitI4: 1 (0x1)
+0000495A: 04   FLdRfVar var_20C
+0000495D: 04   FLdRfVar var_1BC
+00004960: 0A   ImpAdCallFPR4 2.13 - unknown CALL 
+00004965: 04   FLdRfVar var_1BC
+00004968: FCF6 FStVar var_21C
+0000496C: 04   FLdRfVar var_21C
+0000496F: FDFE CStrVarVal var_1AC
+00004973: 0B   ImpAdCallI2 2.14 - unknown CALL 
+00004978: 44   CVarI2 var_1A8
+0000497B: FCF6 FStVar var_22C
+0000497F: 2F   FFree1Str var_1AC
+00004982: 04   FLdRfVar var_22C
+00004985: 28   LitVarI2: var_1A8 = 48 (0x30)
+0000498A: 5D   HardType
+0000498B: FB63 LtVar <
+0000498F: 04   FLdRfVar var_22C
+00004992: 28   LitVarI2: var_23C = 57 (0x39)
+00004997: 5D   HardType
+00004998: FB70 GtVar >
+0000499C: FB1F OrVar var_24C
+000049A0: FF1B CBoolVarNull
+000049A2: 1C   BranchF 000049BB
+000049A5: 1B   LitStr: "Only intergers"
+000049A8: 21   FLdPrThis
+000049A9: 0F   VCallAd Homo.we
+000049AC: 19   FStAdFunc var_88
+000049AF: 08   FLdPr var_88
+000049B2: 0D   VCallHresult CommandButton.Set_Caption()
+000049B7: 1A   FFree1Ad var_88
+000049BA: 13   ExitProcHresult
+000049BB: loc_000049A2
+000049BB: 04   FLdRfVar var_1CC
+000049BE: 04   FLdRfVar var_1DC
+000049C1: FB9C SubVar - var_1BC
+000049C5: FC22 CI4Var
+000049C7: 04   FLdRfVar var_1EC
+000049CA: 04   FLdRfVar var_1FC
+000049CD: 0A   ImpAdCallFPR4 2.16 - unknown CALL 
+000049D2: 04   FLdRfVar var_1FC
+000049D5: FCF6 FStVar var_1EC
+000049D9: 04   FLdRfVar var_1EC
+000049DC: FC67 LitVar_Empty var_1A8 = Empty
+000049E0: FB33 EqVarBool =
+000049E2: C3   NotI4 Not
+000049E3: 1D   BranchT 00004913
+000049E6: 04   FLdRfVar var_1FC
+000049E9: 04   FLdRfVar var_1AC
+000049EC: 21   FLdPrThis
+000049ED: 0F   VCallAd Homo.kk
+000049F0: 19   FStAdFunc var_88
+000049F3: 08   FLdPr var_88
+000049F6: 0D   VCallHresult TextBox.Get_Text()
+000049FB: 3E   FLdZeroAd var_1AC
+000049FE: 46   CVarStr var_1BC
+00004A01: 09   ImpAdCallHresult
+00004A06: 04   FLdRfVar var_1FC
+00004A09: FCF6 FStVar var_158
+00004A0D: 1A   FFree1Ad var_88
+00004A10: 35   FFree1Var var_1BC
+00004A13: 04   FLdRfVar var_1AC
+00004A16: 05   ImpAdLdRf
+00004A19: 24   NewIfNullPr blot
+00004A1C: 0F   VCallAd blot.sh
+00004A1F: 19   FStAdFunc var_88
+00004A22: 08   FLdPr var_88
+00004A25: 0D   VCallHresult TextBox.Get_Text()
+00004A2A: 6C   ILdRf var_1AC
+00004A2D: 0A   ImpAdCallFPR4 2.12 - unknown CALL 
+00004A32: FD6B CVarR8 var_1A8
+00004A36: FCF6 FStVar var_148
+00004A3A: 2F   FFree1Str var_1AC
+00004A3D: 1A   FFree1Ad var_88
+00004A40: F5   LitI4: 3 (0x3)
+00004A45: 04   FLdRfVar var_148
+00004A48: 04   FLdRfVar var_1BC
+00004A4B: 0A   ImpAdCallFPR4 2.13 - unknown CALL 
+00004A50: 04   FLdRfVar var_1BC
+00004A53: FCF6 FStVar var_168
+00004A57: 04   FLdRfVar var_158
+00004A5A: 04   FLdRfVar var_168
+00004A5D: FBB4 MulVar * var_1BC
+00004A61: FCF6 FStVar var_128
+00004A65: 04   FLdRfVar var_F8
+00004A68: 04   FLdRfVar var_168
+00004A6B: FBB4 MulVar * var_1BC
+00004A6F: FCF6 FStVar var_138
+00004A73: 04   FLdRfVar var_138
+00004A76: 28   LitVarI2: var_1A8 = 18 (0x12)
+00004A7B: FB9C SubVar - var_1BC
+00004A7F: FCF6 FStVar var_178
+00004A83: 04   FLdRfVar var_128
+00004A86: 04   FLdRfVar var_178
+00004A89: FB63 LtVar <
+00004A8D: FBC4 NotVar Not var_1FC
+00004A91: FF1B CBoolVarNull
+00004A93: 1C   BranchF 00004B01
+00004A96: 04   FLdRfVar var_128
+00004A99: FDFE CStrVarVal var_1AC
+00004A9D: 0A   ImpAdCallFPR4 2.12 - unknown CALL 
+00004AA2: FD6B CVarR8 var_1A8
+00004AA6: FCF6 FStVar var_25C
+00004AAA: 2F   FFree1Str var_1AC
+00004AAD: 04   FLdRfVar var_178
+00004AB0: 28   LitVarI2: var_1A8 = 20 (0x14)
+00004AB5: FB94 AddVar + var_1BC
+00004AB9: FCF6 FStVar var_198
+00004ABD: 04   FLdRfVar var_25C
+00004AC0: 28   LitVarI2: var_1A8 = 20 (0x14)
+00004AC5: FB94 AddVar + var_1BC
+00004AC9: FCF6 FStVar var_188
+00004ACD: 04   FLdRfVar var_188
+00004AD0: 04   FLdRfVar var_198
+00004AD3: FB70 GtVar >
+00004AD7: FBC4 NotVar Not var_1FC
+00004ADB: FF1B CBoolVarNull
+00004ADD: 1C   BranchF 00004AFE
+00004AE0: 08   FLdPr param_8
+00004AE3: 0D   VCallHresult Form._Hide()
+00004AE8: 27   LitVar_Missing var_23C = Missing
+00004AEB: 25   PopAdLdVar
+00004AEC: 27   LitVar_Missing var_1A8 = Missing
+00004AEF: 25   PopAdLdVar
+00004AF0: 05   ImpAdLdRf
+00004AF3: 24   NewIfNullPr Kanel
+00004AF6: 0D   VCallHresult Form._Show(Modal As Variant, OwnerForm As Variant)
+00004AFB: 1E   Branch 00004B00
+00004AFE: loc_00004ADD
+00004AFE: FCC8 End End
+00004B00: loc_00004AFB
+00004B00: 13   ExitProcHresult
+
+Private Homo.Sub_2_3 ----
+00003B9C: 04   FLdRfVar var_8C
+00003B9F: 21   FLdPrThis
+00003BA0: 0F   VCallAd Homo.kk
+00003BA3: 19   FStAdFunc var_88
+00003BA6: 08   FLdPr var_88
+00003BA9: 0D   VCallHresult TextBox.Get_Text()
+00003BAE: 6C   ILdRf var_8C
+00003BB1: 1B   LitStr: ""
+00003BB4: FB30 EqStr =
+00003BB6: 2F   FFree1Str var_8C
+00003BB9: 1A   FFree1Ad var_88
+00003BBC: 1C   BranchF 00003BC1
+00003BBF: FCC8 End End
+00003BC1: loc_00003BBC
+00003BC1: 13   ExitProcHresult
+
+Private blot.hg_Click() ----
+00003770: FCC8 End End
+00003772: 13   ExitProcHresult
+
+Private blot.hg_GotFocus() ----
+00003BFC: F4   LitI2_Byte: 255 (True)
+00003BFE: 21   FLdPrThis
+00003BFF: 0F   VCallAd blot.cmdWelcome
+00003C02: 19   FStAdFunc var_88
+00003C05: 08   FLdPr var_88
+00003C08: 0D   VCallHresult CommandButton.Set_Visible()
+00003C0D: 1A   FFree1Ad var_88
+00003C10: 1B   LitStr: "Bye"
+00003C13: 21   FLdPrThis
+00003C14: 0F   VCallAd blot.cmdWelcome
+00003C17: 19   FStAdFunc var_88
+00003C1A: 08   FLdPr var_88
+00003C1D: 0D   VCallHresult CommandButton.Set_Caption()
+00003C22: 1A   FFree1Ad var_88
+00003C25: 13   ExitProcHresult
+
+Private blot.hg_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single) ----
+00003CBC: F4   LitI2_Byte: 255 (True)
+00003CBE: 21   FLdPrThis
+00003CBF: 0F   VCallAd blot.cmdWelcome
+00003CC2: 19   FStAdFunc var_88
+00003CC5: 08   FLdPr var_88
+00003CC8: 0D   VCallHresult CommandButton.Set_Visible()
+00003CCD: 1A   FFree1Ad var_88
+00003CD0: F4   LitI2_Byte: 0 (False)
+00003CD2: 21   FLdPrThis
+00003CD3: 0F   VCallAd blot.cmdWelcome
+00003CD6: 19   FStAdFunc var_88
+00003CD9: 08   FLdPr var_88
+00003CDC: 0D   VCallHresult CommandButton.Set_Enabled()
+00003CE1: 1A   FFree1Ad var_88
+00003CE4: 13   ExitProcHresult
+
+Private blot.ji_Click() ----
+00004510: 1B   LitStr: "Time to test"
+00004513: 21   FLdPrThis
+00004514: 0F   VCallAd blot.cmdWelcome
+00004517: 19   FStAdFunc var_88
+0000451A: 08   FLdPr var_88
+0000451D: 0D   VCallHresult CommandButton.Set_Caption()
+00004522: 1A   FFree1Ad var_88
+00004525: 28   LitVarI2: var_168 = 112 (0x70)
+0000452A: FCF6 FStVar var_98
+0000452E: 28   LitVarI2: var_168 = 1564 (0x61C)
+00004533: FCF6 FStVar var_A8
+00004537: 28   LitVarI2: var_168 = 1464 (0x5B8)
+0000453C: FCF6 FStVar var_B8
+00004540: 04   FLdRfVar var_16C
+00004543: 21   FLdPrThis
+00004544: 0F   VCallAd blot.lk
+00004547: 19   FStAdFunc var_88
+0000454A: 08   FLdPr var_88
+0000454D: 0D   VCallHresult TextBox.Get_Text()
+00004552: 6C   ILdRf var_16C
+00004555: 4A   FnLenStr Len()
+00004556: FD69 CVarI4 var_168
+0000455A: FCF6 FStVar var_17C
+0000455E: 2F   FFree1Str var_16C
+00004561: 1A   FFree1Ad var_88
+00004564: 04   FLdRfVar var_16C
+00004567: 21   FLdPrThis
+00004568: 0F   VCallAd blot.lk
+0000456B: 19   FStAdFunc var_88
+0000456E: 08   FLdPr var_88
+00004571: 0D   VCallHresult TextBox.Get_Text()
+00004576: 6C   ILdRf var_16C
+00004579: 1B   LitStr: "Ab"
+0000457C: FB30 EqStr =
+0000457E: C3   NotI4 Not
+0000457F: 2F   FFree1Str var_16C
+00004582: 1A   FFree1Ad var_88
+00004585: 1C   BranchF 00004762
+00004588: 28   LitVarI2: var_168 = 0 (0x0)
+0000458D: FCF6 FStVar var_18C
+00004591: 04   FLdRfVar var_16C
+00004594: 21   FLdPrThis
+00004595: 0F   VCallAd blot.lk
+00004598: 19   FStAdFunc var_88
+0000459B: 08   FLdPr var_88
+0000459E: 0D   VCallHresult TextBox.Get_Text()
+000045A3: 3E   FLdZeroAd var_16C
+000045A6: 46   CVarStr var_1AC
+000045A9: FCF6 FStVar var_19C
+000045AD: 1A   FFree1Ad var_88
+000045B0: loc_00004646
+000045B0: 04   FLdRfVar var_19C
+000045B3: 3A   LitVarStr: var_168 = ""
+000045B8: 5D   HardType
+000045B9: FB2F EqVar =
+000045BD: FBC4 NotVar Not var_1BC
+000045C1: FF1B CBoolVarNull
+000045C3: 1C   BranchF 00004649
+000045C6: 04   FLdRfVar var_18C
+000045C9: 28   LitVarI2: var_168 = 1 (0x1)
+000045CE: FB94 AddVar + var_1AC
+000045D2: FCF6 FStVar var_18C
+000045D6: 04   FLdRfVar var_18C
+000045D9: FC22 CI4Var
+000045DB: 04   FLdRfVar var_19C
+000045DE: 04   FLdRfVar var_1AC
+000045E1: 0A   ImpAdCallFPR4 3.6 - unknown CALL 
+000045E6: 04   FLdRfVar var_1AC
+000045E9: FCF6 FStVar var_1CC
+000045ED: F5   LitI4: 1 (0x1)
+000045F2: 04   FLdRfVar var_1CC
+000045F5: 04   FLdRfVar var_1AC
+000045F8: 0A   ImpAdCallFPR4 3.6 - unknown CALL 
+000045FD: 04   FLdRfVar var_1AC
+00004600: FCF6 FStVar var_1DC
+00004604: 04   FLdRfVar var_1DC
+00004607: FDFE CStrVarVal var_16C
+0000460B: 0B   ImpAdCallI2 3.7 - unknown CALL 
+00004610: 44   CVarI2 var_168
+00004613: FCF6 FStVar var_1EC
+00004617: 2F   FFree1Str var_16C
+0000461A: 04   FLdRfVar var_1FC
+0000461D: 04   FLdRfVar var_1EC
+00004620: FB94 AddVar + var_1AC
+00004624: FCF6 FStVar var_1FC
+00004628: 04   FLdRfVar var_17C
+0000462B: 04   FLdRfVar var_18C
+0000462E: FB9C SubVar - var_1AC
+00004632: FC22 CI4Var
+00004634: 04   FLdRfVar var_19C
+00004637: 04   FLdRfVar var_1BC
+0000463A: 0A   ImpAdCallFPR4 3.8 - unknown CALL 
+0000463F: 04   FLdRfVar var_1BC
+00004642: FCF6 FStVar var_19C
+00004646: 1E   Branch 000045B0
+00004649: loc_000045C3
+00004649: 04   FLdRfVar var_1FC
+0000464C: FC67 LitVar_Empty var_168 = Empty
+00004650: FB33 EqVarBool =
+00004652: 1C   BranchF 0000465A
+00004655: FCC8 End End
+00004657: 1E   Branch 0000465A
+0000465A: loc_00004657
+0000465A: loc_00004652
+0000465A: 04   FLdRfVar var_98
+0000465D: 04   FLdRfVar var_A8
+00004660: FBB4 MulVar * var_1AC
+00004664: FCF6 FStVar var_C8
+00004668: 04   FLdRfVar var_C8
+0000466B: 04   FLdRfVar var_B8
+0000466E: FB17 XorVar var_1AC
+00004672: FCF6 FStVar var_D8
+00004676: 04   FLdRfVar var_D8
+00004679: 04   FLdRfVar var_E8
+0000467C: FB9C SubVar - var_1AC
+00004680: FCF6 FStVar var_F8
+00004684: 04   FLdRfVar var_F8
+00004687: 28   LitVarI2: var_168 = 10 (0xA)
+0000468C: FB9C SubVar - var_1AC
+00004690: FCF6 FStVar var_108
+00004694: 04   FLdRfVar var_108
+00004697: 04   FLdRfVar var_1FC
+0000469A: FBB4 MulVar * var_1AC
+0000469E: FCF6 FStVar var_128
+000046A2: 04   FLdRfVar var_16C
+000046A5: 21   FLdPrThis
+000046A6: 0F   VCallAd blot.sh
+000046A9: 19   FStAdFunc var_88
+000046AC: 08   FLdPr var_88
+000046AF: 0D   VCallHresult TextBox.Get_Text()
+000046B4: 6C   ILdRf var_16C
+000046B7: 0A   ImpAdCallFPR4 3.9 - unknown CALL 
+000046BC: FD6B CVarR8 var_168
+000046C0: FCF6 FStVar var_138
+000046C4: 2F   FFree1Str var_16C
+000046C7: 1A   FFree1Ad var_88
+000046CA: 04   FLdRfVar var_138
+000046CD: 04   FLdRfVar var_108
+000046D0: FBB4 MulVar * var_1AC
+000046D4: FCF6 FStVar var_148
+000046D8: 04   FLdRfVar var_148
+000046DB: FC67 LitVar_Empty var_168 = Empty
+000046DF: FB33 EqVarBool =
+000046E1: 1C   BranchF 000046E9
+000046E4: FCC8 End End
+000046E6: 1E   Branch 00004760
+000046E9: loc_000046E1
+000046E9: 04   FLdRfVar var_148
+000046EC: 04   FLdRfVar var_128
+000046EF: FB63 LtVar <
+000046F3: FBC4 NotVar Not var_1BC
+000046F7: FF1B CBoolVarNull
+000046F9: 1C   BranchF 00004760
+000046FC: 04   FLdRfVar var_128
+000046FF: 28   LitVarI2: var_168 = 11 (0xB)
+00004704: FB94 AddVar + var_1AC
+00004708: FCF6 FStVar var_118
+0000470C: 04   FLdRfVar var_148
+0000470F: 28   LitVarI2: var_168 = 11 (0xB)
+00004714: FB94 AddVar + var_1AC
+00004718: FCF6 FStVar var_158
+0000471C: 04   FLdRfVar var_158
+0000471F: 04   FLdRfVar var_118
+00004722: FB70 GtVar >
+00004726: FBC4 NotVar Not var_1BC
+0000472A: FF1B CBoolVarNull
+0000472C: 1C   BranchF 0000474B
+0000472F: 08   FLdPr param_8
+00004732: 0D   VCallHresult Form._Hide()
+00004737: 27   LitVar_Missing var_20C = Missing
+0000473A: 25   PopAdLdVar
+0000473B: 27   LitVar_Missing var_168 = Missing
+0000473E: 25   PopAdLdVar
+0000473F: 05   ImpAdLdRf
+00004742: 24   NewIfNullPr Homo
+00004745: 0D   VCallHresult Form._Show(Modal As Variant, OwnerForm As Variant)
+0000474A: 13   ExitProcHresult
+0000474B: loc_0000472C
+0000474B: FCC8 End End
+0000474D: 27   LitVar_Missing var_20C = Missing
+00004750: 25   PopAdLdVar
+00004751: 27   LitVar_Missing var_168 = Missing
+00004754: 25   PopAdLdVar
+00004755: 05   ImpAdLdRf
+00004758: 24   NewIfNullPr df
+0000475B: 0D   VCallHresult Form._Show(Modal As Variant, OwnerForm As Variant)
+00004760: loc_000046F9
+00004760: loc_000046E6
+00004760: FCC8 End End
+00004762: loc_00004585
+00004762: 27   LitVar_Missing var_20C = Missing
+00004765: 25   PopAdLdVar
+00004766: 27   LitVar_Missing var_168 = Missing
+00004769: 25   PopAdLdVar
+0000476A: 05   ImpAdLdRf
+0000476D: 24   NewIfNullPr df
+00004770: 0D   VCallHresult Form._Show(Modal As Variant, OwnerForm As Variant)
+00004775: 13   ExitProcHresult
+
+Private blot.Form_Load() ----
+00004444: 04   FLdRfVar var_90
+00004447: 05   ImpAdLdRf
+0000444A: 24   NewIfNullPr blot
+0000444D: 0D   VCallHresult Form.Get_Width()
+00004452: 04   FLdRfVar var_8C
+00004455: 04   FLdRfVar var_88
+00004458: 05   ImpAdLdRf
+0000445B: 24   NewIfNullPr GLOBAL
+0000445E: 0D   VCallHresult Global.Get_Screen() As Screen
+00004463: 08   FLdPr var_88
+00004466: 0D   VCallHresult Screen.Get_Width()
+0000446B: 6E   FLdFPR4 var_8C
+0000446E: 6E   FLdFPR4 var_90
+00004471: AF   SubR4 -
+00004472: F4   LitI2_Byte: 2 (0x2)
+00004474: EB   CR8I2 Int(number)
+00004475: B6   DivR8 /
+00004476: 37   PopFPR4
+00004477: 05   ImpAdLdRf
+0000447A: 24   NewIfNullPr blot
+0000447D: 0D   VCallHresult Form.Set_Left()
+00004482: 1A   FFree1Ad var_88
+00004485: 04   FLdRfVar var_90
+00004488: 05   ImpAdLdRf
+0000448B: 24   NewIfNullPr blot
+0000448E: 0D   VCallHresult Form.Get_Height()
+00004493: 04   FLdRfVar var_8C
+00004496: 04   FLdRfVar var_88
+00004499: 05   ImpAdLdRf
+0000449C: 24   NewIfNullPr GLOBAL
+0000449F: 0D   VCallHresult Global.Get_Screen() As Screen
+000044A4: 08   FLdPr var_88
+000044A7: 0D   VCallHresult Screen.Get_Width()
+000044AC: 6E   FLdFPR4 var_8C
+000044AF: 6E   FLdFPR4 var_90
+000044B2: AF   SubR4 -
+000044B3: F4   LitI2_Byte: 2 (0x2)
+000044B5: EB   CR8I2 Int(number)
+000044B6: B6   DivR8 /
+000044B7: 37   PopFPR4
+000044B8: 05   ImpAdLdRf
+000044BB: 24   NewIfNullPr blot
+000044BE: 0D   VCallHresult Form.Set_Top()
+000044C3: 1A   FFree1Ad var_88
+000044C6: F4   LitI2_Byte: 0 (False)
+000044C8: 21   FLdPrThis
+000044C9: 0F   VCallAd blot.cmdWelcome
+000044CC: 19   FStAdFunc var_88
+000044CF: 08   FLdPr var_88
+000044D2: 0D   VCallHresult CommandButton.Set_Visible()
+000044D7: 1A   FFree1Ad var_88
+000044DA: 13   ExitProcHresult
+
+Private blot.ji_GotFocus() ----
+00004010: F4   LitI2_Byte: 255 (True)
+00004012: 21   FLdPrThis
+00004013: 0F   VCallAd blot.cmdWelcome
+00004016: 19   FStAdFunc var_88
+00004019: 08   FLdPr var_88
+0000401C: 0D   VCallHresult CommandButton.Set_Visible()
+00004021: 1A   FFree1Ad var_88
+00004024: 1B   LitStr: "Time to test"
+00004027: 21   FLdPrThis
+00004028: 0F   VCallAd blot.cmdWelcome
+0000402B: 19   FStAdFunc var_88
+0000402E: 08   FLdPr var_88
+00004031: 0D   VCallHresult CommandButton.Set_Caption()
+00004036: 1A   FFree1Ad var_88
+00004039: F4   LitI2_Byte: 255 (True)
+0000403B: 21   FLdPrThis
+0000403C: 0F   VCallAd blot.cmdWelcome
+0000403F: 19   FStAdFunc var_88
+00004042: 08   FLdPr var_88
+00004045: 0D   VCallHresult CommandButton.Set_Enabled()
+0000404A: 1A   FFree1Ad var_88
+0000404D: 04   FLdRfVar var_8C
+00004050: 21   FLdPrThis
+00004051: 0F   VCallAd blot.lk
+00004054: 19   FStAdFunc var_88
+00004057: 08   FLdPr var_88
+0000405A: 0D   VCallHresult TextBox.Get_Text()
+0000405F: 6C   ILdRf var_8C
+00004062: 1B   LitStr: ""
+00004065: FB30 EqStr =
+00004067: 2F   FFree1Str var_8C
+0000406A: 1A   FFree1Ad var_88
+0000406D: 1C   BranchF 00004075
+00004070: FCC8 End End
+00004072: 1E   Branch 00004075
+00004075: loc_00004072
+00004075: loc_0000406D
+00004075: 13   ExitProcHresult
+
+Private blot.lk_Click() ----
+00003C5C: F4   LitI2_Byte: 255 (True)
+00003C5E: 21   FLdPrThis
+00003C5F: 0F   VCallAd blot.cmdWelcome
+00003C62: 19   FStAdFunc var_88
+00003C65: 08   FLdPr var_88
+00003C68: 0D   VCallHresult CommandButton.Set_Visible()
+00003C6D: 1A   FFree1Ad var_88
+00003C70: F4   LitI2_Byte: 255 (True)
+00003C72: 21   FLdPrThis
+00003C73: 0F   VCallAd blot.cmdWelcome
+00003C76: 19   FStAdFunc var_88
+00003C79: 08   FLdPr var_88
+00003C7C: 0D   VCallHresult CommandButton.Set_Enabled()
+00003C81: 1A   FFree1Ad var_88
+00003C84: 13   ExitProcHresult
+
+Private blot.lk_GotFocus() ----
+00003EF0: 1B   LitStr: ""
+00003EF3: 21   FLdPrThis
+00003EF4: 0F   VCallAd blot.lk
+00003EF7: 19   FStAdFunc var_88
+00003EFA: 08   FLdPr var_88
+00003EFD: 0D   VCallHresult TextBox.Set_Text()
+00003F02: 1A   FFree1Ad var_88
+00003F05: F4   LitI2_Byte: 255 (True)
+00003F07: 21   FLdPrThis
+00003F08: 0F   VCallAd blot.cmdWelcome
+00003F0B: 19   FStAdFunc var_88
+00003F0E: 08   FLdPr var_88
+00003F11: 0D   VCallHresult CommandButton.Set_Visible()
+00003F16: 1A   FFree1Ad var_88
+00003F19: 1B   LitStr: "Welcome"
+00003F1C: 21   FLdPrThis
+00003F1D: 0F   VCallAd blot.cmdWelcome
+00003F20: 19   FStAdFunc var_88
+00003F23: 08   FLdPr var_88
+00003F26: 0D   VCallHresult CommandButton.Set_Caption()
+00003F2B: 1A   FFree1Ad var_88
+00003F2E: F4   LitI2_Byte: 255 (True)
+00003F30: 21   FLdPrThis
+00003F31: 0F   VCallAd blot.cmdWelcome
+00003F34: 19   FStAdFunc var_88
+00003F37: 08   FLdPr var_88
+00003F3A: 0D   VCallHresult CommandButton.Set_Enabled()
+00003F3F: 1A   FFree1Ad var_88
+00003F42: 13   ExitProcHresult
+
+Private blot.sh_GotFocus() ----
+00003E68: 1B   LitStr: ""
+00003E6B: 21   FLdPrThis
+00003E6C: 0F   VCallAd blot.sh
+00003E6F: 19   FStAdFunc var_88
+00003E72: 08   FLdPr var_88
+00003E75: 0D   VCallHresult TextBox.Set_Text()
+00003E7A: 1A   FFree1Ad var_88
+00003E7D: F4   LitI2_Byte: 255 (True)
+00003E7F: 21   FLdPrThis
+00003E80: 0F   VCallAd blot.cmdWelcome
+00003E83: 19   FStAdFunc var_88
+00003E86: 08   FLdPr var_88
+00003E89: 0D   VCallHresult CommandButton.Set_Visible()
+00003E8E: 1A   FFree1Ad var_88
+00003E91: 1B   LitStr: "Welcome"
+00003E94: 21   FLdPrThis
+00003E95: 0F   VCallAd blot.cmdWelcome
+00003E98: 19   FStAdFunc var_88
+00003E9B: 08   FLdPr var_88
+00003E9E: 0D   VCallHresult CommandButton.Set_Caption()
+00003EA3: 1A   FFree1Ad var_88
+00003EA6: F4   LitI2_Byte: 255 (True)
+00003EA8: 21   FLdPrThis
+00003EA9: 0F   VCallAd blot.cmdWelcome
+00003EAC: 19   FStAdFunc var_88
+00003EAF: 08   FLdPr var_88
+00003EB2: 0D   VCallHresult CommandButton.Set_Enabled()
+00003EB7: 1A   FFree1Ad var_88
+00003EBA: 13   ExitProcHresult
+
+Private blot.sh_Click() ----
+00003D7C: F4   LitI2_Byte: 255 (True)
+00003D7E: 21   FLdPrThis
+00003D7F: 0F   VCallAd blot.cmdWelcome
+00003D82: 19   FStAdFunc var_88
+00003D85: 08   FLdPr var_88
+00003D88: 0D   VCallHresult CommandButton.Set_Visible()
+00003D8D: 1A   FFree1Ad var_88
+00003D90: 1B   LitStr: "Welcome"
+00003D93: 21   FLdPrThis
+00003D94: 0F   VCallAd blot.cmdWelcome
+00003D97: 19   FStAdFunc var_88
+00003D9A: 08   FLdPr var_88
+00003D9D: 0D   VCallHresult CommandButton.Set_Caption()
+00003DA2: 1A   FFree1Ad var_88
+00003DA5: F4   LitI2_Byte: 255 (True)
+00003DA7: 21   FLdPrThis
+00003DA8: 0F   VCallAd blot.cmdWelcome
+00003DAB: 19   FStAdFunc var_88
+00003DAE: 08   FLdPr var_88
+00003DB1: 0D   VCallHresult CommandButton.Set_Enabled()
+00003DB6: 1A   FFree1Ad var_88
+00003DB9: 13   ExitProcHresult
+
+Private df.gg_Click() ----
+00003AC8: 27   LitVar_Missing var_A4 = Missing
+00003ACB: 25   PopAdLdVar
+00003ACC: 27   LitVar_Missing var_94 = Missing
+00003ACF: 25   PopAdLdVar
+00003AD0: 05   ImpAdLdRf
+00003AD3: 24   NewIfNullPr jj
+00003AD6: 0D   VCallHresult Form._Show(Modal As Variant, OwnerForm As Variant)
+00003ADB: 13   ExitProcHresult
+
+Private df.hh_Click() ----
+00003B0C: 27   LitVar_Missing var_A4 = Missing
+00003B0F: 25   PopAdLdVar
+00003B10: 27   LitVar_Missing var_94 = Missing
+00003B13: 25   PopAdLdVar
+00003B14: 05   ImpAdLdRf
+00003B17: 24   NewIfNullPr ok
+00003B1A: 0D   VCallHresult Form._Show(Modal As Variant, OwnerForm As Variant)
+00003B1F: 13   ExitProcHresult
+
+Private df.Form_Click() ----
+0000390C: 08   FLdPr param_8
+0000390F: 0D   VCallHresult Form._Hide()
+00003914: 13   ExitProcHresult
+
+Private df.Form_Load() ----
+00004164: 04   FLdRfVar var_90
+00004167: 05   ImpAdLdRf
+0000416A: 24   NewIfNullPr df
+0000416D: 0D   VCallHresult Form.Get_Width()
+00004172: 04   FLdRfVar var_8C
+00004175: 04   FLdRfVar var_88
+00004178: 05   ImpAdLdRf
+0000417B: 24   NewIfNullPr GLOBAL
+0000417E: 0D   VCallHresult Global.Get_Screen() As Screen
+00004183: 08   FLdPr var_88
+00004186: 0D   VCallHresult Screen.Get_Width()
+0000418B: 6E   FLdFPR4 var_8C
+0000418E: 6E   FLdFPR4 var_90
+00004191: AF   SubR4 -
+00004192: F4   LitI2_Byte: 2 (0x2)
+00004194: EB   CR8I2 Int(number)
+00004195: B6   DivR8 /
+00004196: 37   PopFPR4
+00004197: 05   ImpAdLdRf
+0000419A: 24   NewIfNullPr df
+0000419D: 0D   VCallHresult Form.Set_Left()
+000041A2: 1A   FFree1Ad var_88
+000041A5: 04   FLdRfVar var_90
+000041A8: 05   ImpAdLdRf
+000041AB: 24   NewIfNullPr df
+000041AE: 0D   VCallHresult Form.Get_Height()
+000041B3: 04   FLdRfVar var_8C
+000041B6: 04   FLdRfVar var_88
+000041B9: 05   ImpAdLdRf
+000041BC: 24   NewIfNullPr GLOBAL
+000041BF: 0D   VCallHresult Global.Get_Screen() As Screen
+000041C4: 08   FLdPr var_88
+000041C7: 0D   VCallHresult Screen.Get_Width()
+000041CC: 6E   FLdFPR4 var_8C
+000041CF: 6E   FLdFPR4 var_90
+000041D2: AF   SubR4 -
+000041D3: F4   LitI2_Byte: 2 (0x2)
+000041D5: EB   CR8I2 Int(number)
+000041D6: B6   DivR8 /
+000041D7: 37   PopFPR4
+000041D8: 05   ImpAdLdRf
+000041DB: 24   NewIfNullPr df
+000041DE: 0D   VCallHresult Form.Set_Top()
+000041E3: 1A   FFree1Ad var_88
+000041E6: 13   ExitProcHresult
+
+Private df.as1_Click() ----
+000038D0: 08   FLdPr param_8
+000038D3: 0D   VCallHresult Form._Hide()
+000038D8: 13   ExitProcHresult
+
+Private df.as2_Click() ----
+000037E0: 08   FLdPr param_8
+000037E3: 0D   VCallHresult Form._Hide()
+000037E8: 13   ExitProcHresult
+
+Private df.gk_Click() ----
+00003894: 08   FLdPr param_8
+00003897: 0D   VCallHresult Form._Hide()
+0000389C: 13   ExitProcHresult
+
+Private df.gk1_Click() ----
+00003858: 08   FLdPr param_8
+0000385B: 0D   VCallHresult Form._Hide()
+00003860: 13   ExitProcHresult
+
+Private df.hj_Click() ----
+0000381C: 08   FLdPr param_8
+0000381F: 0D   VCallHresult Form._Hide()
+00003824: 13   ExitProcHresult
+
+Private df.fg_Click() ----
+000037A4: 08   FLdPr param_8
+000037A7: 0D   VCallHresult Form._Hide()
+000037AC: 13   ExitProcHresult
+
+Private ok.Form_Load() ----
+0000421C: 04   FLdRfVar var_90
+0000421F: 05   ImpAdLdRf
+00004222: 24   NewIfNullPr ok
+00004225: 0D   VCallHresult Form.Get_Width()
+0000422A: 04   FLdRfVar var_8C
+0000422D: 04   FLdRfVar var_88
+00004230: 05   ImpAdLdRf
+00004233: 24   NewIfNullPr GLOBAL
+00004236: 0D   VCallHresult Global.Get_Screen() As Screen
+0000423B: 08   FLdPr var_88
+0000423E: 0D   VCallHresult Screen.Get_Width()
+00004243: 6E   FLdFPR4 var_8C
+00004246: 6E   FLdFPR4 var_90
+00004249: AF   SubR4 -
+0000424A: F4   LitI2_Byte: 2 (0x2)
+0000424C: EB   CR8I2 Int(number)
+0000424D: B6   DivR8 /
+0000424E: 37   PopFPR4
+0000424F: 05   ImpAdLdRf
+00004252: 24   NewIfNullPr ok
+00004255: 0D   VCallHresult Form.Set_Left()
+0000425A: 1A   FFree1Ad var_88
+0000425D: 04   FLdRfVar var_90
+00004260: 05   ImpAdLdRf
+00004263: 24   NewIfNullPr ok
+00004266: 0D   VCallHresult Form.Get_Height()
+0000426B: 04   FLdRfVar var_8C
+0000426E: 04   FLdRfVar var_88
+00004271: 05   ImpAdLdRf
+00004274: 24   NewIfNullPr GLOBAL
+00004277: 0D   VCallHresult Global.Get_Screen() As Screen
+0000427C: 08   FLdPr var_88
+0000427F: 0D   VCallHresult Screen.Get_Width()
+00004284: 6E   FLdFPR4 var_8C
+00004287: 6E   FLdFPR4 var_90
+0000428A: AF   SubR4 -
+0000428B: F4   LitI2_Byte: 2 (0x2)
+0000428D: EB   CR8I2 Int(number)
+0000428E: B6   DivR8 /
+0000428F: 37   PopFPR4
+00004290: 05   ImpAdLdRf
+00004293: 24   NewIfNullPr ok
+00004296: 0D   VCallHresult Form.Set_Top()
+0000429B: 1A   FFree1Ad var_88
+0000429E: 13   ExitProcHresult
+
+Private jj.Form_Load() ----
+0000438C: 04   FLdRfVar var_90
+0000438F: 05   ImpAdLdRf
+00004392: 24   NewIfNullPr jj
+00004395: 0D   VCallHresult Form.Get_Width()
+0000439A: 04   FLdRfVar var_8C
+0000439D: 04   FLdRfVar var_88
+000043A0: 05   ImpAdLdRf
+000043A3: 24   NewIfNullPr GLOBAL
+000043A6: 0D   VCallHresult Global.Get_Screen() As Screen
+000043AB: 08   FLdPr var_88
+000043AE: 0D   VCallHresult Screen.Get_Width()
+000043B3: 6E   FLdFPR4 var_8C
+000043B6: 6E   FLdFPR4 var_90
+000043B9: AF   SubR4 -
+000043BA: F4   LitI2_Byte: 2 (0x2)
+000043BC: EB   CR8I2 Int(number)
+000043BD: B6   DivR8 /
+000043BE: 37   PopFPR4
+000043BF: 05   ImpAdLdRf
+000043C2: 24   NewIfNullPr jj
+000043C5: 0D   VCallHresult Form.Set_Left()
+000043CA: 1A   FFree1Ad var_88
+000043CD: 04   FLdRfVar var_90
+000043D0: 05   ImpAdLdRf
+000043D3: 24   NewIfNullPr jj
+000043D6: 0D   VCallHresult Form.Get_Height()
+000043DB: 04   FLdRfVar var_8C
+000043DE: 04   FLdRfVar var_88
+000043E1: 05   ImpAdLdRf
+000043E4: 24   NewIfNullPr GLOBAL
+000043E7: 0D   VCallHresult Global.Get_Screen() As Screen
+000043EC: 08   FLdPr var_88
+000043EF: 0D   VCallHresult Screen.Get_Width()
+000043F4: 6E   FLdFPR4 var_8C
+000043F7: 6E   FLdFPR4 var_90
+000043FA: AF   SubR4 -
+000043FB: F4   LitI2_Byte: 2 (0x2)
+000043FD: EB   CR8I2 Int(number)
+000043FE: B6   DivR8 /
+000043FF: 37   PopFPR4
+00004400: 05   ImpAdLdRf
+00004403: 24   NewIfNullPr jj
+00004406: 0D   VCallHresult Form.Set_Top()
+0000440B: 1A   FFree1Ad var_88
+0000440E: 13   ExitProcHresult
+
+
+Other details:
+
+File processed OK.
+
