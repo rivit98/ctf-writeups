@@ -1,4 +1,4 @@
-# DiceCTF 2021, not beginners stack, pwn
+# zer0pts 2021, not beginners stack, pwn
 
 ## Description
 Elementary pwners love to overwrite the return address. This time you can't!
