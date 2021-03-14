@@ -118,5 +118,15 @@ Private Sub we_Click() '405704
 End Sub
 ```
 
-Code is supposed to check if our input contains only digits, but something is broken and it only checks first character. 
-`blot.sh.Text` is the serial field from previous stage. Feel free to finish solving ;)
+After cleaning up it comes:
+```c
+  loc_4054C3: var_F8 = 15 + (CVar(Val(NAME_FIELD_TEXT)) * 100) 'Variant
+  loc_405661: var_128 = SERIAL_STAGE2 * SERIAL_STAGE1 'Variant
+  loc_40567F: var_178 = (var_F8 * SERIAL_STAGE1) - 18 'Variant
+  loc_405693: If var_128 >= var_178 Then
+  loc_4056DD:   If Val(CStr(var_128)) <= var_178 Then
+  loc_4056E3:     Me.Hide
+  loc_4056F6:     Kanel.Show var_1A8, 57
+```
+
+Unfortunately z3 solver was not be able to solve it, probably challenge is unsolvable (I'm quite sure about it, because I spent like ~23h in the debugger :) )

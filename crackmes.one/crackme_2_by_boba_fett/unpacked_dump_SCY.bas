@@ -160,46 +160,16 @@ Private Sub we_Click() '405704
   Dim var_1AC As String
   Dim var_23C As Integer
   Dim var_1FC As Variant
-  loc_405415: Me.we.Caption = vbNullString
-  loc_405422: var_98 = 144 'Variant
-  loc_40542B: var_A8 = 135 'Variant
-  loc_405434: var_B8 = 1234 'Variant
-  loc_405445: var_1AC = input_box.Text
 
-  loc_405458: If (var_1AC = vbNullString) Then
-  loc_40545B:   End
-  loc_40545D:   GoTo loc_405460
-  loc_405460:   ' Referenced from: 40545D
-  loc_405460: End If
-  loc_405472:  = .Text
-
-  loc_4054C3: var_F8 = ((var_B8 Mod var_98 Xor var_A8) + (CVar(Val(var_1AC)) * 100)) 'Variant
-  loc_4054E1: var_1CC = CVar(Len(input_box.Text)) 'Variant
-  loc_40550C: var_1EC = CVar(input_box.Text) 'Variant
-
-  loc_405513: Do 'loop at: 4055E3
-  loc_40551F: var_1DC = (0 + 1) 'Variant
-  loc_40557B: var_22C = CVar(Asc(CStr(Left(Left(CVar(input_box.Text), CLng(var_1DC)), 1)))) 'Variant
-  loc_4055A2: If CBool((var_22C < 48) Or (var_22C > 57)) Then
-  loc_4055B2:   Me.we.Caption = "Only intergers"
-  loc_4055BA:   Exit Sub
-  loc_4055BB: End If
-  loc_4055E3: Loop Until (Right(var_1EC, CLng((var_1CC - var_1DC))) = var_1A8) 'do at: 405513
-
-  loc_405653: var_168 = Left(Val(blot.sh.Text), 3) 'Variant
-  loc_405661: var_128 = Right(Right(Right(var_1EC, CLng((var_1CC - var_1DC))), CLng((var_1CC - var_1DC))), CLng((var_1CC - var_1DC))) * var_168 'Variant
+  loc_4054C3: var_F8 = 15 + (CVar(Val(NAME_FIELD_TEXT)) * 100) 'Variant
+  loc_405653: var_168 = Left(Val(SERIAL_STAGE1), 3) 'Variant
+  
+  loc_405661: var_128 = SERIAL_STAGE2 * var_168 'Variant
   loc_40567F: var_178 = ((var_F8 * var_168) - 18) 'Variant
-  loc_405693: If CBool(Not (var_128 < var_178)) Then
-  loc_4056DD:   If CBool(Not ((Val(CStr(var_128)) + 20) > (var_178 + 20))) Then
+  loc_405693: If var_128 >= var_178 Then
+  loc_4056DD:   If Val(CStr(var_128)) <= var_178 Then
   loc_4056E3:     Me.Hide
   loc_4056F6:     Kanel.Show var_1A8, 57
-  loc_4056FE:   Else
-  loc_4056FE:     End
-  loc_405700:   End If
-  loc_405700:   Exit Sub
-  loc_405701: End If
-  loc_405701: End
-  loc_405703: Exit Sub
 End Sub
 
 Private Sub Form_Load() '404F58

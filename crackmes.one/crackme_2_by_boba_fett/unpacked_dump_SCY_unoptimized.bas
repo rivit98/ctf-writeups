@@ -164,17 +164,12 @@ Private Sub we_Click() '405704
   loc_405422: var_98 = 144 'Variant
   loc_40542B: var_A8 = 135 'Variant
   loc_405434: var_B8 = 1234 'Variant
-  loc_405445: var_1AC = input_box.Text
+  loc_405445: var_1AC = NAME_FIELD_TEXT
 
-  loc_405458: If (var_1AC = vbNullString) Then
-  loc_40545B:   End
-  loc_40545D:   GoTo loc_405460
-  loc_405460:   ' Referenced from: 40545D
-  loc_405460: End If
-  loc_405472:  = (var_1AC).Text
-
-  loc_4054BF: var_1BC = ((var_B8 Mod var_98 Xor var_A8) + (CVar(Val(var_1AC)) * 100))
+                         '       15
+  loc_4054BF: var_1BC = ((var_B8 Mod var_98 Xor var_A8) + (CVar(Val(NAME_FIELD_TEXT)) * 100))
   loc_4054C3: var_F8 = var_98 Xor var_A8 'Variant
+             'var_F8 = 23
   loc_4054E1: var_1CC = CVar(Len(input_box.Text)) 'Variant
   loc_40550C: var_1EC = CVar(input_box.Text) 'Variant
 
@@ -191,8 +186,9 @@ Private Sub we_Click() '405704
 
   loc_405601: Call var_1FC = CDec(CVar(input_box.Text))
   loc_40561F: Set var_88 = MemVar_407044.sh
-  loc_405653: var_168 = Left(CVar(Val(blot.sh.Text)), 3) 'Variant
-  loc_405661: var_128 = (Right(Right(Right(var_1EC, CLng((var_22C < 48))), CLng((var_22C < 48))), CLng((var_22C < 48))) * var_168) 'Variant
+  loc_405653: var_168 = Left(CVar(Val(SERIAL_STAGE1)), 3) 'Variant
+  loc_405661: var_128 = Right(Right(Right(var_1EC, CLng((var_22C < 48))), CLng((var_22C < 48))), CLng((var_22C < 48))) * var_168 'Variant
+
   loc_40567B: var_1BC = ((var_F8 * var_168) - 18)
   loc_40567F: var_178 = (var_F8 * var_168) 'Variant
   loc_405693: If CBool(Not (var_128 < var_178)) Then
