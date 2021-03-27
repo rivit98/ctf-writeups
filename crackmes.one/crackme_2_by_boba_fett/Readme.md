@@ -59,11 +59,10 @@ End Sub
 ```
 
 
-Serial = Sum of ascii values of all letters in Name field \
+Serial = Sum of ascii values of all letters in name field \
 e.g. \
 Name: Rivit \
-Serial: 526 \
-[keygen.py](./keygen.py)
+Serial: 526 
 
 
 Now we are in stage 2 but I have no idea how to solve it. We have simple input box with button. Handler code for button:
@@ -118,15 +117,28 @@ Private Sub we_Click() '405704
 End Sub
 ```
 
-After cleaning up it comes:
+After cleaning it up:
 ```c
-  loc_4054C3: var_F8 = 15 + (CVar(Val(NAME_FIELD_TEXT)) * 100) 'Variant
-  loc_405661: var_128 = SERIAL_STAGE2 * SERIAL_STAGE1 'Variant
-  loc_40567F: var_178 = (var_F8 * SERIAL_STAGE1) - 18 'Variant
-  loc_405693: If var_128 >= var_178 Then
-  loc_4056DD:   If Val(CStr(var_128)) <= var_178 Then
-  loc_4056E3:     Me.Hide
-  loc_4056F6:     Kanel.Show var_1A8, 57
+  loc_405653: var_168 = Left(Val(SERIAL_STAGE1), 3) 'Variant
+  loc_4054C3: var_F8 = 15 + (Val(NAME_FIELD_TEXT) * 100) 'Variant
+  loc_405661: var_128 = SERIAL_STAGE2 * var_168 'Variant
+  loc_40567F: var_178 = (var_F8 * var_168) - 18 'Variant
+  loc_405693: If var_128 == var_178 Then
+  loc_4056E3:   Me.Hide
+  loc_4056F6:   Kanel.Show var_1A8, 57
 ```
 
 Unfortunately z3 solver was not be able to solve it, probably challenge is unsolvable (I'm quite sure about it, because I spent like ~23h in the debugger :) )
+
+EDIT: it is solvable :D I didn't think there could be floating point numbers! Anyway huge thanks to ToMKoL (https://forum.tuts4you.com/profile/61247-tomkol/)
+
+He analyzed this crackme and wrote keygen and tutorial (available here https://forum.tuts4you.com/topic/42903-keygen-for-simple-vb-keygenme-challenge/)
+
+I also wrote another keygen in python, but it had problems with dealing with floats, so I rewrote keygen in C [keygen.c](./keygen.c).
+
+
+Example working credentials:
+
+![keygen](./img/keygen.png)
+
+![win](./img/win.png)
