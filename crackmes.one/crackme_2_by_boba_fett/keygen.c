@@ -7,7 +7,6 @@
 
 
 uint32_t ascii_sum(const char *name);
-bool is_number(const char *name);
 char *left(char *name, int i);
 
 void replace_dot_with_comma(char str[33]);
@@ -25,7 +24,7 @@ void main(int argc, char** argv){
     snprintf(serial1_str, 33, "%u", serial1);
     char *left3 = left(serial1_str, 3);
 
-    uint32_t var_F8 = is_number(name) ? (atoi(name) * 100) : 0;
+    uint32_t var_F8 = atoi(name) * 100;
     var_F8 += 15;
     uint32_t var_168 = atoi(left3);
     double serial2 = (double)(((var_F8 * var_168)) - 18) / var_168;
@@ -45,16 +44,6 @@ void replace_dot_with_comma(char *str) {
             return;
         }
     }
-}
-
-bool is_number(const char *name){
-    while(*name++){
-        if(!isdigit(*name)){
-            return false;
-        }
-    }
-
-    return true;
 }
 
 char *left(char *name, int i) {
