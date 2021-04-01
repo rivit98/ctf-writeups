@@ -9,5 +9,5 @@ First of all - load .exe into IDA v7, quick analysis and algorithm is pretty cle
 
 Result:
 
-![](./img.png)
+![](./img/img.png)
 
