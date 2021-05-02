@@ -28,15 +28,22 @@ Also, we need to add `gets` function at the end of the program because it's clos
 
 Let's place our code at the end of the .text section. There is 0x1BC bytes of space, which is enough for my purposes. I'm using [IDA keypatch](https://github.com/keystone-engine/keypatch) for patching.
 
-Left patched, right original:
+Not patched:
 
-![patched1](./img/patched1.png) ![not-patched1](./img/not-patched1.png)
+![not-patched1](./img/not-patched1.png)
 
+Patched:
+
+![patched1](./img/patched1.png)
 ![patched1-1](./img/patched1-1.png)
 
+Not patched:
 
-![patched2](./img/patched2.png) ![not-patched2](./img/not-patched2.png)
+![not-patched2](./img/not-patched2.png)
 
+Patched:
+
+![patched2](./img/patched2.png) 
 ![patched2-2](./img/patched2-2.png)
 
 
