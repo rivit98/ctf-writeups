@@ -1,0 +1,1 @@
+print('}sr3tte1_0001_epYt_yl1aUtca_tNd1d_U0y_yl1uf3p0h{ftcacb'[::-1])

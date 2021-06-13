@@ -1,0 +1,7 @@
+> 2
+> 2147483500
+That'll cost $-296.
+You currently have $311.
+> 6
+> 1
+bcactf{bca_store??_wdym_ive_never_heard_of_that_one_before}

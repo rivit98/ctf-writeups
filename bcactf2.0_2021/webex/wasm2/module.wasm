@@ -1,0 +1,66 @@
+(module
+  (memory $memory (;0;) (export "memory") 1)
+  (func $cmp (;0;) (param $v0 (;0;) i32) (param $v1 (;1;) i32) (result i32)
+    (local $i (;2;) i32)
+    loop $label0
+      local.get $i
+      local.get $v0
+      i32.add
+      i32.load8_u ; load next byte of input
+
+      local.get $i
+      local.get $v1
+      i32.add
+      i32.load8_u ; load next byte of target
+
+      local.get $i
+      i32.const 9
+      i32.mul
+      i32.const 127
+      i32.and
+      i32.xor
+      i32.ne
+      ;  ((i * 9) & 127) ^ target_byte != input_byte
+
+
+      local.get $i
+      i32.const 27
+      i32.ne
+      i32.and ; if we provided bad byte or loop ended
+      if
+        i32.const 0
+        return
+      end
+      local.get $i
+      i32.const 1
+      i32.add
+      ; loop logic
+
+      local.tee $i
+      i32.const 1
+      i32.sub
+      local.get $v0
+      i32.add
+      i32.load8_u
+      i32.eqz
+      if
+        i32.const 1
+        return
+      end
+      br $label0
+    end $label0
+    i32.const 0
+    return
+  )
+
+  (func $checkFlag (;1;) (export "checkFlag") (param $a (;0;) i32) (result i32)
+    local.get $a
+    i32.const 1000
+    call $cmp
+    return
+  )
+  (data (i32.const 1000) "bjsxPKMH|\227N\1bD\043b]PR\19e%\7f/;\17")
+)
+
+# target = 'bjsxPKMH|\x227N\x1bD\x043b]PR\x19e%\x7f/;\x17'
+# print(''.join([chr(((i * 9) & 127) ^ ord(t)) for i, t in enumerate(target)]))

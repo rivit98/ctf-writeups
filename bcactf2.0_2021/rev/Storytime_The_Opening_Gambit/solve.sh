@@ -1,0 +1,1 @@
+strings story | grep bca
