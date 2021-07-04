@@ -1,0 +1,14 @@
+
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+             1      2      3      4      5      6      7      8      9      10
+cipher  :  42 46  22 74  31 23  42 42  32 57  32 A3  22 53  24 55  23 61  14 72
+flag hex:  57 4f  43 7b                                                      7d
+flag for:  W  O   C  {                                                       }
+
+
+
+WOC{__WW____C______}
+
+57 4f 43 7b
