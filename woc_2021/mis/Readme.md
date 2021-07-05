@@ -9,5 +9,4 @@ Otwierasz oczy. Po chwili zauważasz, że towarzyszy Ci... pluszowy miś. Z lekk
 
 ## Rozwiązanie
 
-Ciężkie stegano
-`strings teddy.jpg | grep WOC` => WOC{st4ry_n1edzw1edz_m0cn0_sp1}
+Ciężkie stegano `strings teddy.jpg | grep WOC` => WOC{st4ry_n1edzw1edz_m0cn0_sp1}

@@ -19,19 +19,22 @@ Pomysł jest następujący:
 Przykład: (znak `_` oznacza null byte)
 
 pierwsza iteracja:
+```
  flaga na serwerze: WOC{FLAGANASERWERZE}_
  payload          : AAAAAAAAAAAAAAAAAA
  flaga do seeda   : AAAAAAAAAAAAAAAAAA_}_
  pierwsza liczba  : 136                ^
+```
 
 widzimy, że nasz payload nadpisał tylko część flagi, z której został policzony seed. Mając takie informacje możemy lokalnie zbrutować jeden znak, który za znakiem null byte (znak ten został oznaczony za pomocą znaku `^`). Aby to zrobić ustawiamy początek flagi na taki jak payload, następnie doklejamy null byte, dodajemy znak, który brutujemy, a na koniec doklejamy znaki, które już znamy (w pierwszej iteracji jeszcze nie ma takich znaków). Czyli dane dla lokalnego programu liczącego to: `AAAAAAAAAAAAAAAAAAAc_`  jeśli sprawdzany aktualnie jest znak `c`. Bierzemy pierwszą liczbę z generatora i porównujemy ją z tą z outputu z serwera. Jeśli są równe - znaleźliśmy znak. Po chwili powinniśmy otrzymać informację, że szukanym znakiem jest `}`
 
-
+```
 druga iteracja:
  flaga na serwerze: WOC{FLAGANASERWERZE}_
  payload          : AAAAAAAAAAAAAAAAA
  flaga do seeda   : AAAAAAAAAAAAAAAAA_E}_
  pierwsza liczba  : 531               ^
+```
 
 Analogicznie jak w poprzednim przypadku - do serwera wysyłamy ciąg znaków o jeden krótszy niż poprzednio, pobieramy pierwszą liczbę od starca i lokalnie brutujemy jeden znak. Dane dla lokalnego programu: `AAAAAAAAAAAAAAAAAAc}_` (klamra ponieważ znamy już jeden znak).
 

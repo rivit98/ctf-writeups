@@ -33,7 +33,7 @@ def render_template(body):
     return template
 ```
 
-Jak widzimy, treść maila trafia do Sandboxu, a potem jest renderowana. To czas, żeby poszukać podatności, które pozwolą na wyskoczenie z sanboxu. Po długim researchu natrafiłem na informację, że ta wersja Jinja (2.7.3) jest podatna na Sandbox Escape za pomocą str.format. Spróbujmy tego triku - jako payload podajemy `{{ '{0.__class__.__mro__}'.format('a') }}` i dostajemy w odpowiedzi:
+Jak widzimy, treść maila trafia do Sandboxu, a potem jest renderowana. To czas, żeby poszukać podatności, które pozwolą na wyskoczenie z sandboxu. Po długim researchu natrafiłem na informację, że ta wersja Jinja (2.7.3) jest podatna na Sandbox Escape za pomocą str.format. Spróbujmy tego triku - jako payload podajemy `{{ '{0.__class__.__mro__}'.format('a') }}` i dostajemy w odpowiedzi:
 
 ![ssti2](img/ssti2.png)
 
@@ -42,7 +42,7 @@ W planach było wywołanie `__subclasses__()`, ale nie da się wywołać funkcji
 Po jeszcze dłuższym researchu trafiłem na artykuł sekuraka: [https://sekurak.pl/podatnosc-server-side-template-injections/](https://sekurak.pl/podatnosc-server-side-template-injections/)
 Przytoczony jest tam interesujący payload
 
-```
+```py
 {{ "{.func_globals[_mutable_sequence_types][1].insert.__func__.func_globals[sys].modules[__main__].SUPER_SECRET_DB_PASSWORD}".format(range) }}
 ```
 

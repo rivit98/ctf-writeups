@@ -11,18 +11,20 @@ Z treści zadania wynika, że trzeba wykorzystać podatność w skrzynce pocztow
 Interesujący fragment kodu źródłowego skrzynki znajduje się w pliku [mail.php](./mail.php).
 Po krótkiej analizie widzimy, że możemy czytać dowolne maile za pośrednictwem tego kawałka kodu:
 ```php
-      {
+{
     $intPage = 0;
     $intPages = 0;
     $objMails = $db->Execute("SELECT * FROM `mail` WHERE `id`=".$_GET['read']);
     $_GET['one'] = 1;
-      }
+}
 ```
 
 Aby móc odczytać maila musimy podać jego id w parametrze `read` oraz ustawić parametr `one`. Po wykonaniu trzech zapytań otrzymujemy następujace maile:
 
 ![mail1](./img/1.png)
+
 ![mail2](./img/2.png)
+
 ![mail3](./img/3.png)
 
 Czyli flaga to: Brudne Skrzypce, Kulfon

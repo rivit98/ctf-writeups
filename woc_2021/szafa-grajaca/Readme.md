@@ -6,12 +6,13 @@
 ## Rozwiązanie
 
 Na początku mały recon:
+
 ![recon](./img/recon.png)
 
 dekompilujemy binarkę za pomocą IDA [chal.c](./chal.c) i widzimy, że musimy wywołać funkcję `admin()`. Po krótkiej analizie widzimy, że błąd jest w funkcji `choice`:
 ```c
-        printf("Nadpisywanie adresu: ");
-        __isoc99_scanf("%p", &(&s)[v1]);
+printf("Nadpisywanie adresu: ");
+__isoc99_scanf("%p", &(&s)[v1]);
 ```
 
 możemy nadpisać sobie jakąś jedną wartość w programie. W tym przypadku będzie to return address.

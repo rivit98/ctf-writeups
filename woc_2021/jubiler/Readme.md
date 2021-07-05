@@ -10,10 +10,10 @@ Interesujący fragment kodu zadania znajduje się w pliku [jewellershop.php](./j
 
 Jeśli w jakiś sposób zmienilibyśmy cenę pierścienia na zero to poniższy warunek nie byłby spełniony i kupilibyśmy pierścień za zero złota:
 ```php
-    if ($player -> credits < $ringPrice)
-    {
-        error(NO_MONEY);
-    }
+if ($player -> credits < $ringPrice)
+{
+    error(NO_MONEY);
+}
 ```
 
 Możemy to zrobić za pomocą funkcji `extract`, która wypakuje nam zmienne z `$_GET` do przestrzeni globalnej.

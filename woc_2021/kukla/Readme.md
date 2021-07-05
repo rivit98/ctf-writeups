@@ -5,10 +5,10 @@
 
 ## Rozwiązanie
 
-Interesujący fragment kodu źródłowego skrzynki znajduje się w pliku [battle.php](./battle.php). W zadaniu chodzi o zgadnięcie losowej liczby i przesłanie jej w zmienneg `fight`.
-Po krótkiej analizie widzimy, że możemy czytać dowolne maile za pośrednictwem tego kawałka kodu:
+Interesujący fragment kodu źródłowego skrzynki znajduje się w pliku [battle.php](./battle.php). W zadaniu chodzi o zgadnięcie losowej liczby i przesłanie jej w zmiennej `fight`.
+Po krótkiej analizie widzimy, że możemy zauważyć, że przed losowaniem liczby jest seedowany generator liczb pseudolosowych:
 ```php
-		srand(hexdec(substr(md5($randomString + substr(time(), 0, 5)), 0, 8)));
+srand(hexdec(substr(md5($randomString + substr(time(), 0, 5)), 0, 8)));
 ```
 a konkretniej:
 ```php
@@ -20,8 +20,8 @@ Generator liczb pseudolosowych jest seedowany połączeniem wartości `$randomSt
 W takim wypadku wystarczy lokalnie sprawdzić jaka wartość zostanie wygenerowana po zeseedowaniu generatora.
 
 ```php
-     srand(hexdec(substr(md5($randomString + substr(time(), 0, 5)), 0, 8)));  
-     $win = rand();
+srand(hexdec(substr(md5($randomString + substr(time(), 0, 5)), 0, 8)));  
+$win = rand();
 ```
 i jest to (na czas pisania tego writeupa): 448119532
 
