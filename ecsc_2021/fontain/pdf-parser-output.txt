@@ -1,0 +1,237 @@
+PDF Comment '%PDF-1.4\n'
+
+PDF Comment '%\xc3\xa4\xc3\xbc\xc3\xb6\xc3\x9f\n'
+
+obj 2 0
+ Type: 
+ Referencing: 3 0 R
+ Contains stream
+
+  <<
+    /Length 3 0 R
+    /Filter /FlateDecode
+  >>
+
+
+obj 3 0
+ Type: 
+ Referencing: 
+
+
+
+obj 5 0
+ Type: 
+ Referencing: 6 0 R
+ Contains stream
+
+  <<
+    /Length 6 0 R
+    /Filter /FlateDecode
+    /Length1 13440
+  >>
+
+
+obj 6 0
+ Type: 
+ Referencing: 
+
+
+
+obj 7 0
+ Type: /FontDescriptor
+ Referencing: 5 0 R
+
+  <<
+    /Type /FontDescriptor
+    /FontName /CAAAAA+CorbelLight
+    /Flags 4
+    /FontBBox [-485 -239 1102 979]
+    /ItalicAngle 0
+    /Ascent 952
+    /Descent -268
+    /CapHeight 978
+    /StemV 80
+    /FontFile2 5 0 R
+  >>
+
+
+obj 8 0
+ Type: 
+ Referencing: 
+ Contains stream
+
+  <<
+    /Length 386
+    /Filter /FlateDecode
+  >>
+
+
+obj 9 0
+ Type: /Font
+ Referencing: 7 0 R, 8 0 R
+
+  <<
+    /Type /Font
+    /Subtype /TrueType
+    /BaseFont /CAAAAA+CorbelLight
+    /FirstChar 0
+    /LastChar 36
+    /Widths '[455 216 506 194 812 483 317 475 212 448 518 386 212 518 222 309\n514 678 327 436 492 423 506 518 240 536 294 332 294 435 514 504\n333 565 518 395 541 ]'
+    /FontDescriptor 7 0 R
+    /ToUnicode 8 0 R
+  >>
+
+
+obj 10 0
+ Type: 
+ Referencing: 11 0 R
+ Contains stream
+
+  <<
+    /Length 11 0 R
+    /Filter /FlateDecode
+    /Length1 16020
+  >>
+
+
+obj 11 0
+ Type: 
+ Referencing: 
+
+
+
+obj 12 0
+ Type: /FontDescriptor
+ Referencing: 10 0 R
+
+  <<
+    /Type /FontDescriptor
+    /FontName /BAAAAA+Corbel
+    /Flags 4
+    /FontBBox [-553 -239 1109 952]
+    /ItalicAngle 0
+    /Ascent 952
+    /Descent -268
+    /CapHeight 951
+    /StemV 80
+    /FontFile2 10 0 R
+  >>
+
+
+obj 13 0
+ Type: 
+ Referencing: 
+ Contains stream
+
+  <<
+    /Length 425
+    /Filter /FlateDecode
+  >>
+
+
+obj 14 0
+ Type: /Font
+ Referencing: 12 0 R, 13 0 R
+
+  <<
+    /Type /Font
+    /Subtype /TrueType
+    /BaseFont /BAAAAA+Corbel
+    /FirstChar 0
+    /LastChar 45
+    /Widths '[462 635 200 347 479 530 497 317 489 438 231 404 532 533 461 334\n231 535 530 527 266 517 263 455 535 264 551 555 604 711 670 828\n245 486 591 589 635 667 332 523 593 536 510 448 300 300 ]'
+    /FontDescriptor 12 0 R
+    /ToUnicode 13 0 R
+  >>
+
+
+obj 15 0
+ Type: 
+ Referencing: 14 0 R, 9 0 R
+
+  <<
+    /F1 14 0 R
+    /F2 9 0 R
+  >>
+
+
+obj 16 0
+ Type: 
+ Referencing: 15 0 R
+
+  <<
+    /Font 15 0 R
+    /ProcSet [/PDF/Text]
+  >>
+
+
+obj 1 0
+ Type: /Page
+ Referencing: 4 0 R, 16 0 R, 2 0 R
+
+  <<
+    /Type /Page
+    /Parent 4 0 R
+    /Resources 16 0 R
+    /MediaBox [0 0 595 842]
+    /Group
+      <<
+        /S /Transparency
+        /CS /DeviceRGB
+        /I true
+      >>
+    /Contents 2 0 R
+  >>
+
+
+obj 4 0
+ Type: /Pages
+ Referencing: 16 0 R, 1 0 R
+
+  <<
+    /Type /Pages
+    /Resources 16 0 R
+    /MediaBox [ 0 0 595 842 ]
+    /Kids [ 1 0 R ]
+    /Count 1
+  >>
+
+
+obj 17 0
+ Type: /Catalog
+ Referencing: 4 0 R, 1 0 R
+
+  <<
+    /Type /Catalog
+    /Pages 4 0 R
+    /OpenAction [1 0 R /XYZ null null 0]
+    /Lang (pl-PL)
+  >>
+
+
+obj 18 0
+ Type: 
+ Referencing: 
+
+  <<
+    /Creator <FEFF005700720069007400650072>
+    /Producer <FEFF004C0069006200720065004F0066006600690063006500200035002E0033>
+    /CreationDate "(D:20210628222147+02'00')"
+  >>
+
+
+xref
+
+trailer
+  <<
+    /Size 19
+    /Root 17 0 R
+    /Info 18 0 R
+    /ID [<321400D89D741586D843DAEA61F379FA><321400D89D741586D843DAEA61F379FA>]
+    /DocChecksum /947A86E886D8F65674681B97D1E21202
+  >>
+
+startxref 20760
+
+PDF Comment '%%EOF\n'
+
