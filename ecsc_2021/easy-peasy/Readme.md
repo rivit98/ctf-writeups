@@ -1,4 +1,4 @@
-# European Cyber Security Challenge Eliminations 2021, easy-peasy, pwn
+# European Cyber Security Challenge Eliminations 2021, easy peasy, pwn
 
 ## Description
 Don't mind me, just testing this cool new programming languge - Zig.
