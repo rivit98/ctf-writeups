@@ -1,7 +1,8 @@
 # CTF tasks
-Collection of CTF tasks that I solved (or at least tried).
-Some tasks have a solution description.
+Collection of CTF tasks solved by me.
+Some tasks have no readme, only solve script.
 
 
-### Current team:
-[we11_d0ne](https://ctftime.org/team/137910)
+#### Current team:
+[justCatTheFish](https://ctftime.org/team/33893)
+
