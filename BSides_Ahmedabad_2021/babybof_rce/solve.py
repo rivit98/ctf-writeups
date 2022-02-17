@@ -9,7 +9,7 @@ if args.GDB:
 		"c"
 	]))
 elif args.REMOTE:
-	p = remote("", )
+	p = remote("localhost", 9001)
 else:
 	p = process(elf.path) 
 

@@ -11,7 +11,7 @@ if args.GDB:
 		"c"
 	]), env=env)
 elif args.REMOTE:
-	p = remote("localhost", 11111)
+	p = remote("localhost", 9002)
 else:
 	p = process(elf.path, env=env) 
 
