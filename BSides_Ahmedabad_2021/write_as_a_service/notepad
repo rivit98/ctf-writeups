@@ -1,0 +1,92 @@
+
+#define _IO_USER_BUF 1 /* User owns buffer; don't delete it on close. */
+#define _IO_UNBUFFERED 2
+#define _IO_NO_READS 4 /* Reading not allowed */
+#define _IO_NO_WRITES 8 /* Writing not allowd */
+#define _IO_EOF_SEEN 0x10
+#define _IO_ERR_SEEN 0x20
+#define _IO_DELETE_DONT_CLOSE 0x40 /* Don't call close(_fileno) on cleanup. */
+#define _IO_LINKED 0x80 /* Set if linked (using _chain) to streambuf::_list_all.*/
+#define _IO_IN_BACKUP 0x100
+#define _IO_LINE_BUF 0x200
+#define _IO_TIED_PUT_GET 0x400 /* Set if put and get pointer logicly tied. */
+#define _IO_CURRENTLY_PUTTING 0x800
+#define _IO_IS_APPENDING 0x1000
+#define _IO_IS_FILEBUF 0x2000
+#define _IO_BAD_SEEN 0x4000
+#define _IO_USER_LOCK 0x8000
+
+
+pwndbg> p _IO_2_1_stdout_
+$6 = {
+  file = {
+    _flags = 0xfbad2887,
+    _IO_read_ptr = 0x7f0a86ed1723 <_IO_2_1_stdout_+131> "",
+    _IO_read_end = 0x7f0a86ed1723 <_IO_2_1_stdout_+131> "",
+    _IO_read_base = 0x7f0a86ed1723 <_IO_2_1_stdout_+131> "",
+    _IO_write_base = 0x7f0a86ed1723 <_IO_2_1_stdout_+131> "",
+    _IO_write_ptr = 0x7f0a86ed1723 <_IO_2_1_stdout_+131> "",
+    _IO_write_end = 0x7f0a86ed1723 <_IO_2_1_stdout_+131> "",
+    _IO_buf_base = 0x7f0a86ed1723 <_IO_2_1_stdout_+131> "",
+    _IO_buf_end = 0x7f0a86ed1724 <_IO_2_1_stdout_+132> "",
+    _IO_save_base = 0x0,
+    _IO_backup_base = 0x0,
+    _IO_save_end = 0x0,
+    _markers = 0x0,
+    _chain = 0x7f0a86ed0980 <_IO_2_1_stdin_>,
+    _fileno = 0x1,
+    _flags2 = 0x0,
+    _old_offset = 0xffffffffffffffff,
+    _cur_column = 0x0,
+    _vtable_offset = 0x0,
+    _shortbuf = "",
+    _lock = 0x7f0a86ed34c0 <_IO_stdfile_1_lock>,
+    _offset = 0xffffffffffffffff,
+    _codecvt = 0x0,
+    _wide_data = 0x7f0a86ed0880 <_IO_wide_data_1>,
+    _freeres_list = 0x0,
+    _freeres_buf = 0x0,
+    __pad5 = 0x0,
+    _mode = 0xffffffff,
+    _unused2 = '\000' <repeats 19 times>
+  },
+  vtable = 0x7f0a86ed24a0 <_IO_file_jumps>
+}
+
+
+pwndbg> p *(struct _IO_FILE_plus *) 0x55fee758d2a0
+$5 = {
+  file = {
+    _flags = 0xfbad2484,
+    _IO_read_ptr = 0x0,
+    _IO_read_end = 0x0,
+    _IO_read_base = 0x0,
+    _IO_write_base = 0x0,
+    _IO_write_ptr = 0x0,
+    _IO_write_end = 0x0,
+    _IO_buf_base = 0x0,
+    _IO_buf_end = 0x0,
+    _IO_save_base = 0x0,
+    _IO_backup_base = 0x0,
+    _IO_save_end = 0x0,
+    _markers = 0x0,
+    _chain = 0x7f0a86ed15c0 <_IO_2_1_stderr_>,
+    _fileno = 0x3,
+    _flags2 = 0x0,
+    _old_offset = 0x0,
+    _cur_column = 0x0,
+    _vtable_offset = 0x0,
+    _shortbuf = "",
+    _lock = 0x55fee758d380,
+    _offset = 0xffffffffffffffff,
+    _codecvt = 0x0,
+    _wide_data = 0x55fee758d390,
+    _freeres_list = 0x0,
+    _freeres_buf = 0x0,
+    __pad5 = 0x0,
+    _mode = 0x0,
+    _unused2 = '\000' <repeats 19 times>
+  },
+  vtable = 0x7f0a86ed24a0 <_IO_file_jumps>
+}
+
