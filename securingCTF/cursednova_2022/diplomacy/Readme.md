@@ -45,22 +45,22 @@ First difference is in the: `adminDiplomacyCreateProcessor` func:
         ));
 ```
 
-[diff](./img/diff.png)
+![diff](./img/diff.png)
 
 So when we create the diplomacy request it gets random id.
 
 Next differences are:
 
-[diff](./img/diff2.png)
+![diff](./img/diff2.png)
 
-[diff](./img/diff3.png)
+![diff](./img/diff3.png)
 
 So looks like we can accept every pact request if we know its ID and once accepted, the flag will be printed as an alliance name.
 
 
 When we try to create an pact, we cannot select the alliance from the dropdown:
 
-[createalliance](./img/createalliance.png)
+![createalliance](./img/createalliance.png)
 
 so instead of UI we can use the API url - `https://uni1.cursednova.securing.pl/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=ALLYID&level=5&text=asd` where `ALLYID` is the id of the alliance with which we want to make a pact and we don't know this... so we can brute force it.
 Next step is accepting all of the pacts, so we can the use following url: `https://uni1.cursednova.securing.pl/game.php?page=alliance&mode=admin&action=diplomacyAccept&id=PACT_REQUEST_ID`, where `PACT_REQUEST_ID` is the id of the request and we can find it by inspecting the HTML source of alliance page.

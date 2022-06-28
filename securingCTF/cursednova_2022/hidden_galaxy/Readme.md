@@ -6,7 +6,7 @@ Are we really alone in time and space? Is it only Nekla? Try to discover hidden 
 ## Solution
 
 Let's inspect the login page with chrome dev tools:
-[devtools](./img/devtools.png)
+![devtools](./img/devtools.png)
 
 As we can see - somebody is hiding something ;) this is a good sign.
 

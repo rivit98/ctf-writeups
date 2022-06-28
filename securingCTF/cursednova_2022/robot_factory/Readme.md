@@ -139,6 +139,6 @@ After trying invocation of `A` function and printing the contents of a `_0x4f99d
 
 First thougt - md5 hashes. Using [crackstation.net](https://crackstation.net) we are able to recover the plaintext:
 
-[crackstation](./img/crackstation.png)
+![crackstation](./img/crackstation.png)
 
 Flag: `CURSEDNOVA{I_am_not_a_robot}`

@@ -8,7 +8,7 @@ Wise man once said "Fortune favours the brave". Can you beat the odds and roll t
 
 Let's visit the chat subpage, we see the option to roll the dice.
 
-[chat](./img/chat.png)
+![chat](./img/chat.png)
 
 After clicking the "Roll dice" option, the message field is filled with the following command `/roll`. Grepping by this we find:
 

@@ -150,7 +150,7 @@ Additional requirement to this trick is - we must perform a fresh login - in oth
 
 Using a burp we can get an XML with chat contents for channel `moon moon`:
 
-[burp](./img/burp.png)
+![burp](./img/burp.png)
 
 The flag is on the highlighted link which is an image.
 

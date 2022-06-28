@@ -26,6 +26,6 @@ Quick look at file named `includes\pages\game\ShowResourcesPage.class.php` and w
 ```
 
 they didn't lie - we have to have exactly 1337 units of metal, so by using the method called "F5" we can easily get the flag (it will be displayed in the header of the table).
-[win](./img/win.png)
+![win](./img/win.png)
 
 Flag: `CURSEDNOVA{Fullmetal_Hacker_oC9Sa7ch}`

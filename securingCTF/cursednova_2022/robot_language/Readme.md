@@ -27,7 +27,7 @@ flag will be displayed on the main page. Next step is checking where and how `$L
 
 so we need to manipulate the `language` cookie. Setting its value to `robot` causes that page is displayed in the "Robot language":
 
-[robot](./img/robot.png)
+![robot](./img/robot.png)
 
 So the extracted text is:
 

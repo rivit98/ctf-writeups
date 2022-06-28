@@ -26,7 +26,7 @@ Quick look at `includes\pages\game\ShowAlliancePage.class.php` diff and we see:
 
 Page is doing some origin ip verification. When we want to create an alliance using normal browser, the page says that this functionality is available only from localhost:
 
-[local](./img/local.png)
+![local](./img/local.png)
 
 Let's use Burp Proxy for this task.
 

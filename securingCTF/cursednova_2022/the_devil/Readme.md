@@ -15,7 +15,7 @@ Report says:
 `FIND THE DEVIL (😈🦴⚱️💀💀💀⚱️🦴😈)`, so substituting the equation solutions to this pattern we get: `102666201`. This is probably the player ID.
 Using this link [player](https://uni1.cursednova.securing.pl/game.php?page=playerCard&id=102666201#) we can see the details of player called `mephistopheles`.
 
-[found](./img/found.png)
+![found](./img/found.png)
 
 
 Flag: `CURSEDNOVA{Math_is_the_answer_ooYae2yu}`

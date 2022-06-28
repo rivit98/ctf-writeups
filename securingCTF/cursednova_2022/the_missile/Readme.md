@@ -96,18 +96,18 @@ If we don't send the god missile we lose the battle. Looking at `` we see:
 
 Creating a god missile is super simple, just replace the ship id in the shipyard form:
 
-[fmenge](./img/fmenge.png)
+![fmenge](./img/fmenge.png)
 
 And click the "Build" button. At the top we see the following message: `Good job! You built a God Missile. Be careful though - it is a volatile ship and will disappear at the end of your session.`, which basically means that we have built our god missile.
 
 Now it is enought to attack the "Planet Hell" with it.
 
-[select_godmissile](./img/select_godmissile.png)
+![select_godmissile](./img/select_godmissile.png)
 
-[fleet_sent](./img/fleet_sent.png)
+![fleet_sent](./img/fleet_sent.png)
 
 After a while, we get the battle report saying that we defeated mephistopheles!
 
-[flag](./img/flag.png)
+![flag](./img/flag.png)
 
 Flag: `CURSEDNOVA{oNLy_9oD_C4N_JUD93_M3_Yudoom9b}`

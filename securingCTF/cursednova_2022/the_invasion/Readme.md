@@ -8,36 +8,36 @@ Invade Planet Rome.
 
 First we need to figure out what are the coordinates of Planet Rome. During browsing the diff file I found this:
 
-[showplayercard](./img/showplayercard.png)
+![showplayercard](./img/showplayercard.png)
 
 Okay, we know both important player names now, but let's continue the research.
 I know that we can lookup the ranking ([statistics](https://uni1.cursednova.securing.pl/game.php?page=statistics)), so maybe there? I couldn't find twardowski and mephistopheles there. It turned out that somebody tuned the SQL query responsible for getting ranking data and filtered out two users mentioned earlier, so no luck here...
 
-[ranking](./img/ranking.png)
+![ranking](./img/ranking.png)
 
 Well, it is possible to click on the user name and it will show the popup with users data:
 
-[details](./img/details.png)
+![details](./img/details.png)
 
 and there is possibility to click on planet coords and after click, we see the Planet Rome and its coords (1,1,2).
 
-[planet_rome](./img/planet_rome.png)
+![planet_rome](./img/planet_rome.png)
 
 
 So now let's attack this planet!
 Unfortunately I don't have any ships to send, so quick google lookup and after building a couple of things on our planet I created 8 Light Fighters (Attack ships). Here is how the sending an attack looks like:
 
-[send_fleet](./img/send_fleet.png)
+![send_fleet](./img/send_fleet.png)
 
-[send_fleet2](./img/send_fleet2.png)
+![send_fleet2](./img/send_fleet2.png)
 
-[send_fleet3](./img/send_fleet3.png)
+![send_fleet3](./img/send_fleet3.png)
 
-[send_fleet_fail](./img/send_fleet_fail.png)
+![send_fleet_fail](./img/send_fleet_fail.png)
 
 Not that simple... We have to analyze the diffs of source code and there is a few of them...
 
-[fleetfiles](./img/fleetfiles.png)
+![fleetfiles](./img/fleetfiles.png)
 
 
 I noticed that there is a token, which is used to store/pass information between fleet views. File `includes\pages\game\ShowFleetStep1Page.class.php`. It is generated every time we visit the "Fleet" page.
@@ -83,12 +83,12 @@ So as we can see - if we don't specify the `f_consumption` GET parameter it is d
 Now all we need to do is to open two browser tabs with "Fleet" page and do the following:
 - tab1: enter the planet coords, specify number of ships (1), select mission type (Attack)
 - use dev tools to get the form token (it is simply the hidden input field in the form, so we can extract it easily)
-- tab2: open dev tools, replace form token with extracted from tab1, change the value of `f_consumption` field to `1` (field is already there, it is hidden, similar to the token field), specify the planet coords and click continue, we should see the following message which means that we failed on condition in `ShowFleetTablePage` file but the amount of needed fuel was set in the session: [fleetfiles](./img/fleetfiles.png)
+- tab2: open dev tools, replace form token with extracted from tab1, change the value of `f_consumption` field to `1` (field is already there, it is hidden, similar to the token field), specify the planet coords and click continue, we should see the following message which means that we failed on condition in `ShowFleetTablePage` file but the amount of needed fuel was set in the session: ![fleetfiles](./img/fleetfiles.png)
 - tab1: click continue
 
 After a while, we got the private message, which is a combat report. After clicking on it we see the following message:
 
-[report](./img/report.png)
+![report](./img/report.png)
 
 Emoticon equation looks kinda broken, let's inspect the html source and check what is hidding here:
 
