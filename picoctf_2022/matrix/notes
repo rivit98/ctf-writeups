@@ -1,0 +1,45 @@
+player starts at (1,1, 0)  (x,y,health)
+
+u (0, -1)
+d (0, +1)
+l (-1, 0)
+r (1, 0)
+
+
+0xcc: 
+in:  [] [a,b,c]
+out: [c, b] [a, 0xda, b, 0x10, 0x147]
+
+
+0x147:
+in: [c, b] [a, 0xda, b, 0x10]
+out: [c, b] [a, b*0x10]
+
+
+0xdb: 
+in: [c, b] [a, b*0x10]
+out: [a, b, c, 0xef, a + 0x10 * b, 0x2]
+
+
+0x162:
+in: [a, b, c, 0xef, a + 0x10 * b, 0x2]
+out: [a, b, c, 4 * (a + 0x10 * b)]
+
+
+0x57f:
+inc c
+
+
+final addr = 0x174 + 4 * (a + 0x10 * b)
+final addr = 0x174 + 4 * (6 + 0x10 * 2)
+
+
+0x574:
+if c == 0: exit
+dec c 
+
+
+0x56c: PUSH3 win (1413)
+0x56f: RET
+
+
