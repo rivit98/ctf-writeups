@@ -1,0 +1,12 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+<h1>User panel</h1>
+<p>Authenticated: {{ user }}</p>
+{% if user == "admin" %}
+<p>Flag: {{ flag }}</p>
+{% else %}
+<p>Flag is only shown to admins.</p>
+{% endif %}
+{% endblock %}
+
