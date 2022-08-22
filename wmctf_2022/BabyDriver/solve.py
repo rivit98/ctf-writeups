@@ -1,0 +1,51 @@
+after_transformation = [
+  0x40, 0xEE, 0x38, 0xAF, 0xDF, 0xC4, 0x51, 0xF5, 
+  0x49, 0x0F, 0x32, 0x8A, 0xE7, 0x5A, 0xD7, 0x10, 
+  0x65, 0xCF, 0xE7, 0xEB, 0x2B, 0xA3, 0xDC, 0x5F, 
+  0x01, 0xBD, 0xE9, 0x3F, 0xA9, 0xA8, 0x50, 0x7A
+]
+
+target = [
+  0xEF, 0x76, 0xD5, 0x41, 0x86, 0x57, 0x5A, 0x8E, 
+  0xC2, 0xB8, 0xB6, 0xEE, 0x08, 0x56, 0xB9, 0xB8, 
+  0x0E, 0x40, 0x75, 0x21, 0x41, 0x4B, 0x15, 0x71, 
+  0x2C, 0x9B, 0x5E, 0x64, 0x35, 0x5B, 0x4A, 0x58
+];
+
+
+def xor(plain):
+	return list(map(lambda v: v[0] ^ v[1], zip(list(plain), range(len(plain)))))
+
+import base64
+import hashlib
+from Crypto import Random
+from Crypto.Cipher import AES
+
+class AESCipher(object):
+
+    def __init__(self, key): 
+        self.key = key
+
+    def encrypt(self, plain):
+    	cipher = AES.new(self.key, AES.MODE_ECB)
+    	return cipher.encrypt(plain)
+
+    def decrypt(self, enc):
+        cipher = AES.new(self.key, AES.MODE_ECB)
+        return cipher.decrypt(enc)
+
+
+cipher = AESCipher(b"Welcome_To_WMCTF")
+
+print(xor(after_transformation))
+enc = xor(cipher.encrypt(bytes(xor(b'A' * 0x20))))
+print(enc)
+print(list(cipher.decrypt(bytes(enc))))
+
+print('----')
+dec = cipher.decrypt(bytes(target))
+print(''.join(map(chr, dec)))
+flag1 = xor(dec)
+print(flag1)
+print(''.join(map(chr, flag1)))
+
