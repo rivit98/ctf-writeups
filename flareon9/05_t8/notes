@@ -1,0 +1,23 @@
+sets host to: flare-on.com
+method = POST
+
+calculates md5 from str utf16-le: FO911950
+and stores it in this obh
+
+
+first call to net_communicate has:
+std::wstring("ahoy")
+
+
+gen_code ended
+0EEh
+
+
+split_by_comma first:  i_s33_you_m00n
+then concat with @
+then with flare-on.com
+
+i_s33_you_m00n@flare-on.com
+
+
+puts shellcode on stack "You're a machine!!!" and calls FatalAppExitA

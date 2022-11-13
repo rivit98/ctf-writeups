@@ -1,0 +1,3 @@
+type: "gimme flag pls"
+do the following sequence of moves: LLURULDUL
+get the flag: U_cRackeD_th1$_maG1cBaLL_!!_@flare-on.com
