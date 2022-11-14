@@ -1,0 +1,86 @@
+Logging breakpoints for dnSpy:
+
+$FUNCTION {methodBase.Name + " " + methodBase.MetadataToken + " " + BitConverter.ToString(methodBase.GetMethodBody().GetILAsByteArray()).Replace("-","")}
+
+
+flare_67
+$FUNCTION {"call_method: " + tk + " bytecode: " + BitConverter.ToString(b).Replace("-","") + "with_args: " + System.Linq.Enumerable.Select(o, v => v == null ? "null" : v.ToString())}
+
+$FUNCTION {"after_call_method: " + $"{tk:X}" + " bytecode: " + BitConverter.ToString(b).Replace("-","") + " [" + (o != null && o.Length > 0 ? o[0] : "") + "," + (o != null && o.Length > 1 ? o[1] : "") + "," + (o != null && o.Length > 2 ? o[2] : "") + "] ret:" + result}
+
+
+flared_70/flare_70 - call method (from additional section) with parameters (exception, args)
+   flared_66 - calculating hash from metadatatoken
+   flared_69/flare_69 - extracts bytecode from file based on hash calculated in flared_66
+      flared_35/flare_37 - parse PE
+   flared_47/flare_46 - decode
+   flared_67 - (Byte[] b, Int32 tk, Object[] o) b - bytecode, tk - metadatatoken for MethodDef, o = args  | call bytecode directly
+      flare_68/flared_68 - multiple times - byte to int
+
+
+public static byte[] flared_47(byte[] p, byte[] d) // d comes from flared_69, is `p` constant? RC4?
+{
+	int[] array = (int[])(object)new FLARE01[256];
+	int[] array2 = (int[])(object)new FLARE02[256];
+	byte[] array3 = (byte[])(object)new FLARE02.<>c[d.Length];
+	int i;
+	for (i = 0; i < 256; i++)
+	{
+		array[i] = p[i % p.Length];
+		array2[i] = i;
+	}
+	int num = (i = 0);
+	for (; i < 256; i++)
+	{
+		num = (num + array2[i] + array[i]) % 256;
+		int num2 = array2[i];
+		array2[i] = array2[num];
+		array2[num] = num2;
+	}
+	int num3 = (num = (i = 0));
+	for (; i < d.Length; i++)
+	{
+		num3++;
+		num3 %= 256;
+		num += array2[num3];
+		num %= 256;
+		int num2 = array2[num3];
+		array2[num3] = array2[num];
+		array2[num] = num2;
+		int num4 = array2[(array2[num3] + array2[num]) % 256];
+		array3[i] = (byte)(d[i] ^ num4);
+	}
+	return array3;
+}
+
+public static int flared_68(byte[] b, int o) //bytes to int
+{
+	int num = 0;
+	num = b[o + 3] * 16777216;
+	num += b[o + 2] * 65536;
+	num += b[o + 1] * 256;
+	return num + b[o];
+}
+
+public static uint flared_46(long n) // resolve symbol (from bytecode)
+{
+	return (uint)(int)FLARE01.flare_01((byte[])n); //mt19937 get number?
+}
+
+
+* flare67 - call raw bytecode
+* flare70 - call func using (exception, args) (resolves function bytes first, then calls flare67)
+* flare71 - call func directly
+* methods are appended at the end of the file
+
+wl_m   at FlareOn.Backdoor.FLARE15.flare_70(InvalidProgramException e, Object[] a)  string[] args
+gh_m   at FlareOn.Backdoor.FLARE15.flare_66(Int32 t) 0x06000068
+gs_m   at FlareOn.Backdoor.FLARE15.flare_69(String h) "ffc58f783ea75c62c4afa6527e902ce857152317cf4dbcbe5947e4dd23705f4e"
+pe_m   at FlareOn.Backdoor.FLARE09.flare_37(String f) @"D:\flareon9\08_backdoor\FlareOn.Backdoor.exe" 
+d_m    at FlareOn.Backdoor.FLARE12.flare_46(Byte[] p, Byte[] d)
+cl_m   at FlareOn.Backdoor.FLARE15.flare_67(Byte[] b, Int32 tk, Object[] o)  b1 0x06000068
+rt_m   at FlareOn.Backdoor.FLARE15.flare_68(Byte[] b, Int32 o)   b=b1?  0x00000003
+
+
+ehgexpo9n1b.flare-on.com DNS query
+in1t.flare-on.com second backdoor stage?
