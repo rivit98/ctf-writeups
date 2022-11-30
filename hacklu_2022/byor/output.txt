@@ -1,0 +1,202 @@
+[*] Searching indirect call in graph nodes...
+ 0. sub_86d80@0x86d80
+    0x86e12: call(rbp)
+      RIP/RDI DATAFLOW:
+       r13 = [rdi].q -> rbp = [r13 + 0x28].q -> call(rbp)
+      RBP DATAFLOW:
+       r13 = [rdi].q -> rbp = [r13 + 0x28].q
+      CODE PATH:
+       r13 = [rdi].q
+       cond:0 = [r13].q == 0
+        => [condition] cond:0
+ 1. _IO_wdoallocbuf@0x83bf0
+    0x83c1b: call([rax + 0x68].q)
+      RIP/RDI DATAFLOW:
+       rax = [rdi + 0xa0].q -> rax = [rax + 0xe0].q -> call([rax + 0x68].q)
+      RBP DATAFLOW:
+       (N/A)
+      CODE PATH:
+       rax = [rdi + 0xa0].q
+        => [condition] [rax + 0x30].q == 0
+        => [condition] ([rdi].b & 2) == 0
+ 2. sub_86c80@0x86c80
+    0x86d13: call(rbp)
+      RIP/RDI DATAFLOW:
+       r13 = [rdi + 0x38].q -> rbp = [r13 + 0x28].q -> call(rbp)
+      RBP DATAFLOW:
+       r13 = [rdi + 0x38].q -> rbp = [r13 + 0x28].q
+      CODE PATH:
+       r13 = [rdi + 0x38].q
+       cond:0 = [r13].q == 0
+        => [condition] cond:0
+ 3. _IO_switch_to_wget_mode@0x83d30
+    0x83d55: call([rax + 0x18].q)
+      RIP/RDI DATAFLOW:
+       rax = [rdi + 0xa0].q -> rax = [rax + 0xe0].q -> call([rax + 0x18].q)
+      RBP DATAFLOW:
+       (N/A)
+      CODE PATH:
+       rax = [rdi + 0xa0].q
+       rdx = [rax + 0x20].q
+        => [condition] rdx u> [rax + 0x18].q
+[*] Done. 4 unprotected indirect call(s) found.
+[*] Generating call chain...
+ 0. _IO_wfile_underflow@0x85050 -> sub_86d80@0x86d80
+    0x8552c: call(0x86d80)
+      RIP/RDI DATAFLOW:
+       r14 = [rdi + 0x98].q -> rdi = r14 -> call(0x86d80)
+      RBP DATAFLOW:
+       (N/A)
+      CODE PATH:
+       eax = [rdi].d
+        => [condition] (al & 0x10) == 0
+        => [condition] (al & 4) == 0
+       rax = [rdi + 0xa0].q
+       rdx = [rax].q
+        => [condition] rdx u>= [rax + 8].q
+       rdx = [rdi + 8].q
+       rcx = [rdi + 0x10].q
+        => [condition] rdx u< rcx
+    0x86e12: call(rbp)
+      RIP/RDI DATAFLOW:
+       r13 = [rdi].q -> rbp = [r13 + 0x28].q -> call(rbp)
+      RBP DATAFLOW:
+       r13 = [rdi].q -> rbp = [r13 + 0x28].q
+      CODE PATH:
+       r13 = [rdi].q
+       cond:0 = [r13].q == 0
+        => [condition] cond:0
+ 1. _IO_wfile_underflow@0x85050 -> _IO_wdoallocbuf@0x83bf0
+    0x855b7: call(0x83bf0)
+      RIP/RDI DATAFLOW:
+       rbx = rdi -> rdi = rbx -> call(0x83bf0)
+      RBP DATAFLOW:
+       (N/A)
+      CODE PATH:
+       eax = [rdi].d
+        => [condition] (al & 0x10) == 0
+       rbx = rdi
+        => [condition] (al & 4) == 0
+       rax = [rdi + 0xa0].q
+       rdx = [rax].q
+        => [condition] rdx u>= [rax + 8].q
+       rdx = [rdi + 8].q
+       rcx = [rdi + 0x10].q
+        => [condition] rdx u>= rcx
+        => [condition] rax != 0
+       rax = [rbx + 0xa0].q
+        => [condition] [rax + 0x30].q == 0
+       rdi = [rax + 0x40].q
+        => [condition] rdi == 0
+    0x83c1b: call([rax + 0x68].q)
+      RIP/RDI DATAFLOW:
+       rax = [rdi + 0xa0].q -> rax = [rax + 0xe0].q -> call([rax + 0x68].q)
+      RBP DATAFLOW:
+       (N/A)
+      CODE PATH:
+       rax = [rdi + 0xa0].q
+        => [condition] [rax + 0x30].q == 0
+        => [condition] ([rdi].b & 2) == 0
+  ([0x2160e0] is the location of _IO_wfile_underflow in __libc_IO_vtables)
+ 2. sub_860b0@0x860b0 -> sub_86d80@0x86d80
+    0x86136: call(0x86d80)
+      RIP/RDI DATAFLOW:
+       rbp = [rdi + 0x98].q -> rdi = rbp -> call(0x86d80)
+      RBP DATAFLOW:
+       rbp = [rdi + 0x98].q
+      CODE PATH:
+       eax = [rdi].d
+        => [condition] (al & 4) == 0
+       rax = [rdi + 0xa0].q
+       rdx = [rax].q
+        => [condition] rdx u>= [rax + 8].q
+       rdx = [rdi + 8].q
+        => [condition] rdx u< [rdi + 0x10].q
+    0x86e12: call(rbp)
+      RIP/RDI DATAFLOW:
+       r13 = [rdi].q -> rbp = [r13 + 0x28].q -> call(rbp)
+      RBP DATAFLOW:
+       r13 = [rdi].q -> rbp = [r13 + 0x28].q
+      CODE PATH:
+       r13 = [rdi].q
+       cond:0 = [r13].q == 0
+        => [condition] cond:0
+ 3. sub_860b0@0x860b0 -> _IO_wdoallocbuf@0x83bf0
+    0x861cd: call(0x83bf0)
+      RIP/RDI DATAFLOW:
+       rbx = rdi -> rdi = rbx -> call(0x83bf0)
+      RBP DATAFLOW:
+       rbp = [rdi + 0x98].q
+      CODE PATH:
+       eax = [rdi].d
+        => [condition] (al & 4) == 0
+       rax = [rdi + 0xa0].q
+       rdx = [rax].q
+        => [condition] rdx u>= [rax + 8].q
+       rdx = [rdi + 8].q
+        => [condition] rdx u< [rdi + 0x10].q
+       rdi = [rax + 0x40].q
+        => [condition] rdi == 0
+    0x83c1b: call([rax + 0x68].q)
+      RIP/RDI DATAFLOW:
+       rax = [rdi + 0xa0].q -> rax = [rax + 0xe0].q -> call([rax + 0x68].q)
+      RBP DATAFLOW:
+       (N/A)
+      CODE PATH:
+       rax = [rdi + 0xa0].q
+        => [condition] [rax + 0x30].q == 0
+        => [condition] ([rdi].b & 2) == 0
+  ([0x216020] is the location of sub_860b0 in __libc_IO_vtables)
+ 4. _IO_wfile_overflow@0x86410 -> _IO_wdoallocbuf@0x83bf0
+    0x86670: call(0x83bf0)
+      RIP/RDI DATAFLOW:
+       call(0x83bf0)
+      RBP DATAFLOW:
+       rbp = rdi
+      CODE PATH:
+       eax = [rdi].d
+        => [condition] (al & 8) == 0
+        => [condition] (ah & 8) == 0
+       rdx = [rdi + 0xa0].q
+        => [condition] [rdx + 0x18].q == 0
+    0x83c1b: call([rax + 0x68].q)
+      RIP/RDI DATAFLOW:
+       rax = [rdi + 0xa0].q -> rax = [rax + 0xe0].q -> call([rax + 0x68].q)
+      RBP DATAFLOW:
+       (N/A)
+      CODE PATH:
+       rax = [rdi + 0xa0].q
+        => [condition] [rax + 0x30].q == 0
+        => [condition] ([rdi].b & 2) == 0
+  ([0x215f58, 0x216018, 0x2160d8] is the location of _IO_wfile_overflow in __libc_IO_vtables)
+ 5. _IO_wdefault_xsgetn@0x840b0 -> _IO_switch_to_wget_mode@0x83d30
+    0x8423e: call(0x83d30)
+      RIP/RDI DATAFLOW:
+       r15 = rdi -> rdi = r15 -> call(0x83d30)
+      RBP DATAFLOW:
+       (N/A)
+      CODE PATH:
+       r15 = rdi
+       rdi = [r15 + 0xa0].q
+       rsi = [rdi].q
+       rax = [rdi + 8].q
+       rax = rax - rsi
+        => [condition] rax s<= 0
+        => [condition] rbx != 0
+       edx = [r15 + 0xc0].d
+       temp0.d = edx
+       cond:0 = temp0.d == 0
+        => [condition] temp0.d s>= 0
+        => [condition] not(cond:0)
+    0x83d55: call([rax + 0x18].q)
+      RIP/RDI DATAFLOW:
+       rax = [rdi + 0xa0].q -> rax = [rax + 0xe0].q -> call([rax + 0x18].q)
+      RBP DATAFLOW:
+       (N/A)
+      CODE PATH:
+       rax = [rdi + 0xa0].q
+       rdx = [rax + 0x20].q
+        => [condition] rdx u> [rax + 0x18].q
+  ([0x215b00, 0x215e00, 0x215ec0, 0x2161c0] is the location of _IO_wdefault_xsgetn in __libc_IO_vtables)
+[*] Done. 6 exploitable call chain(s) found.
+
