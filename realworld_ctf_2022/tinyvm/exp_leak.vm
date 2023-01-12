@@ -1,0 +1,15 @@
+# move sp to start of libc
+add esp, 0x3e03ff0
+mov ebp, esp
+
+mov ecx, 0x250000
+mov esi, 0
+
+loop:
+	pop eax
+	prn eax
+
+	inc esi
+	cmp esi, ecx
+
+	jl loop
