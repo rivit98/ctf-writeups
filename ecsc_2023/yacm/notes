@@ -1,0 +1,65 @@
+
+packed with vercel pkg
+patch yacm to dump brotli decompressed javascript
+
+
+<Buffer 1b 0a 24 40 8c c2 71 ef d5 b6 88 38 34 af d1 e0 bc 54 e7 db 2d 40 00 6d 4c 52 7e b6 bb c1 fb 10 65 4a 85 7c ff ff 2f 53 4b e3 d2 85 57 3c c6 bf cc dc ... 691 more bytes>
+pkg/prelude/bootstrap.js:1095
+
+dumped bf.js
+brainfuck to C
+decompiled C
+
+
+decode flag
+
+v509 = 101LL; //e 
+v510 = 99LL; // c
+v511 = 115LL; //s
+v512 = 99LL;   // c
+v513 = 50LL; // 2
+v514 = 51LL; // 3
+v515 = 123LL;
+v516 = 101LL;
+v517 = 99LL;
+v518 = 53LL;
+v519 = 50LL;
+v520 = 53LL;
+v521 = 50LL;
+v522 = 97LL;
+v523 = 52LL;
+v524 = 101LL;
+v525 = 54LL;
+v526 = 55LL;
+v527 = 100LL;
+v528 = 52LL;
+v530 = 0;
+v529 = 54;
+v531 = 48LL;
+v532 = 57LL;
+v533 = 57LL;
+v534 = 100LL;
+v535 = 49LL;
+v536 = 54LL;
+v537 = 53LL;
+v538 = 50LL;
+v539 = 100LL;
+v540 = 53LL;
+v541 = 57LL;
+v542 = 100LL;
+v543 = 99LL;
+v544 = 102LL;
+v545 = 98LL;
+v546 = 100LL;
+v547 = 101LL;
+v548 = 98LL;
+v549 = 125LL;
+v550 = 110LL;
+v551 = 111LL;
+v552 = 116LL;
+v553 = 32LL;
+v554 = 111LL;
+v555 = 107LL;
+v556 = 10;
+v557 = 111LL;
+v558 = 107LL;

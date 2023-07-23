@@ -1,0 +1,1 @@
+console.log(brotliDecompressSync(target).toString('hex'))

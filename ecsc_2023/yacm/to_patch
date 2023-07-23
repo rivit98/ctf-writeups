@@ -1,0 +1,2 @@
+    const target1 = brotliDecompressSync(target);
+    return target1;
