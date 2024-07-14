@@ -1,0 +1,1199 @@
+[clambc] Bytecode loaded
+found 25 extra types of 89 total, starting at tid 69
+TID  KIND                INTERNAL
+------------------------------------------------------------------------
+ 65: DPointerType        i8*
+ 66: DPointerType        i16*
+ 67: DPointerType        i32*
+ 68: DPointerType        i64*
+ 69: DArrayType          [1 x i8]
+ 70: DArrayType          [2 x i8]
+ 71: DArrayType          [3 x i8]
+ 72: DArrayType          [4 x i8]
+ 73: DArrayType          [5 x i8]
+ 74: DArrayType          [6 x i8]
+ 75: DArrayType          [7 x i8]
+ 76: DPointerType        [32 x i8]*
+ 77: DPointerType        [396 x i8]*
+ 78: DPointerType        [16 x i8]*
+ 79: DPointerType        i8**
+ 80: DArrayType          [1024 x i8]
+ 81: DPointerType        [1024 x i8]*
+ 82: DFunctionType       i32 func ( i32 i32 )
+ 83: DFunctionType       i32 func ( i32 i32 )
+ 84: DFunctionType       i0 func ( i0 i0 i0 i0 )
+ 85: DFunctionType       i0 func ( i0 i0 i0 i0 )
+ 86: DArrayType          [16 x i8]
+ 87: DArrayType          [396 x i8]
+ 88: DArrayType          [32 x i8]
+------------------------------------------------------------------------
+########################################################################
+####################### Function id   0 ################################
+########################################################################
+found a total of 13 globals
+GID  ID    VALUE
+------------------------------------------------------------------------
+  0 [  0]: i0 unknown
+  1 [  1]: [32 x i8] unknown
+  2 [  2]: [396 x i8] unknown
+  3 [  3]: [16 x i8] unknown
+  4 [  4]: [16 x i8] unknown
+  5 [  5]: i8* unknown
+  6 [  6]: i8* unknown
+  7 [  7]: i8* unknown
+  8 [  8]: i8* unknown
+  9 [  9]: i8* unknown
+ 10 [ 10]: i8* unknown
+ 11 [ 11]: i8* unknown
+ 12 [ 12]: i8* unknown
+------------------------------------------------------------------------
+found 30 values with 0 arguments and 30 locals
+VID  ID    VALUE
+------------------------------------------------------------------------
+  0 [0]: alloc i64
+  1 [1]: alloc i64
+  2 [2]: alloc i8*
+  3 [3]: alloc [1024 x i8]
+  4 [4]: i8*
+  5 [5]: i32
+  6 [6]: i1
+  7 [7]: i32
+  8 [8]: i32
+  9 [9]: i32
+ 10 [10]: i32
+ 11 [11]: i1
+ 12 [12]: i64
+ 13 [13]: i64
+ 14 [14]: i64
+ 15 [15]: i32
+ 16 [16]: i8*
+ 17 [17]: i8*
+ 18 [18]: i8
+ 19 [19]: i64
+ 20 [20]: i64
+ 21 [21]: i32
+ 22 [22]: i8*
+ 23 [23]: i8*
+ 24 [24]: i8
+ 25 [25]: i1
+ 26 [26]: i64
+ 27 [27]: i32
+ 28 [28]: i64
+ 29 [29]: i32
+------------------------------------------------------------------------
+found a total of 23 constants
+CID  ID    VALUE
+------------------------------------------------------------------------
+mem[30]=0x0;
+mem[31]=0x0;
+mem[32]=0x2;
+mem[33]=0x0;
+mem[34]=0x400;
+mem[35]=0x18c;
+mem[36]=0xf;
+mem[37]=0x1;
+mem[38]=0x0;
+mem[39]=0x0;
+mem[40]=0x18c;
+mem[41]=0x18c;
+mem[42]=0x0;
+mem[43]=0x18c;
+mem[44]=0x20;
+mem[45]=0x20;
+mem[46]=0x20;
+mem[47]=0x20;
+mem[48]=0x0;
+mem[49]=0x1;
+mem[50]=0x0;
+mem[51]=0xf;
+mem[52]=0x1;
+------------------------------------------------------------------------
+found a total of 53 total values
+------------------------------------------------------------------------
+FUNCTION ID: F.0 -> NUMINSTS 40
+BB   IDX  OPCODE              [ID /IID/MOD]  INST
+------------------------------------------------------------------------
+  0    0  OP_BC_GEPZ          [36 /184/  4]  4 = gepz p.3 + (30)
+  0    1  OP_BC_CALL_API      [33 /168/  3]  5 = seek[3] (31, 32)
+  0    2  OP_BC_MEMSET        [40 /200/  0]  0 = memset (p.4, 33, 34)
+  0    3  OP_BC_ICMP_EQ       [21 /108/  3]  mem[6] = (mem[5] == mem[35])
+  0    4  OP_BC_BRANCH        [17 / 85/  0]  if mem[6] ? goto bb.2 : goto bb.1
+bb.1
+  1    5  OP_BC_CALL_API      [33 /168/  3]  7 = setvirusname[4] (p.-2147483636, 36)
+  1    6  OP_BC_COPY          [34 /174/  4]  mem[0] = mem[37]
+  1    7  OP_BC_JMP           [18 / 90/  0]  goto bb.6
+bb.2
+  2    8  OP_BC_CALL_API      [33 /168/  3]  8 = seek[3] (38, 39)
+  2    9  OP_BC_CALL_API      [33 /168/  3]  9 = read[1] (p.4, 40)
+  2   10  OP_BC_CALL_DIRECT   [32 /163/  3]  10 = call F.1 (4, 41)
+  2   11  OP_BC_COPY          [34 /174/  4]  mem[1] = mem[42]
+  2   12  OP_BC_JMP           [18 / 90/  0]  goto bb.4
+bb.3
+  3   13  OP_BC_ICMP_ULT      [25 /129/  4]  mem[11] = (mem[26] < mem[43])
+  3   14  OP_BC_COPY          [34 /174/  4]  mem[1] = mem[26]
+  3   15  OP_BC_BRANCH        [17 / 85/  0]  if mem[11] ? goto bb.4 : goto bb.5
+bb.4
+  4   16  OP_BC_COPY          [34 /174/  4]  mem[12] = mem[1]
+  4   17  OP_BC_SHL           [8  / 44/  4]  mem[13] = mem[12] << mem[44]
+  4   18  OP_BC_ASHR          [10 / 54/  4]  mem[14] = mem[13] >> mem[45]
+  4   19  OP_BC_TRUNC         [14 / 73/  3]  mem[15] = mem[14] & 0xffffffffffffffff
+  4   20  OP_BC_COPY          [34 /174/  4]  global[2] = mem[8]
+  4   21  OP_BC_COPY          [34 /174/  4]  mem[16] = mem[2]
+  4   22  OP_BC_GEP1          [35 /179/  4]  mem[17] = mem[16] + (mem[15] * mem[65])
+  4   23  OP_BC_LOAD          [39 /196/  1]  mem[18] = mem[mem[17]]
+  4   24  OP_BC_SHL           [8  / 44/  4]  mem[19] = mem[12] << mem[46]
+  4   25  OP_BC_ASHR          [10 / 54/  4]  mem[20] = mem[19] >> mem[47]
+  4   26  OP_BC_TRUNC         [14 / 73/  3]  mem[21] = mem[20] & 0xffffffffffffffff
+  4   27  OP_BC_GEPZ          [36 /184/  4]  22 = gepz p.3 + (48)
+  4   28  OP_BC_GEP1          [35 /179/  4]  mem[23] = mem[22] + (mem[21] * mem[65])
+  4   29  OP_BC_LOAD          [39 /196/  1]  mem[24] = mem[mem[23]]
+  4   30  OP_BC_ICMP_EQ       [21 /106/  1]  mem[25] = (mem[18] == mem[24])
+  4   31  OP_BC_ADD           [1  /  9/  0]  mem[26] = mem[12] + mem[49]
+  4   32  OP_BC_COPY          [34 /174/  4]  mem[0] = mem[50]
+  4   33  OP_BC_BRANCH        [17 / 85/  0]  if mem[25] ? goto bb.3 : goto bb.6
+bb.5
+  5   34  OP_BC_CALL_API      [33 /168/  3]  27 = setvirusname[4] (p.-2147483638, 51)
+  5   35  OP_BC_COPY          [34 /174/  4]  mem[0] = mem[52]
+  5   36  OP_BC_JMP           [18 / 90/  0]  goto bb.6
+bb.6
+  6   37  OP_BC_COPY          [34 /174/  4]  mem[28] = mem[0]
+  6   38  OP_BC_TRUNC         [14 / 73/  3]  mem[29] = mem[28] & 0xffffffffffffffff
+  6   39  OP_BC_RET           [19 / 98/  3]  ret 29
+------------------------------------------------------------------------
+########################################################################
+####################### Function id   1 ################################
+########################################################################
+found a total of 13 globals
+GID  ID    VALUE
+------------------------------------------------------------------------
+  0 [  0]: i0 unknown
+  1 [  1]: [32 x i8] unknown
+  2 [  2]: [396 x i8] unknown
+  3 [  3]: [16 x i8] unknown
+  4 [  4]: [16 x i8] unknown
+  5 [  5]: i8* unknown
+  6 [  6]: i8* unknown
+  7 [  7]: i8* unknown
+  8 [  8]: i8* unknown
+  9 [  9]: i8* unknown
+ 10 [ 10]: i8* unknown
+ 11 [ 11]: i8* unknown
+ 12 [ 12]: i8* unknown
+------------------------------------------------------------------------
+found 303 values with 2 arguments and 301 locals
+VID  ID    VALUE
+------------------------------------------------------------------------
+  0 [0]: i8* argument
+  1 [1]: i32 argument
+  2 [2]: alloc i64
+  3 [3]: alloc i64
+  4 [4]: alloc i64
+  5 [5]: alloc i64
+  6 [6]: alloc i64
+  7 [7]: alloc i64
+  8 [8]: alloc i64
+  9 [9]: alloc i64
+ 10 [10]: alloc i64
+ 11 [11]: alloc i64
+ 12 [12]: alloc i8*
+ 13 [13]: alloc i8*
+ 14 [14]: alloc i8*
+ 15 [15]: alloc i8*
+ 16 [16]: alloc i8*
+ 17 [17]: alloc i8*
+ 18 [18]: alloc i8*
+ 19 [19]: i8
+ 20 [20]: i8
+ 21 [21]: i1
+ 22 [22]: i64
+ 23 [23]: i64
+ 24 [24]: i8
+ 25 [25]: i64
+ 26 [26]: i64
+ 27 [27]: i32
+ 28 [28]: i8*
+ 29 [29]: i8
+ 30 [30]: i1
+ 31 [31]: i64
+ 32 [32]: i64
+ 33 [33]: i64
+ 34 [34]: i64
+ 35 [35]: i32
+ 36 [36]: i8
+ 37 [37]: i64
+ 38 [38]: i64
+ 39 [39]: i64
+ 40 [40]: i1
+ 41 [41]: i64
+ 42 [42]: i64
+ 43 [43]: i1
+ 44 [44]: i64
+ 45 [45]: i1
+ 46 [46]: i1
+ 47 [47]: i1
+ 48 [48]: i1
+ 49 [49]: i1
+ 50 [50]: i64
+ 51 [51]: i64
+ 52 [52]: i1
+ 53 [53]: i64
+ 54 [54]: i64
+ 55 [55]: i1
+ 56 [56]: i1
+ 57 [57]: i1
+ 58 [58]: i1
+ 59 [59]: i64
+ 60 [60]: i64
+ 61 [61]: i1
+ 62 [62]: i64
+ 63 [63]: i64
+ 64 [64]: i1
+ 65 [65]: i64
+ 66 [66]: i64
+ 67 [67]: i1
+ 68 [68]: i1
+ 69 [69]: i64
+ 70 [70]: i64
+ 71 [71]: i1
+ 72 [72]: i64
+ 73 [73]: i64
+ 74 [74]: i1
+ 75 [75]: i64
+ 76 [76]: i64
+ 77 [77]: i1
+ 78 [78]: i64
+ 79 [79]: i64
+ 80 [80]: i1
+ 81 [81]: i1
+ 82 [82]: i1
+ 83 [83]: i1
+ 84 [84]: i64
+ 85 [85]: i64
+ 86 [86]: i1
+ 87 [87]: i64
+ 88 [88]: i64
+ 89 [89]: i1
+ 90 [90]: i64
+ 91 [91]: i64
+ 92 [92]: i32
+ 93 [93]: i1
+ 94 [94]: i8
+ 95 [95]: i8
+ 96 [96]: i8
+ 97 [97]: i64
+ 98 [98]: i64
+ 99 [99]: i8
+100 [100]: i8
+101 [101]: i8
+102 [102]: i64
+103 [103]: i32
+104 [104]: i64
+105 [105]: i64
+106 [106]: i64
+107 [107]: i1
+108 [108]: i8
+109 [109]: i8
+110 [110]: i8
+111 [111]: i64
+112 [112]: i64
+113 [113]: i8
+114 [114]: i8
+115 [115]: i8
+116 [116]: i64
+117 [117]: i64
+118 [118]: i32
+119 [119]: i8*
+120 [120]: i8*
+121 [121]: i8
+122 [122]: i8
+123 [123]: i64
+124 [124]: i64
+125 [125]: i32
+126 [126]: i8*
+127 [127]: i8*
+128 [128]: i8
+129 [129]: i8
+130 [130]: i64
+131 [131]: i64
+132 [132]: i32
+133 [133]: i8*
+134 [134]: i8*
+135 [135]: i8
+136 [136]: i8
+137 [137]: i64
+138 [138]: i64
+139 [139]: i8
+140 [140]: i64
+141 [141]: i64
+142 [142]: i8
+143 [143]: i64
+144 [144]: i64
+145 [145]: i8
+146 [146]: i64
+147 [147]: i64
+148 [148]: i8
+149 [149]: i64
+150 [150]: i64
+151 [151]: i32
+152 [152]: i64
+153 [153]: i64
+154 [154]: i64
+155 [155]: i64
+156 [156]: i8
+157 [157]: i32
+158 [158]: i32
+159 [159]: i1
+160 [160]: i64
+161 [161]: i64
+162 [162]: i64
+163 [163]: i64
+164 [164]: i64
+165 [165]: i32
+166 [166]: i8
+167 [167]: i64
+168 [168]: i64
+169 [169]: i64
+170 [170]: i1
+171 [171]: i64
+172 [172]: i64
+173 [173]: i1
+174 [174]: i64
+175 [175]: i1
+176 [176]: i1
+177 [177]: i1
+178 [178]: i1
+179 [179]: i1
+180 [180]: i64
+181 [181]: i64
+182 [182]: i1
+183 [183]: i64
+184 [184]: i64
+185 [185]: i1
+186 [186]: i1
+187 [187]: i1
+188 [188]: i1
+189 [189]: i64
+190 [190]: i64
+191 [191]: i1
+192 [192]: i64
+193 [193]: i64
+194 [194]: i1
+195 [195]: i64
+196 [196]: i64
+197 [197]: i1
+198 [198]: i1
+199 [199]: i64
+200 [200]: i64
+201 [201]: i1
+202 [202]: i64
+203 [203]: i64
+204 [204]: i1
+205 [205]: i64
+206 [206]: i64
+207 [207]: i1
+208 [208]: i64
+209 [209]: i64
+210 [210]: i1
+211 [211]: i1
+212 [212]: i1
+213 [213]: i1
+214 [214]: i64
+215 [215]: i64
+216 [216]: i1
+217 [217]: i64
+218 [218]: i64
+219 [219]: i1
+220 [220]: i64
+221 [221]: i64
+222 [222]: i32
+223 [223]: i8*
+224 [224]: i8*
+225 [225]: i8
+226 [226]: i32
+227 [227]: i32
+228 [228]: i64
+229 [229]: i64
+230 [230]: i8
+231 [231]: i64
+232 [232]: i64
+233 [233]: i8
+234 [234]: i64
+235 [235]: i64
+236 [236]: i8
+237 [237]: i64
+238 [238]: i64
+239 [239]: i8
+240 [240]: i64
+241 [241]: i64
+242 [242]: i32
+243 [243]: i8*
+244 [244]: i8*
+245 [245]: i8
+246 [246]: i8
+247 [247]: i64
+248 [248]: i64
+249 [249]: i32
+250 [250]: i8*
+251 [251]: i8*
+252 [252]: i8
+253 [253]: i8
+254 [254]: i64
+255 [255]: i64
+256 [256]: i32
+257 [257]: i8*
+258 [258]: i8*
+259 [259]: i8
+260 [260]: i8
+261 [261]: i64
+262 [262]: i64
+263 [263]: i32
+264 [264]: i64
+265 [265]: i64
+266 [266]: i64
+267 [267]: i1
+268 [268]: i8
+269 [269]: i8
+270 [270]: i8
+271 [271]: i64
+272 [272]: i64
+273 [273]: i8
+274 [274]: i8
+275 [275]: i8
+276 [276]: i64
+277 [277]: i64
+278 [278]: i32
+279 [279]: i1
+280 [280]: i8
+281 [281]: i8
+282 [282]: i8
+283 [283]: i64
+284 [284]: i8
+285 [285]: i8
+286 [286]: i8
+287 [287]: i64
+288 [288]: i64
+289 [289]: i64
+290 [290]: i64
+291 [291]: i8
+292 [292]: i32
+293 [293]: i32
+294 [294]: i1
+295 [295]: i64
+296 [296]: i64
+297 [297]: i64
+298 [298]: i64
+299 [299]: i8
+300 [300]: i8
+301 [301]: i64
+302 [302]: i1
+------------------------------------------------------------------------
+found a total of 154 constants
+CID  ID    VALUE
+------------------------------------------------------------------------
+mem[303]=0x7;
+mem[304]=0x0;
+mem[305]=0x0;
+mem[306]=0x20;
+mem[307]=0x20;
+mem[308]=0xff;
+mem[309]=0x0;
+mem[310]=0x0;
+mem[311]=0xffbbbb0c;
+mem[312]=0x1;
+mem[313]=0x0;
+mem[314]=0xffbfffbe;
+mem[315]=0x1;
+mem[316]=0x0;
+mem[317]=0x10;
+mem[318]=0x16;
+mem[319]=0x16;
+mem[320]=0x16;
+mem[321]=0x6;
+mem[322]=0x0;
+mem[323]=0xffbbfb2c;
+mem[324]=0x1;
+mem[325]=0x0;
+mem[326]=0xffbbffbe;
+mem[327]=0x1;
+mem[328]=0x0;
+mem[329]=0x12;
+mem[330]=0x4;
+mem[331]=0xe;
+mem[332]=0x45999804;
+mem[333]=0x1;
+mem[334]=0x0;
+mem[335]=0x45999a04;
+mem[336]=0x1;
+mem[337]=0x0;
+mem[338]=0xffbbba0c;
+mem[339]=0x1;
+mem[340]=0x0;
+mem[341]=0x8;
+mem[342]=0xba222008;
+mem[343]=0x1;
+mem[344]=0x0;
+mem[345]=0x9;
+mem[346]=0x45808000;
+mem[347]=0x1;
+mem[348]=0x0;
+mem[349]=0x45919800;
+mem[350]=0x1;
+mem[351]=0x0;
+mem[352]=0x13;
+mem[353]=0x13;
+mem[354]=0x2;
+mem[355]=0x11800;
+mem[356]=0x1;
+mem[357]=0x0;
+mem[358]=0x45808000;
+mem[359]=0x1;
+mem[360]=0x0;
+mem[361]=0x1;
+mem[362]=0x14;
+mem[363]=0x6;
+mem[364]=0x2;
+mem[365]=0x6;
+mem[366]=0x2;
+mem[367]=0x14;
+mem[368]=0x1;
+mem[369]=0x11800;
+mem[370]=0x1;
+mem[371]=0x0;
+mem[372]=0x2;
+mem[373]=0x6;
+mem[374]=0x2;
+mem[375]=0x6;
+mem[376]=0x1;
+mem[377]=0x1;
+mem[378]=0x1;
+mem[379]=0xff;
+mem[380]=0x1;
+mem[381]=0x1;
+mem[382]=0x20;
+mem[383]=0xffbbbb0c;
+mem[384]=0x1;
+mem[385]=0x0;
+mem[386]=0xffbfffbe;
+mem[387]=0x1;
+mem[388]=0x0;
+mem[389]=0x10;
+mem[390]=0x16;
+mem[391]=0x16;
+mem[392]=0x16;
+mem[393]=0x6;
+mem[394]=0x0;
+mem[395]=0xffbbfb2c;
+mem[396]=0x1;
+mem[397]=0x0;
+mem[398]=0xffbbffbe;
+mem[399]=0x1;
+mem[400]=0x0;
+mem[401]=0x12;
+mem[402]=0x4;
+mem[403]=0xe;
+mem[404]=0x45999804;
+mem[405]=0x1;
+mem[406]=0x0;
+mem[407]=0x45999a04;
+mem[408]=0x1;
+mem[409]=0x0;
+mem[410]=0xffbbba0c;
+mem[411]=0x1;
+mem[412]=0x0;
+mem[413]=0x8;
+mem[414]=0xba222008;
+mem[415]=0x1;
+mem[416]=0x0;
+mem[417]=0x9;
+mem[418]=0x45808000;
+mem[419]=0x1;
+mem[420]=0x0;
+mem[421]=0x45919800;
+mem[422]=0x1;
+mem[423]=0x0;
+mem[424]=0x13;
+mem[425]=0x13;
+mem[426]=0x2;
+mem[427]=0x11800;
+mem[428]=0x1;
+mem[429]=0x0;
+mem[430]=0x45808000;
+mem[431]=0x1;
+mem[432]=0x0;
+mem[433]=0x1;
+mem[434]=0xff;
+mem[435]=0x1;
+mem[436]=0x1;
+mem[437]=0x1;
+mem[438]=0x1;
+mem[439]=0x11800;
+mem[440]=0x1;
+mem[441]=0x0;
+mem[442]=0x2;
+mem[443]=0x6;
+mem[444]=0x2;
+mem[445]=0x6;
+mem[446]=0x1;
+mem[447]=0x14;
+mem[448]=0x6;
+mem[449]=0x2;
+mem[450]=0x14;
+mem[451]=0x6;
+mem[452]=0x2;
+mem[453]=0x1;
+mem[454]=0x20;
+mem[455]=0x1;
+mem[456]=0x1;
+------------------------------------------------------------------------
+found a total of 457 total values
+------------------------------------------------------------------------
+FUNCTION ID: F.1 -> NUMINSTS 453
+BB   IDX  OPCODE              [ID /IID/MOD]  INST
+------------------------------------------------------------------------
+  0    0  OP_BC_TRUNC         [14 / 71/  1]  mem[19] = mem[1] & 0xffffffff
+  0    1  OP_BC_AND           [11 / 56/  1]  mem[20] = mem[19] & mem[303]
+  0    2  OP_BC_ICMP_EQ       [21 /108/  3]  mem[21] = (mem[1] == mem[304])
+  0    3  OP_BC_BRANCH        [17 / 85/  0]  if mem[21] ? goto bb.92 : goto bb.1
+bb.1
+  1    4  OP_BC_ZEXT          [16 / 84/  4]  mem[22] = mem[1] & 0xffffffff
+  1    5  OP_BC_COPY          [34 /174/  4]  mem[11] = mem[305]
+  1    6  OP_BC_JMP           [18 / 90/  0]  goto bb.2
+bb.2
+  2    7  OP_BC_COPY          [34 /174/  4]  mem[23] = mem[11]
+  2    8  OP_BC_TRUNC         [14 / 71/  1]  mem[24] = mem[23] & 0xffffffffffffffff
+  2    9  OP_BC_SHL           [8  / 44/  4]  mem[25] = mem[23] << mem[306]
+  2   10  OP_BC_ASHR          [10 / 54/  4]  mem[26] = mem[25] >> mem[307]
+  2   11  OP_BC_TRUNC         [14 / 73/  3]  mem[27] = mem[26] & 0xffffffffffffffff
+  2   12  OP_BC_GEP1          [35 /179/  4]  mem[28] = mem[0] + (mem[27] * mem[65])
+  2   13  OP_BC_LOAD          [39 /196/  1]  mem[29] = mem[mem[28]]
+  2   14  OP_BC_ICMP_SGT      [27 /136/  1]  mem[30] = (mem[29] > mem[308])
+  2   15  OP_BC_SEXT          [15 / 79/  4]  mem[31] = mem[24] & 0x8
+  2   16  OP_BC_SEXT          [15 / 79/  4]  mem[32] = mem[24] & 0x8
+  2   17  OP_BC_COPY          [34 /174/  4]  mem[10] = mem[31]
+  2   18  OP_BC_COPY          [34 /174/  4]  mem[9] = mem[309]
+  2   19  OP_BC_COPY          [34 /174/  4]  mem[6] = mem[32]
+  2   20  OP_BC_COPY          [34 /174/  4]  mem[5] = mem[310]
+  2   21  OP_BC_BRANCH        [17 / 85/  0]  if mem[30] ? goto bb.3 : goto bb.45
+bb.3
+  3   22  OP_BC_COPY          [34 /174/  4]  mem[33] = mem[9]
+  3   23  OP_BC_COPY          [34 /174/  4]  mem[34] = mem[10]
+  3   24  OP_BC_TRUNC         [14 / 73/  3]  mem[35] = mem[33] & 0xffffffffffffffff
+  3   25  OP_BC_TRUNC         [14 / 71/  1]  mem[36] = mem[34] & 0xffffffffffffffff
+  3   26  OP_BC_SEXT          [15 / 79/  4]  mem[37] = mem[35] & 0x20
+  3   27  OP_BC_LSHR          [9  / 49/  4]  mem[38] = mem[311] >> mem[37]
+  3   28  OP_BC_AND           [11 / 59/  4]  mem[39] = mem[38] & mem[312]
+  3   29  OP_BC_ICMP_EQ       [21 /109/  4]  mem[40] = (mem[39] == mem[313])
+  3   30  OP_BC_BRANCH        [17 / 85/  0]  if mem[40] ? goto bb.4 : goto bb.16
+bb.4
+  4   31  OP_BC_LSHR          [9  / 49/  4]  mem[41] = mem[314] >> mem[37]
+  4   32  OP_BC_AND           [11 / 59/  4]  mem[42] = mem[41] & mem[315]
+  4   33  OP_BC_ICMP_EQ       [21 /109/  4]  mem[43] = (mem[42] == mem[316])
+  4   34  OP_BC_BRANCH        [17 / 85/  0]  if mem[43] ? goto bb.5 : goto bb.11
+bb.5
+  5   35  OP_BC_OR            [12 / 64/  4]  mem[44] = mem[37] | mem[317]
+  5   36  OP_BC_ICMP_EQ       [21 /109/  4]  mem[45] = (mem[44] == mem[318])
+  5   37  OP_BC_BRANCH        [17 / 85/  0]  if mem[45] ? goto bb.6 : goto bb.10
+bb.6
+  6   38  OP_BC_JMP           [18 / 90/  0]  goto bb.7
+bb.7
+  7   39  OP_BC_ICMP_SLT      [30 /153/  3]  mem[46] = (mem[35] < mem[319])
+  7   40  OP_BC_BRANCH        [17 / 85/  0]  if mem[46] ? goto bb.9 : goto bb.8
+bb.8
+  8   41  OP_BC_ICMP_EQ       [21 /108/  3]  mem[47] = (mem[35] == mem[320])
+  8   42  OP_BC_BRANCH        [17 / 85/  0]  if mem[47] ? goto bb.39 : goto bb.88
+bb.9
+  9   43  OP_BC_ICMP_EQ       [21 /108/  3]  mem[48] = (mem[35] == mem[321])
+  9   44  OP_BC_BRANCH        [17 / 85/  0]  if mem[48] ? goto bb.37 : goto bb.88
+bb.10
+ 10   45  OP_BC_ICMP_EQ       [21 /108/  3]  mem[49] = (mem[35] == mem[322])
+ 10   46  OP_BC_BRANCH        [17 / 85/  0]  if mem[49] ? goto bb.36 : goto bb.92
+bb.11
+ 11   47  OP_BC_LSHR          [9  / 49/  4]  mem[50] = mem[323] >> mem[37]
+ 11   48  OP_BC_AND           [11 / 59/  4]  mem[51] = mem[50] & mem[324]
+ 11   49  OP_BC_ICMP_EQ       [21 /109/  4]  mem[52] = (mem[51] == mem[325])
+ 11   50  OP_BC_BRANCH        [17 / 85/  0]  if mem[52] ? goto bb.12 : goto bb.15
+bb.12
+ 12   51  OP_BC_LSHR          [9  / 49/  4]  mem[53] = mem[326] >> mem[37]
+ 12   52  OP_BC_AND           [11 / 59/  4]  mem[54] = mem[53] & mem[327]
+ 12   53  OP_BC_ICMP_EQ       [21 /109/  4]  mem[55] = (mem[54] == mem[328])
+ 12   54  OP_BC_BRANCH        [17 / 85/  0]  if mem[55] ? goto bb.13 : goto bb.14
+bb.13
+ 13   55  OP_BC_ICMP_EQ       [21 /108/  3]  mem[56] = (mem[35] == mem[329])
+ 13   56  OP_BC_BRANCH        [17 / 85/  0]  if mem[56] ? goto bb.41 : goto bb.92
+bb.14
+ 14   57  OP_BC_ICMP_EQ       [21 /108/  3]  mem[57] = (mem[35] == mem[330])
+ 14   58  OP_BC_BRANCH        [17 / 85/  0]  if mem[57] ? goto bb.38 : goto bb.92
+bb.15
+ 15   59  OP_BC_ICMP_EQ       [21 /108/  3]  mem[58] = (mem[35] == mem[331])
+ 15   60  OP_BC_BRANCH        [17 / 85/  0]  if mem[58] ? goto bb.40 : goto bb.92
+bb.16
+ 16   61  OP_BC_LSHR          [9  / 49/  4]  mem[59] = mem[332] >> mem[37]
+ 16   62  OP_BC_AND           [11 / 59/  4]  mem[60] = mem[59] & mem[333]
+ 16   63  OP_BC_ICMP_EQ       [21 /109/  4]  mem[61] = (mem[60] == mem[334])
+ 16   64  OP_BC_BRANCH        [17 / 85/  0]  if mem[61] ? goto bb.17 : goto bb.22
+bb.17
+ 17   65  OP_BC_LSHR          [9  / 49/  4]  mem[62] = mem[335] >> mem[37]
+ 17   66  OP_BC_AND           [11 / 59/  4]  mem[63] = mem[62] & mem[336]
+ 17   67  OP_BC_ICMP_EQ       [21 /109/  4]  mem[64] = (mem[63] == mem[337])
+ 17   68  OP_BC_BRANCH        [17 / 85/  0]  if mem[64] ? goto bb.18 : goto bb.21
+bb.18
+ 18   69  OP_BC_LSHR          [9  / 49/  4]  mem[65] = mem[338] >> mem[37]
+ 18   70  OP_BC_AND           [11 / 59/  4]  mem[66] = mem[65] & mem[339]
+ 18   71  OP_BC_ICMP_EQ       [21 /109/  4]  mem[67] = (mem[66] == mem[340])
+ 18   72  OP_BC_BRANCH        [17 / 85/  0]  if mem[67] ? goto bb.19 : goto bb.20
+bb.19
+ 19   73  OP_BC_ICMP_EQ       [21 /108/  3]  mem[68] = (mem[35] == mem[341])
+ 19   74  OP_BC_BRANCH        [17 / 85/  0]  if mem[68] ? goto bb.42 : goto bb.92
+bb.20
+ 20   75  OP_BC_LSHR          [9  / 49/  4]  mem[69] = mem[342] >> mem[37]
+ 20   76  OP_BC_AND           [11 / 59/  4]  mem[70] = mem[69] & mem[343]
+ 20   77  OP_BC_ICMP_EQ       [21 /109/  4]  mem[71] = (mem[70] == mem[344])
+ 20   78  OP_BC_SEXT          [15 / 79/  4]  mem[72] = mem[35] & 0x20
+ 20   79  OP_BC_SEXT          [15 / 79/  4]  mem[73] = mem[36] & 0x8
+ 20   80  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[72]
+ 20   81  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[73]
+ 20   82  OP_BC_BRANCH        [17 / 85/  0]  if mem[71] ? goto bb.92 : goto bb.44
+bb.21
+ 21   83  OP_BC_ICMP_EQ       [21 /108/  3]  mem[74] = (mem[35] == mem[345])
+ 21   84  OP_BC_BRANCH        [17 / 85/  0]  if mem[74] ? goto bb.43 : goto bb.92
+bb.22
+ 22   85  OP_BC_LSHR          [9  / 49/  4]  mem[75] = mem[346] >> mem[37]
+ 22   86  OP_BC_AND           [11 / 59/  4]  mem[76] = mem[75] & mem[347]
+ 22   87  OP_BC_ICMP_EQ       [21 /109/  4]  mem[77] = (mem[76] == mem[348])
+ 22   88  OP_BC_BRANCH        [17 / 85/  0]  if mem[77] ? goto bb.23 : goto bb.29
+bb.23
+ 23   89  OP_BC_LSHR          [9  / 49/  4]  mem[78] = mem[349] >> mem[37]
+ 23   90  OP_BC_AND           [11 / 59/  4]  mem[79] = mem[78] & mem[350]
+ 23   91  OP_BC_ICMP_EQ       [21 /109/  4]  mem[80] = (mem[79] == mem[351])
+ 23   92  OP_BC_BRANCH        [17 / 85/  0]  if mem[80] ? goto bb.24 : goto bb.28
+bb.24
+ 24   93  OP_BC_JMP           [18 / 90/  0]  goto bb.25
+bb.25
+ 25   94  OP_BC_ICMP_SLT      [30 /153/  3]  mem[81] = (mem[35] < mem[352])
+ 25   95  OP_BC_BRANCH        [17 / 85/  0]  if mem[81] ? goto bb.27 : goto bb.26
+bb.26
+ 26   96  OP_BC_ICMP_EQ       [21 /108/  3]  mem[82] = (mem[35] == mem[353])
+ 26   97  OP_BC_BRANCH        [17 / 85/  0]  if mem[82] ? goto bb.30 : goto bb.89
+bb.27
+ 27   98  OP_BC_ICMP_EQ       [21 /108/  3]  mem[83] = (mem[35] == mem[354])
+ 27   99  OP_BC_BRANCH        [17 / 85/  0]  if mem[83] ? goto bb.30 : goto bb.89
+bb.28
+ 28  100  OP_BC_LSHR          [9  / 49/  4]  mem[84] = mem[355] >> mem[37]
+ 28  101  OP_BC_AND           [11 / 59/  4]  mem[85] = mem[84] & mem[356]
+ 28  102  OP_BC_ICMP_EQ       [21 /109/  4]  mem[86] = (mem[85] == mem[357])
+ 28  103  OP_BC_BRANCH        [17 / 85/  0]  if mem[86] ? goto bb.92 : goto bb.33
+bb.29
+ 29  104  OP_BC_LSHR          [9  / 49/  4]  mem[87] = mem[358] >> mem[37]
+ 29  105  OP_BC_AND           [11 / 59/  4]  mem[88] = mem[87] & mem[359]
+ 29  106  OP_BC_ICMP_EQ       [21 /109/  4]  mem[89] = (mem[88] == mem[360])
+ 29  107  OP_BC_SEXT          [15 / 79/  4]  mem[90] = mem[35] & 0x20
+ 29  108  OP_BC_SEXT          [15 / 79/  4]  mem[91] = mem[36] & 0x8
+ 29  109  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[90]
+ 29  110  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[91]
+ 29  111  OP_BC_BRANCH        [17 / 85/  0]  if mem[89] ? goto bb.92 : goto bb.44
+bb.30
+ 30  112  OP_BC_ADD           [1  /  8/  0]  mem[92] = mem[35] + mem[361]
+ 30  113  OP_BC_ICMP_EQ       [21 /108/  3]  mem[93] = (mem[92] == mem[362])
+ 30  114  OP_BC_BRANCH        [17 / 85/  0]  if mem[93] ? goto bb.32 : goto bb.31
+bb.31
+ 31  115  OP_BC_SHL           [8  / 41/  1]  mem[94] = mem[36] << mem[363]
+ 31  116  OP_BC_LSHR          [9  / 46/  1]  mem[95] = mem[36] >> mem[364]
+ 31  117  OP_BC_OR            [12 / 61/  1]  mem[96] = mem[94] | mem[95]
+ 31  118  OP_BC_SEXT          [15 / 79/  4]  mem[97] = mem[92] & 0x20
+ 31  119  OP_BC_SEXT          [15 / 79/  4]  mem[98] = mem[96] & 0x8
+ 31  120  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[97]
+ 31  121  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[98]
+ 31  122  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.32
+ 32  123  OP_BC_LSHR          [9  / 46/  1]  mem[99] = mem[36] >> mem[365]
+ 32  124  OP_BC_SHL           [8  / 41/  1]  mem[100] = mem[36] << mem[366]
+ 32  125  OP_BC_OR            [12 / 61/  1]  mem[101] = mem[99] | mem[100]
+ 32  126  OP_BC_SEXT          [15 / 79/  4]  mem[102] = mem[101] & 0x8
+ 32  127  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[367]
+ 32  128  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[102]
+ 32  129  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.33
+ 33  130  OP_BC_ADD           [1  /  8/  0]  mem[103] = mem[35] + mem[368]
+ 33  131  OP_BC_ZEXT          [16 / 84/  4]  mem[104] = mem[103] & 0xffffffff
+ 33  132  OP_BC_LSHR          [9  / 49/  4]  mem[105] = mem[369] >> mem[104]
+ 33  133  OP_BC_AND           [11 / 59/  4]  mem[106] = mem[105] & mem[370]
+ 33  134  OP_BC_ICMP_EQ       [21 /109/  4]  mem[107] = (mem[106] == mem[371])
+ 33  135  OP_BC_BRANCH        [17 / 85/  0]  if mem[107] ? goto bb.35 : goto bb.34
+bb.34
+ 34  136  OP_BC_SHL           [8  / 41/  1]  mem[108] = mem[36] << mem[372]
+ 34  137  OP_BC_LSHR          [9  / 46/  1]  mem[109] = mem[36] >> mem[373]
+ 34  138  OP_BC_OR            [12 / 61/  1]  mem[110] = mem[108] | mem[109]
+ 34  139  OP_BC_SEXT          [15 / 79/  4]  mem[111] = mem[103] & 0x20
+ 34  140  OP_BC_SEXT          [15 / 79/  4]  mem[112] = mem[110] & 0x8
+ 34  141  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[111]
+ 34  142  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[112]
+ 34  143  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.35
+ 35  144  OP_BC_LSHR          [9  / 46/  1]  mem[113] = mem[36] >> mem[374]
+ 35  145  OP_BC_SHL           [8  / 41/  1]  mem[114] = mem[36] << mem[375]
+ 35  146  OP_BC_OR            [12 / 61/  1]  mem[115] = mem[113] | mem[114]
+ 35  147  OP_BC_SEXT          [15 / 79/  4]  mem[116] = mem[103] & 0x20
+ 35  148  OP_BC_SEXT          [15 / 79/  4]  mem[117] = mem[115] & 0x8
+ 35  149  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[116]
+ 35  150  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[117]
+ 35  151  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.36
+ 36  152  OP_BC_ADD           [1  /  8/  0]  mem[118] = mem[35] + mem[376]
+ 36  153  OP_BC_COPY          [34 /174/  4]  global[18] = mem[6]
+ 36  154  OP_BC_COPY          [34 /174/  4]  mem[119] = mem[18]
+ 36  155  OP_BC_GEP1          [35 /179/  4]  mem[120] = mem[119] + (mem[118] * mem[65])
+ 36  156  OP_BC_LOAD          [39 /196/  1]  mem[121] = mem[mem[120]]
+ 36  157  OP_BC_SUB           [2  / 11/  1]  mem[122] = mem[36] - mem[121]
+ 36  158  OP_BC_SEXT          [15 / 79/  4]  mem[123] = mem[118] & 0x20
+ 36  159  OP_BC_SEXT          [15 / 79/  4]  mem[124] = mem[122] & 0x8
+ 36  160  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[123]
+ 36  161  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[124]
+ 36  162  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.37
+ 37  163  OP_BC_ADD           [1  /  8/  0]  mem[125] = mem[35] + mem[377]
+ 37  164  OP_BC_COPY          [34 /174/  4]  global[17] = mem[6]
+ 37  165  OP_BC_COPY          [34 /174/  4]  mem[126] = mem[17]
+ 37  166  OP_BC_GEP1          [35 /179/  4]  mem[127] = mem[126] + (mem[125] * mem[65])
+ 37  167  OP_BC_LOAD          [39 /196/  1]  mem[128] = mem[mem[127]]
+ 37  168  OP_BC_XOR           [13 / 66/  1]  mem[129] = mem[128] ^ mem[36]
+ 37  169  OP_BC_SEXT          [15 / 79/  4]  mem[130] = mem[125] & 0x20
+ 37  170  OP_BC_SEXT          [15 / 79/  4]  mem[131] = mem[129] & 0x8
+ 37  171  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[130]
+ 37  172  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[131]
+ 37  173  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.38
+ 38  174  OP_BC_ADD           [1  /  8/  0]  mem[132] = mem[35] + mem[378]
+ 38  175  OP_BC_COPY          [34 /174/  4]  global[16] = mem[6]
+ 38  176  OP_BC_COPY          [34 /174/  4]  mem[133] = mem[16]
+ 38  177  OP_BC_GEP1          [35 /179/  4]  mem[134] = mem[133] + (mem[132] * mem[65])
+ 38  178  OP_BC_LOAD          [39 /196/  1]  mem[135] = mem[mem[134]]
+ 38  179  OP_BC_ADD           [1  /  6/  0]  mem[136] = mem[135] + mem[36]
+ 38  180  OP_BC_SEXT          [15 / 79/  4]  mem[137] = mem[132] & 0x20
+ 38  181  OP_BC_SEXT          [15 / 79/  4]  mem[138] = mem[136] & 0x8
+ 38  182  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[137]
+ 38  183  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[138]
+ 38  184  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.39
+ 39  185  OP_BC_XOR           [13 / 66/  1]  mem[139] = mem[36] ^ mem[20]
+ 39  186  OP_BC_SEXT          [15 / 79/  4]  mem[140] = mem[35] & 0x20
+ 39  187  OP_BC_SEXT          [15 / 79/  4]  mem[141] = mem[139] & 0x8
+ 39  188  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[140]
+ 39  189  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[141]
+ 39  190  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.40
+ 40  191  OP_BC_ADD           [1  /  6/  0]  mem[142] = mem[36] + mem[20]
+ 40  192  OP_BC_SEXT          [15 / 79/  4]  mem[143] = mem[35] & 0x20
+ 40  193  OP_BC_SEXT          [15 / 79/  4]  mem[144] = mem[142] & 0x8
+ 40  194  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[143]
+ 40  195  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[144]
+ 40  196  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.41
+ 41  197  OP_BC_SUB           [2  / 11/  1]  mem[145] = mem[36] - mem[20]
+ 41  198  OP_BC_SEXT          [15 / 79/  4]  mem[146] = mem[35] & 0x20
+ 41  199  OP_BC_SEXT          [15 / 79/  4]  mem[147] = mem[145] & 0x8
+ 41  200  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[146]
+ 41  201  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[147]
+ 41  202  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.42
+ 42  203  OP_BC_ADD           [1  /  6/  0]  mem[148] = mem[36] + mem[379]
+ 42  204  OP_BC_SEXT          [15 / 79/  4]  mem[149] = mem[35] & 0x20
+ 42  205  OP_BC_SEXT          [15 / 79/  4]  mem[150] = mem[148] & 0x8
+ 42  206  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[149]
+ 42  207  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[150]
+ 42  208  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.43
+ 43  209  OP_BC_ADD           [1  /  8/  0]  mem[151] = mem[35] + mem[380]
+ 43  210  OP_BC_SEXT          [15 / 79/  4]  mem[152] = mem[151] & 0x20
+ 43  211  OP_BC_SEXT          [15 / 79/  4]  mem[153] = mem[36] & 0x8
+ 43  212  OP_BC_COPY          [34 /174/  4]  mem[8] = mem[152]
+ 43  213  OP_BC_COPY          [34 /174/  4]  mem[7] = mem[153]
+ 43  214  OP_BC_JMP           [18 / 90/  0]  goto bb.44
+bb.44
+ 44  215  OP_BC_COPY          [34 /174/  4]  mem[154] = mem[7]
+ 44  216  OP_BC_COPY          [34 /174/  4]  mem[155] = mem[8]
+ 44  217  OP_BC_TRUNC         [14 / 71/  1]  mem[156] = mem[154] & 0xffffffffffffffff
+ 44  218  OP_BC_TRUNC         [14 / 73/  3]  mem[157] = mem[155] & 0xffffffffffffffff
+ 44  219  OP_BC_ADD           [1  /  8/  0]  mem[158] = mem[157] + mem[381]
+ 44  220  OP_BC_ICMP_ULT      [25 /128/  3]  mem[159] = (mem[158] < mem[382])
+ 44  221  OP_BC_SEXT          [15 / 79/  4]  mem[160] = mem[156] & 0x8
+ 44  222  OP_BC_SEXT          [15 / 79/  4]  mem[161] = mem[158] & 0x20
+ 44  223  OP_BC_SEXT          [15 / 79/  4]  mem[162] = mem[156] & 0x8
+ 44  224  OP_BC_COPY          [34 /174/  4]  mem[10] = mem[160]
+ 44  225  OP_BC_COPY          [34 /174/  4]  mem[9] = mem[161]
+ 44  226  OP_BC_COPY          [34 /174/  4]  mem[2] = mem[162]
+ 44  227  OP_BC_BRANCH        [17 / 85/  0]  if mem[159] ? goto bb.3 : goto bb.87
+bb.45
+ 45  228  OP_BC_COPY          [34 /174/  4]  mem[163] = mem[5]
+ 45  229  OP_BC_COPY          [34 /174/  4]  mem[164] = mem[6]
+ 45  230  OP_BC_TRUNC         [14 / 73/  3]  mem[165] = mem[163] & 0xffffffffffffffff
+ 45  231  OP_BC_TRUNC         [14 / 71/  1]  mem[166] = mem[164] & 0xffffffffffffffff
+ 45  232  OP_BC_SEXT          [15 / 79/  4]  mem[167] = mem[165] & 0x20
+ 45  233  OP_BC_LSHR          [9  / 49/  4]  mem[168] = mem[383] >> mem[167]
+ 45  234  OP_BC_AND           [11 / 59/  4]  mem[169] = mem[168] & mem[384]
+ 45  235  OP_BC_ICMP_EQ       [21 /109/  4]  mem[170] = (mem[169] == mem[385])
+ 45  236  OP_BC_BRANCH        [17 / 85/  0]  if mem[170] ? goto bb.46 : goto bb.58
+bb.46
+ 46  237  OP_BC_LSHR          [9  / 49/  4]  mem[171] = mem[386] >> mem[167]
+ 46  238  OP_BC_AND           [11 / 59/  4]  mem[172] = mem[171] & mem[387]
+ 46  239  OP_BC_ICMP_EQ       [21 /109/  4]  mem[173] = (mem[172] == mem[388])
+ 46  240  OP_BC_BRANCH        [17 / 85/  0]  if mem[173] ? goto bb.47 : goto bb.53
+bb.47
+ 47  241  OP_BC_OR            [12 / 64/  4]  mem[174] = mem[167] | mem[389]
+ 47  242  OP_BC_ICMP_EQ       [21 /109/  4]  mem[175] = (mem[174] == mem[390])
+ 47  243  OP_BC_BRANCH        [17 / 85/  0]  if mem[175] ? goto bb.48 : goto bb.52
+bb.48
+ 48  244  OP_BC_JMP           [18 / 90/  0]  goto bb.49
+bb.49
+ 49  245  OP_BC_ICMP_SLT      [30 /153/  3]  mem[176] = (mem[165] < mem[391])
+ 49  246  OP_BC_BRANCH        [17 / 85/  0]  if mem[176] ? goto bb.51 : goto bb.50
+bb.50
+ 50  247  OP_BC_ICMP_EQ       [21 /108/  3]  mem[177] = (mem[165] == mem[392])
+ 50  248  OP_BC_BRANCH        [17 / 85/  0]  if mem[177] ? goto bb.76 : goto bb.90
+bb.51
+ 51  249  OP_BC_ICMP_EQ       [21 /108/  3]  mem[178] = (mem[165] == mem[393])
+ 51  250  OP_BC_BRANCH        [17 / 85/  0]  if mem[178] ? goto bb.78 : goto bb.90
+bb.52
+ 52  251  OP_BC_ICMP_EQ       [21 /108/  3]  mem[179] = (mem[165] == mem[394])
+ 52  252  OP_BC_BRANCH        [17 / 85/  0]  if mem[179] ? goto bb.79 : goto bb.92
+bb.53
+ 53  253  OP_BC_LSHR          [9  / 49/  4]  mem[180] = mem[395] >> mem[167]
+ 53  254  OP_BC_AND           [11 / 59/  4]  mem[181] = mem[180] & mem[396]
+ 53  255  OP_BC_ICMP_EQ       [21 /109/  4]  mem[182] = (mem[181] == mem[397])
+ 53  256  OP_BC_BRANCH        [17 / 85/  0]  if mem[182] ? goto bb.54 : goto bb.57
+bb.54
+ 54  257  OP_BC_LSHR          [9  / 49/  4]  mem[183] = mem[398] >> mem[167]
+ 54  258  OP_BC_AND           [11 / 59/  4]  mem[184] = mem[183] & mem[399]
+ 54  259  OP_BC_ICMP_EQ       [21 /109/  4]  mem[185] = (mem[184] == mem[400])
+ 54  260  OP_BC_BRANCH        [17 / 85/  0]  if mem[185] ? goto bb.55 : goto bb.56
+bb.55
+ 55  261  OP_BC_ICMP_EQ       [21 /108/  3]  mem[186] = (mem[165] == mem[401])
+ 55  262  OP_BC_BRANCH        [17 / 85/  0]  if mem[186] ? goto bb.74 : goto bb.92
+bb.56
+ 56  263  OP_BC_ICMP_EQ       [21 /108/  3]  mem[187] = (mem[165] == mem[402])
+ 56  264  OP_BC_BRANCH        [17 / 85/  0]  if mem[187] ? goto bb.77 : goto bb.92
+bb.57
+ 57  265  OP_BC_ICMP_EQ       [21 /108/  3]  mem[188] = (mem[165] == mem[403])
+ 57  266  OP_BC_BRANCH        [17 / 85/  0]  if mem[188] ? goto bb.75 : goto bb.92
+bb.58
+ 58  267  OP_BC_LSHR          [9  / 49/  4]  mem[189] = mem[404] >> mem[167]
+ 58  268  OP_BC_AND           [11 / 59/  4]  mem[190] = mem[189] & mem[405]
+ 58  269  OP_BC_ICMP_EQ       [21 /109/  4]  mem[191] = (mem[190] == mem[406])
+ 58  270  OP_BC_BRANCH        [17 / 85/  0]  if mem[191] ? goto bb.59 : goto bb.64
+bb.59
+ 59  271  OP_BC_LSHR          [9  / 49/  4]  mem[192] = mem[407] >> mem[167]
+ 59  272  OP_BC_AND           [11 / 59/  4]  mem[193] = mem[192] & mem[408]
+ 59  273  OP_BC_ICMP_EQ       [21 /109/  4]  mem[194] = (mem[193] == mem[409])
+ 59  274  OP_BC_BRANCH        [17 / 85/  0]  if mem[194] ? goto bb.60 : goto bb.63
+bb.60
+ 60  275  OP_BC_LSHR          [9  / 49/  4]  mem[195] = mem[410] >> mem[167]
+ 60  276  OP_BC_AND           [11 / 59/  4]  mem[196] = mem[195] & mem[411]
+ 60  277  OP_BC_ICMP_EQ       [21 /109/  4]  mem[197] = (mem[196] == mem[412])
+ 60  278  OP_BC_BRANCH        [17 / 85/  0]  if mem[197] ? goto bb.61 : goto bb.62
+bb.61
+ 61  279  OP_BC_ICMP_EQ       [21 /108/  3]  mem[198] = (mem[165] == mem[413])
+ 61  280  OP_BC_BRANCH        [17 / 85/  0]  if mem[198] ? goto bb.73 : goto bb.92
+bb.62
+ 62  281  OP_BC_LSHR          [9  / 49/  4]  mem[199] = mem[414] >> mem[167]
+ 62  282  OP_BC_AND           [11 / 59/  4]  mem[200] = mem[199] & mem[415]
+ 62  283  OP_BC_ICMP_EQ       [21 /109/  4]  mem[201] = (mem[200] == mem[416])
+ 62  284  OP_BC_SEXT          [15 / 79/  4]  mem[202] = mem[165] & 0x20
+ 62  285  OP_BC_SEXT          [15 / 79/  4]  mem[203] = mem[166] & 0x8
+ 62  286  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[202]
+ 62  287  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[203]
+ 62  288  OP_BC_BRANCH        [17 / 85/  0]  if mem[201] ? goto bb.92 : goto bb.86
+bb.63
+ 63  289  OP_BC_ICMP_EQ       [21 /108/  3]  mem[204] = (mem[165] == mem[417])
+ 63  290  OP_BC_BRANCH        [17 / 85/  0]  if mem[204] ? goto bb.72 : goto bb.92
+bb.64
+ 64  291  OP_BC_LSHR          [9  / 49/  4]  mem[205] = mem[418] >> mem[167]
+ 64  292  OP_BC_AND           [11 / 59/  4]  mem[206] = mem[205] & mem[419]
+ 64  293  OP_BC_ICMP_EQ       [21 /109/  4]  mem[207] = (mem[206] == mem[420])
+ 64  294  OP_BC_BRANCH        [17 / 85/  0]  if mem[207] ? goto bb.65 : goto bb.71
+bb.65
+ 65  295  OP_BC_LSHR          [9  / 49/  4]  mem[208] = mem[421] >> mem[167]
+ 65  296  OP_BC_AND           [11 / 59/  4]  mem[209] = mem[208] & mem[422]
+ 65  297  OP_BC_ICMP_EQ       [21 /109/  4]  mem[210] = (mem[209] == mem[423])
+ 65  298  OP_BC_BRANCH        [17 / 85/  0]  if mem[210] ? goto bb.66 : goto bb.70
+bb.66
+ 66  299  OP_BC_JMP           [18 / 90/  0]  goto bb.67
+bb.67
+ 67  300  OP_BC_ICMP_SLT      [30 /153/  3]  mem[211] = (mem[165] < mem[424])
+ 67  301  OP_BC_BRANCH        [17 / 85/  0]  if mem[211] ? goto bb.69 : goto bb.68
+bb.68
+ 68  302  OP_BC_ICMP_EQ       [21 /108/  3]  mem[212] = (mem[165] == mem[425])
+ 68  303  OP_BC_BRANCH        [17 / 85/  0]  if mem[212] ? goto bb.83 : goto bb.91
+bb.69
+ 69  304  OP_BC_ICMP_EQ       [21 /108/  3]  mem[213] = (mem[165] == mem[426])
+ 69  305  OP_BC_BRANCH        [17 / 85/  0]  if mem[213] ? goto bb.83 : goto bb.91
+bb.70
+ 70  306  OP_BC_LSHR          [9  / 49/  4]  mem[214] = mem[427] >> mem[167]
+ 70  307  OP_BC_AND           [11 / 59/  4]  mem[215] = mem[214] & mem[428]
+ 70  308  OP_BC_ICMP_EQ       [21 /109/  4]  mem[216] = (mem[215] == mem[429])
+ 70  309  OP_BC_BRANCH        [17 / 85/  0]  if mem[216] ? goto bb.92 : goto bb.80
+bb.71
+ 71  310  OP_BC_LSHR          [9  / 49/  4]  mem[217] = mem[430] >> mem[167]
+ 71  311  OP_BC_AND           [11 / 59/  4]  mem[218] = mem[217] & mem[431]
+ 71  312  OP_BC_ICMP_EQ       [21 /109/  4]  mem[219] = (mem[218] == mem[432])
+ 71  313  OP_BC_SEXT          [15 / 79/  4]  mem[220] = mem[165] & 0x20
+ 71  314  OP_BC_SEXT          [15 / 79/  4]  mem[221] = mem[166] & 0x8
+ 71  315  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[220]
+ 71  316  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[221]
+ 71  317  OP_BC_BRANCH        [17 / 85/  0]  if mem[219] ? goto bb.92 : goto bb.86
+bb.72
+ 72  318  OP_BC_ADD           [1  /  8/  0]  mem[222] = mem[165] + mem[433]
+ 72  319  OP_BC_COPY          [34 /174/  4]  global[15] = mem[6]
+ 72  320  OP_BC_COPY          [34 /174/  4]  mem[223] = mem[15]
+ 72  321  OP_BC_GEP1          [35 /179/  4]  mem[224] = mem[223] + (mem[222] * mem[65])
+ 72  322  OP_BC_LOAD          [39 /196/  1]  mem[225] = mem[mem[224]]
+ 72  323  OP_BC_SEXT          [15 / 78/  3]  mem[226] = mem[225] & 0x8
+ 72  324  OP_BC_ADD           [1  /  8/  0]  mem[227] = mem[222] + mem[226]
+ 72  325  OP_BC_SEXT          [15 / 79/  4]  mem[228] = mem[227] & 0x20
+ 72  326  OP_BC_SEXT          [15 / 79/  4]  mem[229] = mem[166] & 0x8
+ 72  327  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[228]
+ 72  328  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[229]
+ 72  329  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.73
+ 73  330  OP_BC_ADD           [1  /  6/  0]  mem[230] = mem[166] + mem[434]
+ 73  331  OP_BC_SEXT          [15 / 79/  4]  mem[231] = mem[165] & 0x20
+ 73  332  OP_BC_SEXT          [15 / 79/  4]  mem[232] = mem[230] & 0x8
+ 73  333  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[231]
+ 73  334  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[232]
+ 73  335  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.74
+ 74  336  OP_BC_SUB           [2  / 11/  1]  mem[233] = mem[166] - mem[20]
+ 74  337  OP_BC_SEXT          [15 / 79/  4]  mem[234] = mem[165] & 0x20
+ 74  338  OP_BC_SEXT          [15 / 79/  4]  mem[235] = mem[233] & 0x8
+ 74  339  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[234]
+ 74  340  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[235]
+ 74  341  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.75
+ 75  342  OP_BC_ADD           [1  /  6/  0]  mem[236] = mem[166] + mem[20]
+ 75  343  OP_BC_SEXT          [15 / 79/  4]  mem[237] = mem[165] & 0x20
+ 75  344  OP_BC_SEXT          [15 / 79/  4]  mem[238] = mem[236] & 0x8
+ 75  345  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[237]
+ 75  346  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[238]
+ 75  347  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.76
+ 76  348  OP_BC_XOR           [13 / 66/  1]  mem[239] = mem[166] ^ mem[20]
+ 76  349  OP_BC_SEXT          [15 / 79/  4]  mem[240] = mem[165] & 0x20
+ 76  350  OP_BC_SEXT          [15 / 79/  4]  mem[241] = mem[239] & 0x8
+ 76  351  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[240]
+ 76  352  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[241]
+ 76  353  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.77
+ 77  354  OP_BC_ADD           [1  /  8/  0]  mem[242] = mem[165] + mem[435]
+ 77  355  OP_BC_COPY          [34 /174/  4]  global[14] = mem[6]
+ 77  356  OP_BC_COPY          [34 /174/  4]  mem[243] = mem[14]
+ 77  357  OP_BC_GEP1          [35 /179/  4]  mem[244] = mem[243] + (mem[242] * mem[65])
+ 77  358  OP_BC_LOAD          [39 /196/  1]  mem[245] = mem[mem[244]]
+ 77  359  OP_BC_ADD           [1  /  6/  0]  mem[246] = mem[245] + mem[166]
+ 77  360  OP_BC_SEXT          [15 / 79/  4]  mem[247] = mem[242] & 0x20
+ 77  361  OP_BC_SEXT          [15 / 79/  4]  mem[248] = mem[246] & 0x8
+ 77  362  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[247]
+ 77  363  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[248]
+ 77  364  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.78
+ 78  365  OP_BC_ADD           [1  /  8/  0]  mem[249] = mem[165] + mem[436]
+ 78  366  OP_BC_COPY          [34 /174/  4]  global[13] = mem[6]
+ 78  367  OP_BC_COPY          [34 /174/  4]  mem[250] = mem[13]
+ 78  368  OP_BC_GEP1          [35 /179/  4]  mem[251] = mem[250] + (mem[249] * mem[65])
+ 78  369  OP_BC_LOAD          [39 /196/  1]  mem[252] = mem[mem[251]]
+ 78  370  OP_BC_XOR           [13 / 66/  1]  mem[253] = mem[252] ^ mem[166]
+ 78  371  OP_BC_SEXT          [15 / 79/  4]  mem[254] = mem[249] & 0x20
+ 78  372  OP_BC_SEXT          [15 / 79/  4]  mem[255] = mem[253] & 0x8
+ 78  373  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[254]
+ 78  374  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[255]
+ 78  375  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.79
+ 79  376  OP_BC_ADD           [1  /  8/  0]  mem[256] = mem[165] + mem[437]
+ 79  377  OP_BC_COPY          [34 /174/  4]  global[12] = mem[6]
+ 79  378  OP_BC_COPY          [34 /174/  4]  mem[257] = mem[12]
+ 79  379  OP_BC_GEP1          [35 /179/  4]  mem[258] = mem[257] + (mem[256] * mem[65])
+ 79  380  OP_BC_LOAD          [39 /196/  1]  mem[259] = mem[mem[258]]
+ 79  381  OP_BC_SUB           [2  / 11/  1]  mem[260] = mem[166] - mem[259]
+ 79  382  OP_BC_SEXT          [15 / 79/  4]  mem[261] = mem[256] & 0x20
+ 79  383  OP_BC_SEXT          [15 / 79/  4]  mem[262] = mem[260] & 0x8
+ 79  384  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[261]
+ 79  385  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[262]
+ 79  386  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.80
+ 80  387  OP_BC_ADD           [1  /  8/  0]  mem[263] = mem[165] + mem[438]
+ 80  388  OP_BC_ZEXT          [16 / 84/  4]  mem[264] = mem[263] & 0xffffffff
+ 80  389  OP_BC_LSHR          [9  / 49/  4]  mem[265] = mem[439] >> mem[264]
+ 80  390  OP_BC_AND           [11 / 59/  4]  mem[266] = mem[265] & mem[440]
+ 80  391  OP_BC_ICMP_EQ       [21 /109/  4]  mem[267] = (mem[266] == mem[441])
+ 80  392  OP_BC_BRANCH        [17 / 85/  0]  if mem[267] ? goto bb.82 : goto bb.81
+bb.81
+ 81  393  OP_BC_SHL           [8  / 41/  1]  mem[268] = mem[166] << mem[442]
+ 81  394  OP_BC_LSHR          [9  / 46/  1]  mem[269] = mem[166] >> mem[443]
+ 81  395  OP_BC_OR            [12 / 61/  1]  mem[270] = mem[268] | mem[269]
+ 81  396  OP_BC_SEXT          [15 / 79/  4]  mem[271] = mem[263] & 0x20
+ 81  397  OP_BC_SEXT          [15 / 79/  4]  mem[272] = mem[270] & 0x8
+ 81  398  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[271]
+ 81  399  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[272]
+ 81  400  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.82
+ 82  401  OP_BC_LSHR          [9  / 46/  1]  mem[273] = mem[166] >> mem[444]
+ 82  402  OP_BC_SHL           [8  / 41/  1]  mem[274] = mem[166] << mem[445]
+ 82  403  OP_BC_OR            [12 / 61/  1]  mem[275] = mem[273] | mem[274]
+ 82  404  OP_BC_SEXT          [15 / 79/  4]  mem[276] = mem[263] & 0x20
+ 82  405  OP_BC_SEXT          [15 / 79/  4]  mem[277] = mem[275] & 0x8
+ 82  406  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[276]
+ 82  407  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[277]
+ 82  408  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.83
+ 83  409  OP_BC_ADD           [1  /  8/  0]  mem[278] = mem[165] + mem[446]
+ 83  410  OP_BC_ICMP_EQ       [21 /108/  3]  mem[279] = (mem[278] == mem[447])
+ 83  411  OP_BC_BRANCH        [17 / 85/  0]  if mem[279] ? goto bb.84 : goto bb.85
+bb.84
+ 84  412  OP_BC_LSHR          [9  / 46/  1]  mem[280] = mem[166] >> mem[448]
+ 84  413  OP_BC_SHL           [8  / 41/  1]  mem[281] = mem[166] << mem[449]
+ 84  414  OP_BC_OR            [12 / 61/  1]  mem[282] = mem[280] | mem[281]
+ 84  415  OP_BC_SEXT          [15 / 79/  4]  mem[283] = mem[282] & 0x8
+ 84  416  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[450]
+ 84  417  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[283]
+ 84  418  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.85
+ 85  419  OP_BC_SHL           [8  / 41/  1]  mem[284] = mem[166] << mem[451]
+ 85  420  OP_BC_LSHR          [9  / 46/  1]  mem[285] = mem[166] >> mem[452]
+ 85  421  OP_BC_OR            [12 / 61/  1]  mem[286] = mem[284] | mem[285]
+ 85  422  OP_BC_SEXT          [15 / 79/  4]  mem[287] = mem[278] & 0x20
+ 85  423  OP_BC_SEXT          [15 / 79/  4]  mem[288] = mem[286] & 0x8
+ 85  424  OP_BC_COPY          [34 /174/  4]  mem[4] = mem[287]
+ 85  425  OP_BC_COPY          [34 /174/  4]  mem[3] = mem[288]
+ 85  426  OP_BC_JMP           [18 / 90/  0]  goto bb.86
+bb.86
+ 86  427  OP_BC_COPY          [34 /174/  4]  mem[289] = mem[3]
+ 86  428  OP_BC_COPY          [34 /174/  4]  mem[290] = mem[4]
+ 86  429  OP_BC_TRUNC         [14 / 71/  1]  mem[291] = mem[289] & 0xffffffffffffffff
+ 86  430  OP_BC_TRUNC         [14 / 73/  3]  mem[292] = mem[290] & 0xffffffffffffffff
+ 86  431  OP_BC_ADD           [1  /  8/  0]  mem[293] = mem[292] + mem[453]
+ 86  432  OP_BC_ICMP_ULT      [25 /128/  3]  mem[294] = (mem[293] < mem[454])
+ 86  433  OP_BC_SEXT          [15 / 79/  4]  mem[295] = mem[291] & 0x8
+ 86  434  OP_BC_SEXT          [15 / 79/  4]  mem[296] = mem[293] & 0x20
+ 86  435  OP_BC_SEXT          [15 / 79/  4]  mem[297] = mem[291] & 0x8
+ 86  436  OP_BC_COPY          [34 /174/  4]  mem[6] = mem[295]
+ 86  437  OP_BC_COPY          [34 /174/  4]  mem[5] = mem[296]
+ 86  438  OP_BC_COPY          [34 /174/  4]  mem[2] = mem[297]
+ 86  439  OP_BC_BRANCH        [17 / 85/  0]  if mem[294] ? goto bb.45 : goto bb.87
+bb.87
+ 87  440  OP_BC_COPY          [34 /174/  4]  mem[298] = mem[2]
+ 87  441  OP_BC_TRUNC         [14 / 71/  1]  mem[299] = mem[298] & 0xffffffffffffffff
+ 87  442  OP_BC_XOR           [13 / 66/  1]  mem[300] = mem[299] ^ mem[29]
+ 87  443  OP_BC_STORE         [38 /191/  1]  mem[mem[28]] = mem[300]
+ 87  444  OP_BC_ADD           [1  /  9/  0]  mem[301] = mem[23] + mem[455]
+ 87  445  OP_BC_ICMP_ULT      [25 /129/  4]  mem[302] = (mem[301] < mem[22])
+ 87  446  OP_BC_COPY          [34 /174/  4]  mem[11] = mem[301]
+ 87  447  OP_BC_BRANCH        [17 / 85/  0]  if mem[302] ? goto bb.2 : goto bb.92
+bb.88
+ 88  448  OP_BC_JMP           [18 / 90/  0]  goto bb.92
+bb.89
+ 89  449  OP_BC_JMP           [18 / 90/  0]  goto bb.92
+bb.90
+ 90  450  OP_BC_JMP           [18 / 90/  0]  goto bb.92
+bb.91
+ 91  451  OP_BC_JMP           [18 / 90/  0]  goto bb.92
+bb.92
+ 92  452  OP_BC_RET           [19 / 98/  3]  ret 456
+------------------------------------------------------------------------
+[clambc] Exiting
