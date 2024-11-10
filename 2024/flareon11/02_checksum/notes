@@ -1,0 +1,8 @@
+input checksum as hexstr
+hexstr -> bytes (used as chacha key)
+32 bytes of input (64 chars)
+
+reverse main_a
+
+get the expected checksum: 7fd7dd1d0e959f74c133c13abb740b9faa61ab06bd0ecd177645e93b1e3825dd
+patch the binary

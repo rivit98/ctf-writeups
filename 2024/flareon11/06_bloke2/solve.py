@@ -1,0 +1,7 @@
+from pwn import *
+
+a = unhex('51f39383b141688a26ea6d793315bbfe30de9f8689fa95656ad55fb143beef9cd3a8781ec867769624dba3c97027b39f1688dbd0f419bcb4337328112bcfd230')
+
+b = unhex('3c9cf0addf2e45ef548b011f736cc99144bdfee0d69df4090c8a39c520e18ec3bdc1277aad1706f756affca41178dac066e4beb8ab7dd2d1402c4d624aaabe40')
+
+print(xor(a,b)[::-1])
