@@ -1,0 +1,17 @@
+# tbreak main
+add-symbol-file ./relibc/dlmalloc-rs/target/debug/mylib.o
+
+define show_allocator
+    p *('dlmalloc::Dlmalloc<dlmalloc::sys::System>' *) 0x6883e8
+end
+
+define s
+    stack 150
+end
+
+set $main_arena = ('dlmalloc::Dlmalloc<dlmalloc::sys::System>' *) 0x6883e8
+
+# b *student_xray+32
+
+catch syscall exit
+continue

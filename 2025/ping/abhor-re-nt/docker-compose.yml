@@ -1,0 +1,16 @@
+services:
+  abhor-re-nt:
+    build:
+      dockerfile_inline: |
+        FROM debian:stable-slim@sha256:70b337e820bf51d399fa5bfa96a0066fbf22f3aa2c3307e2401b91e2207ac3c3 as base
+        WORKDIR /app
+        COPY abhorrent run
+        COPY flag.txt flag.txt
+
+        FROM pwn.red/jail
+        COPY --from=base / /srv
+        ENV JAIL_TIME=180 JAIL_CONNS_PER_IP=3
+    ports:
+      - "30000:5000"
+    privileged: true
+    restart: unless-stopped
