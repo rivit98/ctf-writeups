@@ -1,0 +1,3 @@
+%include "vm.inc"
+
+EXPAND

@@ -1,0 +1,9 @@
+%include "vm.inc"
+
+PUSH_IMM 255
+POP_REG 0
+PUSH_IMM 0
+POP_REG 1
+MEMCPY 1, 0, 255
+
+EXPAND
