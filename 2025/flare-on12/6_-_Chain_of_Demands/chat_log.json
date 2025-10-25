@@ -1,0 +1,56 @@
+[
+  {
+    "conversation_time": 0,
+    "mode": "LCG-XOR",
+    "plaintext": "Hello",
+    "ciphertext": "e934b27119f12318fe16e8cd1c1678fd3b0a752eca163a7261a7e2510184bbe9"
+  },
+  {
+    "conversation_time": 4,
+    "mode": "LCG-XOR",
+    "plaintext": "How are you?",
+    "ciphertext": "25bf2fd1198392f4935dcace7d747c1e0715865b21358418e67f94163513eae4"
+  },
+  {
+    "conversation_time": 11,
+    "mode": "LCG-XOR",
+    "plaintext": "Terrible...",
+    "ciphertext": "c9f20e5561acf172305cf8f04c13e643c988aa5ab29b5499c93df112687c8c7c"
+  },
+  {
+    "conversation_time": 13,
+    "mode": "LCG-XOR",
+    "plaintext": "Is this a secure channel?",
+    "ciphertext": "3ab9c9f38e4f767a13b12569cdbf13db6bbb939e4c8a57287fb0c9def0288e46"
+  },
+  {
+    "conversation_time": 16,
+    "mode": "LCG-XOR",
+    "plaintext": "Yes, it's on the blockchain.",
+    "ciphertext": "3f6de0c2063d3e8e875737046fef079d73cc9b1b7a4b7b94da2d2867493f6fc5"
+  },
+  {
+    "conversation_time": 24,
+    "mode": "LCG-XOR",
+    "plaintext": "Erm enable super safe mode",
+    "ciphertext": "787cf6c0be39caa21b7908fcd1beca68031b7d11130005ba361c5d361b106b6d"
+  },
+  {
+    "conversation_time": 30,
+    "mode": "LCG-XOR",
+    "plaintext": "Ok, activating now",
+    "ciphertext": "632ab61849140655e0ee6f90ab00b879a3a3da241d4b50bab99f74f169d456db"
+  },
+  {
+    "conversation_time": 242,
+    "mode": "RSA",
+    "plaintext": "[ENCRYPTED]",
+    "ciphertext": "680a65364a498aa87cf17c934ab308b2aee0014aee5b0b7d289b5108677c7ad1eb3bcfbcad7582f87cb3f242391bea7e70e8c01f3ad53ac69488713daea76bb3a524bd2a4bbbc2cfb487477e9d91783f103bd6729b15a4ae99cb93f0db22a467ce12f8d56acaef5d1652c54f495db7bc88aa423bc1c2b60a6ecaede2f4273f6dce265f6c664ec583d7bd75d2fb849d77fa11d05de891b5a706eb103b7dbdb4e5a4a2e72445b61b83fd931cae34e5eaab931037db72ba14e41a70de94472e949ca3cf2135c2ccef0e9b6fa7dd3aaf29a946d165f6ca452466168c32c43c91f159928efb3624e56430b14a0728c52f2668ab26f837120d7af36baf48192ceb3002"
+  },
+  {
+    "conversation_time": 249,
+    "mode": "RSA",
+    "plaintext": "[ENCRYPTED]",
+    "ciphertext": "6f70034472ce115fc82a08560bd22f0e7f373e6ef27bca6e4c8f67fedf4031be23bf50311b4720fe74836b352b34c42db46341cac60298f2fa768f775a9c3da0c6705e0ce11d19b3cbdcf51309c22744e96a19576a8de0e1195f2dab21a3f1b0ef5086afcffa2e086e7738e5032cb5503df39e4bf4bdf620af7aa0f752dac942be50e7fec9a82b63f5c8faf07306e2a2e605bb93df09951c8ad46e5a2572e333484cae16be41929523c83c0d4ca317ef72ea9cde1d5630ebf6c244803d2dc1da0a1eefaafa82339bf0e6cf4bf41b1a2a90f7b2e25313a021eafa6234643acb9d5c9c22674d7bc793f1822743b48227a814a7a6604694296f33c2c59e743f4106"
+  }
+]
