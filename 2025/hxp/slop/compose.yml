@@ -1,0 +1,10 @@
+services:
+  slop:
+    build: .
+    hostname: slop
+    image: hxp2025/slop
+    ports:
+      - 1024:1024/tcp
+    pull_policy: never
+    restart: unless-stopped
+    stop_signal: SIGKILL
