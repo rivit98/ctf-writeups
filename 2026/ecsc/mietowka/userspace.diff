@@ -1,0 +1,114 @@
+diff --git a/userspace/bin/CMakeLists.txt b/userspace/bin/CMakeLists.txt
+index 3635886..00c71e0 100644
+--- a/userspace/bin/CMakeLists.txt
++++ b/userspace/bin/CMakeLists.txt
+@@ -1,5 +1,7 @@
+ # List of programs.
+ set(PROGRAM_LIST
++    upload.c
++
+     cat.c
+     chmod.c
+     chown.c
+diff --git a/userspace/bin/shell.c b/userspace/bin/shell.c
+index 59b69eb..361c2a7 100644
+--- a/userspace/bin/shell.c
++++ b/userspace/bin/shell.c
+@@ -25,7 +25,7 @@
+ #include <unistd.h>
+ 
+ /// Maximum length of commands.
+-#define CMD_LEN     256
++#define CMD_LEN     1024
+ /// Maximum lenght of the history.
+ #define HISTORY_MAX 10
+ 
+@@ -528,6 +528,7 @@ static inline int __history_push(rb_history_entry_t *entry)
+         // Compare the new entry with the last entry to avoid duplicates.
+         if (strcmp(entry->buffer, previous_entry.buffer) == 0) {
+             // Return 0 if the new entry is the same as the previous one (duplicate).
++            history_index = history.count;
+             return 0;
+         }
+     }
+diff --git a/userspace/bin/upload.c b/userspace/bin/upload.c
+new file mode 100644
+index 0000000..4392272
+--- /dev/null
++++ b/userspace/bin/upload.c
+@@ -0,0 +1,75 @@
++#include <fcntl.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
++
++uint8_t hex_to_nibble(char c) {
++    if (c >= '0' && c <= '9') {
++        return c - '0';
++    }
++
++    if (c >= 'a' && c <= 'f') {
++        return c - 'a' + 10;
++    }
++
++    if (c >= 'A' && c <= 'F') {
++        return c - 'A' + 10;
++    }
++
++    return 0;
++}
++
++int main(int argc, const char** argv) {
++    uint8_t buf[250];
++
++    if (argc != 4) {
++        printf("Usage: %s <output file> <offset> <hexstring to append>\n", argv[0]);
++        return 1;
++    }
++
++    const char* fname = argv[1];
++    int offset = atoi(argv[2]);
++    const char* hexstring = argv[3];
++    int len = strlen(hexstring);
++
++    if (len & 1) {
++        printf("hexstring must have an even length (is: %d)\n", len);
++        return 1;
++    }
++
++    int fd = open(fname, O_WRONLY | O_CREAT | O_APPEND, 0644);
++
++    lseek(fd, offset, SEEK_SET);
++
++    if (fd < 0) {
++        perror("Couldn't open output file");
++        return 1;
++    }
++
++    int idx = 0;
++    int remaining = len >> 1;
++
++    while (remaining > 0) {
++        int to_copy = remaining;
++        if (to_copy > 250) {
++            to_copy = 250;
++        }
++
++        for (int i = 0; i < to_copy; i++) {
++            uint8_t b = 0;
++            b |= hex_to_nibble(hexstring[(idx + i) << 1]) << 4;
++            b |= hex_to_nibble(hexstring[((idx + i) << 1) + 1]);
++            buf[idx + i] = b;
++        }
++
++        write(fd, buf, to_copy);
++        idx += to_copy;
++        remaining -= to_copy;
++    }
++
++    close(fd);
++
++    return 0;
++}

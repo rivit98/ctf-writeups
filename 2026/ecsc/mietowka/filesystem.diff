@@ -1,0 +1,41 @@
+diff --git a/filesystem/etc/group b/filesystem/etc/group
+index 38ffec8..e1f50c6 100644
+--- a/filesystem/etc/group
++++ b/filesystem/etc/group
+@@ -1,2 +1,2 @@
+-root:x:0:user,root,marco
+-user:x:1000:banana,marco
++root:x:0:root
++user:x:1000:user
+diff --git a/filesystem/etc/hostname b/filesystem/etc/hostname
+index db49e60..76fa827 100644
+--- a/filesystem/etc/hostname
++++ b/filesystem/etc/hostname
+@@ -1 +1 @@
+-avalon
+\ No newline at end of file
++mietowka
+diff --git a/filesystem/etc/shadow b/filesystem/etc/shadow
+index 95fd4f6..52b3f29 100644
+--- a/filesystem/etc/shadow
++++ b/filesystem/etc/shadow
+@@ -1,2 +1,2 @@
+-root:33ba1bde6222ff5836cfe0123c71e594238e675a5a5b6fbfd2ad69ae7d580a40:::::::
++root:x:::::::
+ user:35047cb1b06dabc31ce3f11b3cd0f83f7c2ed4d52851e62585906d44775a70a6:::::::
+diff --git a/filesystem/home/user/README.md b/filesystem/home/user/README.md
+deleted file mode 120000
+index fe84005..0000000
+--- a/filesystem/home/user/README.md
++++ /dev/null
+@@ -1 +0,0 @@
+-../../README.md
+\ No newline at end of file
+diff --git a/filesystem/home/user/tmp.md b/filesystem/home/user/tmp.md
+deleted file mode 120000
+index 9b51942..0000000
+--- a/filesystem/home/user/tmp.md
++++ /dev/null
+@@ -1 +0,0 @@
+-../user/welcome.md
+\ No newline at end of file

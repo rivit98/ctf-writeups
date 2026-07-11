@@ -1,0 +1,1518 @@
+diff --git a/kernel/inc/drivers/keyboard/keyboard.h b/kernel/inc/drivers/keyboard/keyboard.h
+index fc6ae4b..fff2d88 100644
+--- a/kernel/inc/drivers/keyboard/keyboard.h
++++ b/kernel/inc/drivers/keyboard/keyboard.h
+@@ -13,7 +13,7 @@
+ #include "kernel.h"
+ #include "ring_buffer.h"
+ 
+-DECLARE_FIXED_SIZE_RING_BUFFER(int, keybuffer, 256, -1)
++DECLARE_FIXED_SIZE_RING_BUFFER(char, keybuffer, 1024, -1)
+ 
+ /// @brief The interrupt service routine of the keyboard.
+ /// @param f The interrupt stack frame.
+diff --git a/kernel/inc/drivers/keyboard/keymap.h b/kernel/inc/drivers/keyboard/keymap.h
+deleted file mode 100644
+index a1ed519..0000000
+--- a/kernel/inc/drivers/keyboard/keymap.h
++++ /dev/null
+@@ -1,163 +0,0 @@
+-/// @file keymap.h
+-/// @brief Keymap for keyboard.
+-/// @copyright (c) 2014-2024 This file is distributed under the MIT License.
+-/// See LICENSE.md for details.
+-/// @addtogroup drivers Device Drivers
+-/// @{
+-/// @addtogroup keyboard Keyboard
+-/// @{
+-
+-#pragma once
+-
+-#include "stdint.h"
+-
+-/// @brief The list of supported keyboard layouts.
+-typedef enum {
+-    KEYMAP_IT,      ///< Identifies the IT keyboard mapping.
+-    KEYMAP_US,      ///< Identifies the US keyboard mapping.
+-    KEYMAP_DE,      ///< Identifies the DE keyboard mapping.
+-    KEYMAP_TYPE_MAX ///< The delimiter for the keyboard types.
+-} keymap_type_t;
+-
+-/// @brief Defines the mapping of a single scancode towards a set of characters.
+-typedef struct keymap {
+-    /// The basic mapping.
+-    int normal;
+-    /// The mapping when shifted.
+-    int shift;
+-    /// The mapping when ctrl is pressed.
+-    int ctrl;
+-    /// The mapping when alt is pressed.
+-    int alt;
+-    /// The mapping when numlock is active.
+-    int numlock;
+-} keymap_t;
+-
+-/// @brief Returns the current keymap type.
+-/// @return The current keymap type.
+-keymap_type_t get_keymap_type(void);
+-
+-/// @brief Changes the current keymap type.
+-/// @param type The type to set.
+-void set_keymap_type(keymap_type_t type);
+-
+-/// @brief Returns the current keymap for the given scancode.
+-/// @param scancode the scancode we want.
+-/// @return Pointer to the keymap.
+-const keymap_t *get_keymap(unsigned int scancode);
+-
+-/// @brief Initializes the supported keymaps.
+-void init_keymaps(void);
+-
+-/// @name Keyboard Codes
+-/// @brief This is the list of keyboard codes.
+-/// @{
+-
+-#define KEY_ESCAPE        0x0001U ///< Escape character
+-#define KEY_1             0x0002U ///< 1
+-#define KEY_2             0x0003U ///< 2
+-#define KEY_3             0x0004U ///< 3
+-#define KEY_4             0x0005U ///< 4
+-#define KEY_5             0x0006U ///< 5
+-#define KEY_6             0x0007U ///< 6
+-#define KEY_7             0x0008U ///< 7
+-#define KEY_8             0x0009U ///< 8
+-#define KEY_9             0x000AU ///< 9
+-#define KEY_0             0x000BU ///< 0
+-#define KEY_APOSTROPHE    0x000CU ///< '
+-#define KEY_I_ACC         0x000DU ///< i'
+-#define KEY_BACKSPACE     0x000EU ///< Backspace
+-#define KEY_TAB           0x000FU ///< Tabular
+-#define KEY_Q             0x0010U ///< q
+-#define KEY_W             0x0011U ///< w
+-#define KEY_E             0x0012U ///< e
+-#define KEY_R             0x0013U ///< r
+-#define KEY_T             0x0014U ///< t
+-#define KEY_Y             0x0015U ///< y
+-#define KEY_U             0x0016U ///< u
+-#define KEY_I             0x0017U ///< i
+-#define KEY_O             0x0018U ///< o
+-#define KEY_P             0x0019U ///< p
+-#define KEY_LEFT_BRAKET   0x001AU ///< (
+-#define KEY_RIGHT_BRAKET  0x001BU ///< )
+-#define KEY_ENTER         0x001CU ///< Enter
+-#define KEY_LEFT_CONTROL  0x001DU ///< Left-ctrl
+-#define KEY_A             0x001EU ///< a
+-#define KEY_S             0x001FU ///< s
+-#define KEY_D             0x0020U ///< d
+-#define KEY_F             0x0021U ///< f
+-#define KEY_G             0x0022U ///< g
+-#define KEY_H             0x0023U ///< h
+-#define KEY_J             0x0024U ///< j
+-#define KEY_K             0x0025U ///< k
+-#define KEY_L             0x0026U ///< l
+-#define KEY_SEMICOLON     0x0027U ///< '
+-#define KEY_DOUBLE_QUOTES 0x0028U ///< "
+-#define KEY_GRAVE         0x0029U ///< Either ` or ~
+-#define KEY_LEFT_SHIFT    0x002AU ///< LShift
+-#define KEY_BACKSLASH     0x002BU ///< Either \ or |
+-#define KEY_Z             0x002cU ///< Z
+-#define KEY_X             0x002dU ///< X
+-#define KEY_C             0x002eU ///< C
+-#define KEY_V             0x002fU ///< V
+-#define KEY_B             0x0030U ///< B
+-#define KEY_N             0x0031U ///< N
+-#define KEY_M             0x0032U ///< M
+-#define KEY_COMMA         0x0033U ///< Either , or <
+-#define KEY_PERIOD        0x0034U ///< Either . or >
+-#define KEY_MINUS         0x0035U ///< Either - and _
+-#define KEY_RIGHT_SHIFT   0x0036U ///< RShift
+-#define KEY_KP_MUL        0x0037U ///< NP - *
+-#define KEY_LEFT_ALT      0x0038U ///< LAlt
+-#define KEY_SPACE         0x0039U ///< Space
+-#define KEY_CAPS_LOCK     0x003aU ///< Caps Lock
+-#define KEY_F1            0x003BU ///< Function 1
+-#define KEY_F2            0x003CU ///< Function 2
+-#define KEY_F3            0x003DU ///< Function 3
+-#define KEY_F4            0x003EU ///< Function 4
+-#define KEY_F5            0x003FU ///< Function 5
+-#define KEY_F6            0x0040U ///< Function 6
+-#define KEY_F7            0x0041U ///< Function 7
+-#define KEY_F8            0x0042U ///< Function 8
+-#define KEY_F9            0x0043U ///< Function 9
+-#define KEY_F10           0x0044U ///< Function 10
+-#define KEY_NUM_LOCK      0x0045U ///< Num Lock
+-#define KEY_SCROLL_LOCK   0x0046U ///< Scroll Lock
+-#define KEY_KP7           0x0047U ///< NP - Home
+-#define KEY_KP8           0x0048U ///< NP - UpArrow
+-#define KEY_KP9           0x0049U ///< NP - Pgup
+-#define KEY_KP_SUB        0x004AU ///< NP - Grey
+-#define KEY_KP4           0x004BU ///< NP - LArrow
+-#define KEY_KP5           0x004CU ///< NP - Center
+-#define KEY_KP6           0x004DU ///< NP - RArrow
+-#define KEY_KP_ADD        0x004EU ///< NP - Grey +
+-#define KEY_KP1           0x004FU ///< NP - End
+-#define KEY_KP2           0x0050U ///< NP - DArrow
+-#define KEY_KP3           0x0051U ///< NP - Pgdn
+-#define KEY_KP0           0x0052U ///< NP - Ins
+-#define KEY_KP_DEC        0x0053U ///< NP - Del
+-#define KEY_KP_LESS       0x0056U ///< NP - Del
+-#define KEY_F11           0x0057U ///< F11 57431
+-#define KEY_F12           0x0058U ///< F12 57432
+-#define KEY_KP_RETURN     0xE01cU ///< NP - Enter 57372
+-#define KEY_RIGHT_CONTROL 0xE01DU ///< Right Ctrl 57373
+-#define KEY_KP_DIV        0xE035U ///< Divide 57397
+-#define KEY_RIGHT_ALT     0xE038U ///< Right Alt 57400
+-#define KEY_LEFT_WIN      0xE05bU ///< Left Winkey 57435
+-#define KEY_RIGHT_WIN     0xE05cU ///< Right Winkey 57436
+-#define KEY_INSERT        0xE052U ///< Ins 57426
+-#define KEY_HOME          0xE047U ///< Home 57415
+-#define KEY_UP_ARROW      0xE048U ///< Up Arrow 57416
+-#define KEY_PAGE_UP       0xE049U ///< Pgup 57417
+-#define KEY_LEFT_ARROW    0xE04bU ///< Left Arrow 57419
+-#define KEY_DELETE        0xE053U ///< Del 57427
+-#define KEY_END           0xE04fU ///< End 57423
+-#define KEY_PAGE_DOWN     0xE051U ///< Pgdn 57425
+-#define KEY_RIGHT_ARROW   0xE04dU ///< Right Arrow 57421
+-#define KEY_DOWN_ARROW    0xE050U ///< Down Arrow 57424
+-#define CODE_BREAK        0x0080U ///< Code break code
+-
+-/// @}
+-
+-/// @}
+-/// @}
+diff --git a/kernel/inc/io/video.h b/kernel/inc/io/video.h
+index d231c7b..3974c0e 100644
+--- a/kernel/inc/io/video.h
++++ b/kernel/inc/io/video.h
+@@ -19,9 +19,6 @@ void video_putc(int c);
+ /// @param str The string to print.
+ void video_puts(const char *str);
+ 
+-/// @brief When something is written in another position, update the cursor.
+-void video_update_cursor_position(void);
+-
+ /// @brief Move the cursor at the position x, y on the screen.
+ /// @param x The x coordinate.
+ /// @param y The y coordinate.
+@@ -59,13 +56,3 @@ void video_shift_one_page_up(void);
+ 
+ /// @brief The whole screen is shifted down by one page.
+ void video_shift_one_page_down(void);
+-
+-/// @brief Scrolls the screen up by a specified number of lines, showing
+-/// previous lines from the buffer.
+-/// @param lines The number of lines to scroll up.
+-void video_scroll_up(int lines);
+-
+-/// @brief Scrolls the screen down by a specified number of lines, restoring
+-/// lines from the buffer or the original content.
+-/// @param lines The number of lines to scroll down.
+-void video_scroll_down(int lines);
+diff --git a/kernel/src/drivers/keyboard/keyboard.c b/kernel/src/drivers/keyboard/keyboard.c
+index 8bb94c8..bfec7ba 100644
+--- a/kernel/src/drivers/keyboard/keyboard.c
++++ b/kernel/src/drivers/keyboard/keyboard.c
+@@ -14,7 +14,6 @@
+ #include "ctype.h"
+ #include "descriptor_tables/isr.h"
+ #include "drivers/keyboard/keyboard.h"
+-#include "drivers/keyboard/keymap.h"
+ #include "drivers/ps2.h"
+ #include "hardware/pic8259.h"
+ #include "io/port_io.h"
+@@ -24,6 +23,8 @@
+ #include "string.h"
+ #include "sys/bitops.h"
+ 
++#define SERIAL_COM2 (0x02F8)
++
+ /// Tracks the state of the leds.
+ static uint8_t ledstate = 0;
+ /// The flags concerning the keyboard.
+@@ -46,31 +47,6 @@ spinlock_t scancodes_lock;
+ /// Define variable to switch between normal mode sequences and xterm sequences.
+ #define USE_XTERM_SEQUENCES 0
+ 
+-#define SEQ_UP_ARROW         "\033[A"    ///< Escape sequence for the Up Arrow key.
+-#define SEQ_DOWN_ARROW       "\033[B"    ///< Escape sequence for the Down Arrow key.
+-#define SEQ_RIGHT_ARROW      "\033[C"    ///< Escape sequence for the Right Arrow key.
+-#define SEQ_LEFT_ARROW       "\033[D"    ///< Escape sequence for the Left Arrow key.
+-#define SEQ_CTRL_UP_ARROW    "\033[1;5A" ///< Escape sequence for Ctrl + Up Arrow.
+-#define SEQ_CTRL_DOWN_ARROW  "\033[1;5B" ///< Escape sequence for Ctrl + Down Arrow.
+-#define SEQ_CTRL_RIGHT_ARROW "\033[1;5C" ///< Escape sequence for Ctrl + Right Arrow.
+-#define SEQ_CTRL_LEFT_ARROW  "\033[1;5D" ///< Escape sequence for Ctrl + Left Arrow.
+-#define SEQ_INSERT           "\033[2~"   ///< Escape sequence for the Insert key.
+-#define SEQ_DELETE           "\033[3~"   ///< Escape sequence for the Delete key.
+-#define SEQ_PAGE_UP          "\033[5~"   ///< Escape sequence for the Page Up key.
+-#define SEQ_PAGE_DOWN        "\033[6~"   ///< Escape sequence for the Page Down key.
+-#define SEQ_F1               "\033OP"    ///< Escape sequence for the F1 key.
+-#define SEQ_F2               "\033OQ"    ///< Escape sequence for the F2 key.
+-#define SEQ_F3               "\033OR"    ///< Escape sequence for the F3 key.
+-#define SEQ_F4               "\033OS"    ///< Escape sequence for the F4 key.
+-#define SEQ_F5               "\033[15~"  ///< Escape sequence for the F5 key.
+-#define SEQ_F6               "\033[17~"  ///< Escape sequence for the F6 key.
+-#define SEQ_F7               "\033[18~"  ///< Escape sequence for the F7 key.
+-#define SEQ_F8               "\033[19~"  ///< Escape sequence for the F8 key.
+-#define SEQ_F9               "\033[20~"  ///< Escape sequence for the F9 key.
+-#define SEQ_F10              "\033[21~"  ///< Escape sequence for the F10 key.
+-#define SEQ_F11              "\033[23~"  ///< Escape sequence for the F11 key.
+-#define SEQ_F12              "\033[24~"  ///< Escape sequence for the F12 key.
+-
+ #if USE_XTERM_SEQUENCES
+ #define SEQ_HOME "\033[1~" ///< Escape sequence for the Home key in xterm.
+ #define SEQ_END  "\033[4~" ///< Escape sequence for the End key in xterm.
+@@ -170,240 +146,25 @@ void keyboard_isr(pt_regs_t *f)
+     unsigned int scancode;
+     (void)f;
+ 
+-    if (!(inportb(0x64U) & 1U)) {
+-        return;
++    char c = inportb(SERIAL_COM2);
++    // enter
++    if (c == '\r') {
++        c = '\n';
+     }
+-
+-    // Take scancode from the port.
+-    scancode = ps2_read_data();
+-    if (scancode == 0xE0) {
+-        scancode = (scancode << 8U) | ps2_read_data();
++    // backspace
++    if (c == '\x7f') {
++        c = '\b';
+     }
+-
+-    // Get the keypad number, of num-lock is disabled.
+-    int keypad_code = !bitmask_check(kflags, KBD_NUM_LOCK) ? scancode : 0;
+-
+-    int ctrl_pressed      = (kflags & (KBD_LEFT_CONTROL | KBD_RIGHT_CONTROL)) != 0;
+-    int shift_pressed     = (kflags & (KBD_LEFT_SHIFT | KBD_RIGHT_SHIFT)) != 0;
+-    int right_alt_pressed = (kflags & KBD_RIGHT_ALT) != 0;
+-    int caps_lock_pressed = (kflags & KBD_CAPS_LOCK) != 0;
+-
+-    // If the key has just been released.
+-    if (scancode == KEY_LEFT_SHIFT) {
+-        pr_debug("Press(KBD_LEFT_SHIFT)\n");
+-        bitmask_set_assign(kflags, KBD_LEFT_SHIFT);
+-
+-    } else if (scancode == KEY_RIGHT_SHIFT) {
+-        pr_debug("Press(KBD_RIGHT_SHIFT)\n");
+-        bitmask_set_assign(kflags, KBD_RIGHT_SHIFT);
+-
+-    } else if (scancode == KEY_LEFT_CONTROL) {
+-        pr_debug("Press(KBD_LEFT_CONTROL)\n");
+-        bitmask_set_assign(kflags, KBD_LEFT_CONTROL);
+-
+-    } else if (scancode == KEY_RIGHT_CONTROL) {
+-        pr_debug("Press(KBD_RIGHT_CONTROL)\n");
+-        bitmask_set_assign(kflags, KBD_RIGHT_CONTROL);
+-
+-    } else if (scancode == KEY_LEFT_ALT) {
+-        pr_debug("Press(KBD_LEFT_ALT)\n");
+-        bitmask_set_assign(kflags, KBD_LEFT_ALT);
+-        keyboard_push_front(scancode << 16U);
+-
+-    } else if (scancode == KEY_RIGHT_ALT) {
+-        pr_debug("Press(KBD_RIGHT_ALT)\n");
+-        bitmask_set_assign(kflags, KBD_RIGHT_ALT);
+-        keyboard_push_front(scancode << 16U);
+-
+-    } else if (scancode == (KEY_LEFT_SHIFT | CODE_BREAK)) {
+-        pr_debug("Release(KBD_LEFT_SHIFT)\n");
+-        bitmask_clear_assign(kflags, KBD_LEFT_SHIFT);
+-
+-    } else if (scancode == (KEY_RIGHT_SHIFT | CODE_BREAK)) {
+-        pr_debug("Release(KBD_RIGHT_SHIFT)\n");
+-        bitmask_clear_assign(kflags, KBD_RIGHT_SHIFT);
+-
+-    } else if (scancode == (KEY_LEFT_CONTROL | CODE_BREAK)) {
+-        pr_debug("Release(KBD_LEFT_CONTROL)\n");
+-        bitmask_clear_assign(kflags, KBD_LEFT_CONTROL);
+-
+-    } else if (scancode == (KEY_RIGHT_CONTROL | CODE_BREAK)) {
+-        pr_debug("Release(KBD_RIGHT_CONTROL)\n");
+-        bitmask_clear_assign(kflags, KBD_RIGHT_CONTROL);
+-
+-    } else if (scancode == (KEY_LEFT_ALT | CODE_BREAK)) {
+-        pr_debug("Release(KBD_LEFT_ALT)\n");
+-        bitmask_clear_assign(kflags, KBD_LEFT_ALT);
+-
+-    } else if (scancode == (KEY_RIGHT_ALT | CODE_BREAK)) {
+-        pr_debug("Release(KBD_RIGHT_ALT)\n");
+-        bitmask_clear_assign(kflags, KBD_RIGHT_ALT);
+-
+-    } else if (scancode == KEY_CAPS_LOCK) {
+-        pr_debug("Toggle(KBD_CAPS_LOCK)\n");
+-        bitmask_flip_assign(kflags, KBD_CAPS_LOCK);
+-        keyboard_update_leds();
+-
+-    } else if (scancode == KEY_NUM_LOCK) {
+-        pr_debug("Toggle(KBD_NUM_LOCK)\n");
+-        bitmask_flip_assign(kflags, KBD_NUM_LOCK);
+-        keyboard_update_leds();
+-
+-    } else if (scancode == KEY_SCROLL_LOCK) {
+-        pr_debug("Toggle(KBD_SCROLL_LOCK)\n");
+-        bitmask_flip_assign(kflags, KBD_SCROLL_LOCK);
+-        keyboard_update_leds();
+-
+-    } else if (scancode == KEY_BACKSPACE) {
+-        pr_debug("Press(KEY_BACKSPACE)\n");
+-        keyboard_push_front('\b');
+-
+-    } else if ((scancode == KEY_ENTER) || (scancode == KEY_KP_RETURN)) {
+-        pr_debug("Press(KEY_ENTER)\n");
+-        keyboard_push_front('\n');
+-
+-    } else if (ctrl_pressed && ((scancode == KEY_UP_ARROW) || (keypad_code == KEY_KP8))) {
+-        pr_debug("Press(Ctrl + KEY_UP_ARROW)\n");
+-        keyboard_push_front_sequence(SEQ_CTRL_UP_ARROW);
+-
+-    } else if (ctrl_pressed && ((scancode == KEY_DOWN_ARROW) || (keypad_code == KEY_KP2))) {
+-        pr_debug("Press(Ctrl + KEY_DOWN_ARROW)\n");
+-        keyboard_push_front_sequence(SEQ_CTRL_DOWN_ARROW);
+-
+-    } else if (ctrl_pressed && ((scancode == KEY_RIGHT_ARROW) || (keypad_code == KEY_KP6))) {
+-        pr_debug("Press(Ctrl + KEY_RIGHT_ARROW)\n");
+-        keyboard_push_front_sequence(SEQ_CTRL_RIGHT_ARROW);
+-
+-    } else if (ctrl_pressed && ((scancode == KEY_LEFT_ARROW) || (keypad_code == KEY_KP4))) {
+-        pr_debug("Press(Ctrl + KEY_LEFT_ARROW)\n");
+-        keyboard_push_front_sequence(SEQ_CTRL_LEFT_ARROW);
+-
+-    } else if ((scancode == KEY_UP_ARROW) || (keypad_code == KEY_KP8)) {
+-        pr_debug("Press(KEY_UP_ARROW)\n");
+-        keyboard_push_front_sequence(SEQ_UP_ARROW);
+-
+-    } else if ((scancode == KEY_DOWN_ARROW) || (keypad_code == KEY_KP2)) {
+-        pr_debug("Press(KEY_DOWN_ARROW)\n");
+-        keyboard_push_front_sequence(SEQ_DOWN_ARROW);
+-
+-    } else if ((scancode == KEY_RIGHT_ARROW) || (keypad_code == KEY_KP6)) {
+-        pr_debug("Press(KEY_RIGHT_ARROW)\n");
+-        keyboard_push_front_sequence(SEQ_RIGHT_ARROW);
+-
+-    } else if ((scancode == KEY_LEFT_ARROW) || (keypad_code == KEY_KP4)) {
+-        pr_debug("Press(KEY_LEFT_ARROW)\n");
+-        keyboard_push_front_sequence(SEQ_LEFT_ARROW);
+-
+-    } else if (scancode == KEY_F1) {
+-        pr_debug("Press(KEY_F1)\n");
+-        keyboard_push_front_sequence(SEQ_F1);
+-
+-    } else if (scancode == KEY_F2) {
+-        pr_debug("Press(KEY_F2)\n");
+-        keyboard_push_front_sequence(SEQ_F2);
+-
+-    } else if (scancode == KEY_F3) {
+-        pr_debug("Press(KEY_F3)\n");
+-        keyboard_push_front_sequence(SEQ_F3);
+-
+-    } else if (scancode == KEY_F4) {
+-        pr_debug("Press(KEY_F4)\n");
+-        keyboard_push_front_sequence(SEQ_F4);
+-
+-    } else if (scancode == KEY_F5) {
+-        pr_debug("Press(KEY_F5)\n");
+-        keyboard_push_front_sequence(SEQ_F5);
+-
+-    } else if (scancode == KEY_F6) {
+-        pr_debug("Press(KEY_F6)\n");
+-        keyboard_push_front_sequence(SEQ_F6);
+-
+-    } else if (scancode == KEY_F7) {
+-        pr_debug("Press(KEY_F7)\n");
+-        keyboard_push_front_sequence(SEQ_F7);
+-
+-    } else if (scancode == KEY_F8) {
+-        pr_debug("Press(KEY_F8)\n");
+-        keyboard_push_front_sequence(SEQ_F8);
+-
+-    } else if (scancode == KEY_F9) {
+-        pr_debug("Press(KEY_F9)\n");
+-        keyboard_push_front_sequence(SEQ_F9);
+-
+-    } else if (scancode == KEY_F10) {
+-        pr_debug("Press(KEY_F10)\n");
+-        keyboard_push_front_sequence(SEQ_F10);
+-
+-    } else if (scancode == KEY_F11) {
+-        pr_debug("Press(KEY_F11)\n");
+-        keyboard_push_front_sequence(SEQ_F11);
+-
+-    } else if (scancode == KEY_F12) {
+-        pr_debug("Press(KEY_F12)\n");
+-        keyboard_push_front_sequence(SEQ_F12);
+-
+-    } else if ((scancode == KEY_INSERT) || (keypad_code == KEY_KP0)) {
+-        pr_debug("Press(KEY_INSERT)\n");
+-        keyboard_push_front_sequence(SEQ_INSERT);
+-
+-    } else if ((scancode == KEY_DELETE) || (keypad_code == KEY_KP_DEC)) {
+-        pr_debug("Press(KEY_DELETE)\n");
+-        keyboard_push_front_sequence(SEQ_DELETE);
+-
+-    } else if ((scancode == KEY_HOME) || (keypad_code == KEY_KP7)) {
+-        pr_debug("Press(KEY_HOME)\n");
+-        keyboard_push_front_sequence(SEQ_HOME);
+-
+-    } else if ((scancode == KEY_END) || (keypad_code == KEY_KP1)) {
+-        pr_debug("Press(KEY_END)\n");
+-        keyboard_push_front_sequence(SEQ_END);
+-
+-    } else if ((scancode == KEY_PAGE_UP) || (keypad_code == KEY_KP9)) {
+-        pr_debug("Press(KEY_PAGE_UP)\n");
+-        keyboard_push_front_sequence(SEQ_PAGE_UP);
+-
+-    } else if ((scancode == KEY_PAGE_DOWN) || (keypad_code == KEY_KP3)) {
+-        pr_debug("Press(KEY_PAGE_DOWN)\n");
+-        keyboard_push_front_sequence(SEQ_PAGE_DOWN);
+-
+-    } else if (scancode == KEY_ESCAPE) {
+-        // Nothing to do.
+-
+-    } else if (!(scancode & CODE_BREAK)) {
+-        // Get the current keymap.
+-        const keymap_t *keymap = get_keymap(scancode);
+-        pr_debug("scancode : %04x (%c)\n", scancode, keymap->normal);
+-        // Get the specific keymap.
+-        if (!shift_pressed != !caps_lock_pressed) {
+-            keyboard_push_front(keymap->shift);
+-        } else if ((get_keymap_type() == KEYMAP_IT) && right_alt_pressed && shift_pressed) {
+-            keyboard_push_front(keymap->alt);
+-        } else if (right_alt_pressed) {
+-            keyboard_push_front(keymap->alt);
+-        } else if (ctrl_pressed) {
+-            keyboard_push_front(keymap->ctrl);
+-        } else {
+-            keyboard_push_front(keymap->normal);
+-        }
+-    }
+-    pic8259_send_eoi(IRQ_KEYBOARD);
++    keyboard_push_front(c);
++    pic8259_send_eoi(IRQ_COM2_4);
++    return;
+ }
+ 
+-void keyboard_update_leds(void)
+-{
+-    // Handle scroll_loc & num_loc & caps_loc.
+-    bitmask_check(kflags, KBD_SCROLL_LOCK) ? (ledstate |= 1) : (ledstate ^= 1);
+-    bitmask_check(kflags, KBD_NUM_LOCK) ? (ledstate |= 2) : (ledstate ^= 2);
+-    bitmask_check(kflags, KBD_CAPS_LOCK) ? (ledstate |= 4) : (ledstate ^= 4);
+-
+-    // Write on the port.
+-    outportb(0x60, 0xED);
+-    outportb(0x60, ledstate);
+-}
++void keyboard_update_leds(void) { }
+ 
+-void keyboard_enable(void) { outportb(0x60, 0xF4); }
++void keyboard_enable(void) { }
+ 
+-void keyboard_disable(void) { outportb(0x60, 0xF5); }
++void keyboard_disable(void) { }
+ 
+ int keyboard_initialize(void)
+ {
+@@ -411,21 +172,23 @@ int keyboard_initialize(void)
+     rb_keybuffer_init(&scancodes);
+     // Initialize the spinlock.
+     spinlock_init(&scancodes_lock);
+-    // Initialize the keymaps.
+-    init_keymaps();
++
++    // Configure IER.
++    outportb(SERIAL_COM2 + 1, 1);
++
+     // Install the IRQ.
+-    irq_install_handler(IRQ_KEYBOARD, keyboard_isr, "keyboard");
++    irq_install_handler(IRQ_COM2_4, keyboard_isr, "keyboard");
+     // Enable the IRQ.
+-    pic8259_irq_enable(IRQ_KEYBOARD);
++    pic8259_irq_enable(IRQ_COM2_4);
+     return 0;
+ }
+ 
+ int keyboard_finalize(void)
+ {
+     // Install the IRQ.
+-    irq_uninstall_handler(IRQ_KEYBOARD, keyboard_isr);
++    irq_uninstall_handler(IRQ_COM2_4, keyboard_isr);
+     // Enable the IRQ.
+-    pic8259_irq_disable(IRQ_KEYBOARD);
++    pic8259_irq_disable(IRQ_COM2_4);
+     return 0;
+ }
+ 
+diff --git a/kernel/src/drivers/keyboard/keymap.c b/kernel/src/drivers/keyboard/keymap.c
+deleted file mode 100644
+index 52a70eb..0000000
+--- a/kernel/src/drivers/keyboard/keymap.c
++++ /dev/null
+@@ -1,343 +0,0 @@
+-/// @file keymap.c
+-/// @brief Keymap for keyboard.
+-/// @copyright (c) 2014-2024 This file is distributed under the MIT License.
+-/// See LICENSE.md for details.
+-/// @addtogroup keyboard
+-/// @{
+-
+-#include "drivers/keyboard/keymap.h"
+-#include "string.h"
+-
+-/// Identifies the current keymap type.
+-keymap_type_t keymap_type = KEYMAP_IT;
+-/// Contains the different keymaps.
+-keymap_t keymaps[KEYMAP_TYPE_MAX][65536];
+-
+-keymap_type_t get_keymap_type(void) { return keymap_type; }
+-
+-void set_keymap_type(keymap_type_t type)
+-{
+-    if (type != keymap_type) {
+-        keymap_type = type;
+-    }
+-}
+-
+-const keymap_t *get_keymap(unsigned int scancode) { return &keymaps[keymap_type][scancode]; }
+-
+-void init_keymaps(void)
+-{
+-    for (int i = 0; i < KEYMAP_TYPE_MAX; ++i) {
+-        memset(&keymaps[i], -1, sizeof(keymap_t));
+-    }
+-
+-    // == ITALIAN KEY MAPPING =================================================
+-    //                 Keys                Normal  Shifted Ctrl    Alt
+-    keymaps[KEYMAP_IT][KEY_A] = (keymap_t){0x1E61, 0x1E41, 0x1E01, 0x1E00}; // 0x001E  A
+-    keymaps[KEYMAP_IT][KEY_B] = (keymap_t){0x3062, 0x3042, 0x3002, 0x3000}; // 0x0030  B
+-    keymaps[KEYMAP_IT][KEY_C] = (keymap_t){0x2E63, 0x2E43, 0x2E03, 0x2E00}; // 0x002E  C
+-    keymaps[KEYMAP_IT][KEY_D] = (keymap_t){0x2064, 0x2044, 0x2004, 0x2000}; // 0x0020  D
+-    keymaps[KEYMAP_IT][KEY_E] = (keymap_t){0x1265, 0x1245, 0x1205, 0x1200}; // 0x0012  E
+-    keymaps[KEYMAP_IT][KEY_F] = (keymap_t){0x2166, 0x2146, 0x2106, 0x2100}; // 0x0021  F
+-    keymaps[KEYMAP_IT][KEY_G] = (keymap_t){0x2267, 0x2247, 0x2207, 0x2200}; // 0x0022  G
+-    keymaps[KEYMAP_IT][KEY_H] = (keymap_t){0x2368, 0x2348, 0x2308, 0x2300}; // 0x0023  H
+-    keymaps[KEYMAP_IT][KEY_I] = (keymap_t){0x1769, 0x1749, 0x1709, 0x1700}; // 0x0017  I
+-    keymaps[KEYMAP_IT][KEY_J] = (keymap_t){0x246A, 0x244A, 0x240A, 0x2400}; // 0x0024  J
+-    keymaps[KEYMAP_IT][KEY_K] = (keymap_t){0x256B, 0x254B, 0x250B, 0x2500}; // 0x0025  K
+-    keymaps[KEYMAP_IT][KEY_L] = (keymap_t){0x266C, 0x264C, 0x260C, 0x2600}; // 0x0026  L
+-    keymaps[KEYMAP_IT][KEY_M] = (keymap_t){0x326D, 0x324D, 0x320D, 0x3200}; // 0x0032  M
+-    keymaps[KEYMAP_IT][KEY_N] = (keymap_t){0x316E, 0x314E, 0x310E, 0x3100}; // 0x0031  N
+-    keymaps[KEYMAP_IT][KEY_O] = (keymap_t){0x186F, 0x184F, 0x180F, 0x1800}; // 0x0018  O
+-    keymaps[KEYMAP_IT][KEY_P] = (keymap_t){0x1970, 0x1950, 0x1910, 0x1900}; // 0x0019  P
+-    keymaps[KEYMAP_IT][KEY_Q] = (keymap_t){0x1071, 0x1051, 0x1011, 0x1000}; // 0x0010  Q
+-    keymaps[KEYMAP_IT][KEY_R] = (keymap_t){0x1372, 0x1352, 0x1312, 0x1300}; // 0x0013  R
+-    keymaps[KEYMAP_IT][KEY_S] = (keymap_t){0x1F73, 0x1F53, 0x1F13, 0x1F00}; // 0x001F  S
+-    keymaps[KEYMAP_IT][KEY_T] = (keymap_t){0x1474, 0x1454, 0x1414, 0x1400}; // 0x0014  T
+-    keymaps[KEYMAP_IT][KEY_U] = (keymap_t){0x1675, 0x1655, 0x1615, 0x1600}; // 0x0016  U
+-    keymaps[KEYMAP_IT][KEY_V] = (keymap_t){0x2F76, 0x2F56, 0x2F16, 0x2F00}; // 0x002F  V
+-    keymaps[KEYMAP_IT][KEY_W] = (keymap_t){0x1177, 0x1157, 0x1117, 0x1100}; // 0x0011  W
+-    keymaps[KEYMAP_IT][KEY_X] = (keymap_t){0x2D78, 0x2D58, 0x2D18, 0x2D00}; // 0x002D  X
+-    keymaps[KEYMAP_IT][KEY_Y] = (keymap_t){0x1579, 0x1559, 0x1519, 0x1500}; // 0x0015  Y
+-    keymaps[KEYMAP_IT][KEY_Z] = (keymap_t){0x2C7A, 0x2C5A, 0x2C1A, 0x2C00}; // 0x002C  Z
+-
+-    keymaps[KEYMAP_IT][KEY_1] = (keymap_t){0x0231, 0x0221, 0x0000, 0x7800}; // 0x0002  1 !
+-    keymaps[KEYMAP_IT][KEY_2] = (keymap_t){0x0332, 0x0322, 0x0300, 0x7900}; // 0x0003  2 "
+-    keymaps[KEYMAP_IT][KEY_3] = (keymap_t){0x0433, 0x049C, 0x0000, 0x7A00}; // 0x0004  3 £
+-    keymaps[KEYMAP_IT][KEY_4] = (keymap_t){0x0534, 0x0524, 0x0000, 0x7B00}; // 0x0005  4 $
+-    keymaps[KEYMAP_IT][KEY_5] = (keymap_t){0x0635, 0x0625, 0x0000, 0x7C00}; // 0x0006  5 %
+-    keymaps[KEYMAP_IT][KEY_6] = (keymap_t){0x0736, 0x0726, 0x071E, 0x7D00}; // 0x0007  6 &
+-    keymaps[KEYMAP_IT][KEY_7] = (keymap_t){0x0837, 0x082F, 0x0000, 0x7E00}; // 0x0008  7 /
+-    keymaps[KEYMAP_IT][KEY_8] = (keymap_t){0x0938, 0x0928, 0x0000, 0x7F00}; // 0x0009  8 (
+-    keymaps[KEYMAP_IT][KEY_9] = (keymap_t){0x0A39, 0x0A29, 0x0000, 0x8000}; // 0x000A  9 )
+-    keymaps[KEYMAP_IT][KEY_0] = (keymap_t){0x0B30, 0x0B3D, 0x0000, 0x8100}; // 0x000B  0 =
+-
+-    keymaps[KEYMAP_IT][KEY_GRAVE]         = (keymap_t){0x295C, 0x297C, 0x0000, 0x2900}; // 0x0029  \ |
+-    keymaps[KEYMAP_IT][KEY_APOSTROPHE]    = (keymap_t){0x0C27, 0x0C3F, 0x0000, 0x8200}; // 0x000C  ' ?
+-    keymaps[KEYMAP_IT][KEY_I_ACC]         = (keymap_t){0x0D8D, 0x0D5E, 0x0000, 0x8300}; // 0x000D  ì ^
+-    keymaps[KEYMAP_IT][KEY_LEFT_BRAKET]   = (keymap_t){0x1A8A, 0x1A82, 0x0000, 0x1A5B}; // 0x001A  è é [
+-    keymaps[KEYMAP_IT][KEY_RIGHT_BRAKET]  = (keymap_t){0x1B2B, 0x1B2A, 0x0000, 0x1B5D}; // 0x001B  + * ]
+-    keymaps[KEYMAP_IT][KEY_SEMICOLON]     = (keymap_t){0x2795, 0x2780, 0x0000, 0x2740}; // 0x0027  ò ç @
+-    keymaps[KEYMAP_IT][KEY_DOUBLE_QUOTES] = (keymap_t){0x2885, 0x28A7, 0x0000, 0x2823}; // 0x0028  à ° #
+-    keymaps[KEYMAP_IT][KEY_BACKSLASH]     = (keymap_t){0x2B97, 0x2BA7, 0x0000, 0x2B00}; // 0x002B  ù §
+-    keymaps[KEYMAP_IT][KEY_KP_LESS]       = (keymap_t){0x563C, 0x563E, 0x0000, 0x5600}; // 0x0056  < >
+-    keymaps[KEYMAP_IT][KEY_COMMA]         = (keymap_t){0x332C, 0x333B, 0x0000, 0x3300}; // 0x0033  , ;
+-    keymaps[KEYMAP_IT][KEY_PERIOD]        = (keymap_t){0x342E, 0x343A, 0x0000, 0x3400}; // 0x0034  . :
+-    keymaps[KEYMAP_IT][KEY_MINUS]         = (keymap_t){0x352D, 0x355F, 0x0000, 0x3500}; // 0x0035  - _
+-
+-    keymaps[KEYMAP_IT][KEY_F1]  = (keymap_t){0x3B00, 0x5400, 0x5E00, 0x6800}; // 0x003B  F1
+-    keymaps[KEYMAP_IT][KEY_F2]  = (keymap_t){0x3C00, 0x5500, 0x5F00, 0x6900}; // 0x003C  F2
+-    keymaps[KEYMAP_IT][KEY_F3]  = (keymap_t){0x3D00, 0x5600, 0x6000, 0x6A00}; // 0x003D  F3
+-    keymaps[KEYMAP_IT][KEY_F4]  = (keymap_t){0x3E00, 0x5700, 0x6100, 0x6B00}; // 0x003E  F4
+-    keymaps[KEYMAP_IT][KEY_F5]  = (keymap_t){0x3F00, 0x5800, 0x6200, 0x6C00}; // 0x003F  F5
+-    keymaps[KEYMAP_IT][KEY_F6]  = (keymap_t){0x4000, 0x5900, 0x6300, 0x6D00}; // 0x0040  F6
+-    keymaps[KEYMAP_IT][KEY_F7]  = (keymap_t){0x4100, 0x5A00, 0x6400, 0x6E00}; // 0x0041  F7
+-    keymaps[KEYMAP_IT][KEY_F8]  = (keymap_t){0x4200, 0x5B00, 0x6500, 0x6F00}; // 0x0042  F8
+-    keymaps[KEYMAP_IT][KEY_F9]  = (keymap_t){0x4300, 0x5C00, 0x6600, 0x7000}; // 0x0043  F9
+-    keymaps[KEYMAP_IT][KEY_F10] = (keymap_t){0x4400, 0x5D00, 0x6700, 0x7100}; // 0x0044  F10
+-    keymaps[KEYMAP_IT][KEY_F11] = (keymap_t){0x5700, 0x5900, 0x5B00, 0x5D00}; // 0x0057  F11
+-    keymaps[KEYMAP_IT][KEY_F12] = (keymap_t){0x5800, 0x5A00, 0x5C00, 0x5E00}; // 0x0058  F12
+-
+-    keymaps[KEYMAP_IT][KEY_BACKSPACE] = (keymap_t){0x0E08, 0x0E08, 0x0E7F, 0x0E00}; // 0x000E  BackSpace
+-    keymaps[KEYMAP_IT][KEY_ENTER]     = (keymap_t){0x1C0D, 0x1C0D, 0x1C0A, 0xA600}; // 0x001C  Enter
+-    keymaps[KEYMAP_IT][KEY_ESCAPE]    = (keymap_t){0x011B, 0x011B, 0x011B, 0x0100}; // 0x0001  Esc
+-    keymaps[KEYMAP_IT][KEY_TAB]       = (keymap_t){0x0F09, 0x0F00, 0x9400, 0xA500}; // 0x000F  Tab
+-    keymaps[KEYMAP_IT][KEY_SPACE]     = (keymap_t){0x3920, 0x3920, 0x3920, 0x3920}; // 0x0039  SpaceBar
+-
+-    keymaps[KEYMAP_IT][KEY_INSERT]    = (keymap_t){0x5200, 0x5230, 0x9200, 0xA200}; // 0xE052  Ins
+-    keymaps[KEYMAP_IT][KEY_HOME]      = (keymap_t){0x4700, 0x4737, 0x7700, 0x9700}; // 0xE047  Home
+-    keymaps[KEYMAP_IT][KEY_PAGE_UP]   = (keymap_t){0x4900, 0x4939, 0x8400, 0x9900}; // 0xE049  PgUp
+-    keymaps[KEYMAP_IT][KEY_DELETE]    = (keymap_t){0x5300, 0x532E, 0x9300, 0xA300}; // 0xE053  Del
+-    keymaps[KEYMAP_IT][KEY_END]       = (keymap_t){0x4F00, 0x4F31, 0x7500, 0x9F00}; // 0xE04F  End
+-    keymaps[KEYMAP_IT][KEY_PAGE_DOWN] = (keymap_t){0x5100, 0x5133, 0x7600, 0xA100}; // 0xE051  PgDn
+-
+-    keymaps[KEYMAP_IT][KEY_UP_ARROW]    = (keymap_t){0x4800, 0x4838, 0x8D00, 0x9800}; // 0xE048  Up Arrow
+-    keymaps[KEYMAP_IT][KEY_DOWN_ARROW]  = (keymap_t){0x5000, 0x5032, 0x9100, 0xA000}; // 0xE050  Down Arrow
+-    keymaps[KEYMAP_IT][KEY_LEFT_ARROW]  = (keymap_t){0x4B00, 0x4B34, 0x7300, 0x9B00}; // 0xE04B  Left Arrow
+-    keymaps[KEYMAP_IT][KEY_RIGHT_ARROW] = (keymap_t){0x4D00, 0x4D36, 0x7400, 0x9D00}; // 0xE04D  Right Arrow
+-
+-    keymaps[KEYMAP_IT][KEY_KP_DIV]    = (keymap_t){0x352F, 0x352F, 0x3500, 0x3500}; // 0xE035  Kp.Div
+-    keymaps[KEYMAP_IT][KEY_KP_MUL]    = (keymap_t){0x372A, 0x372A, 0x3700, 0x3700}; // 0x0037  Kp.Mul
+-    keymaps[KEYMAP_IT][KEY_KP_SUB]    = (keymap_t){0x4A2D, 0x4A2D, 0x4A00, 0x4A00}; // 0x004A  Kp.Sub
+-    keymaps[KEYMAP_IT][KEY_KP_ADD]    = (keymap_t){0x4E2B, 0x4E2B, 0x4E00, 0x4E00}; // 0x004E  Kp.Add
+-    keymaps[KEYMAP_IT][KEY_KP_RETURN] = (keymap_t){0xE01C, 0xE01C, 0x1C00, 0x1C00}; // 0xE01C  Kp.Enter
+-
+-    keymaps[KEYMAP_IT][KEY_KP7] = (keymap_t){0x4737, 0x4737, 0x4700, 0x4700}; // 0x0047
+-    keymaps[KEYMAP_IT][KEY_KP8] = (keymap_t){0x4838, 0x4838, 0x4800, 0x4800}; // 0x0048
+-    keymaps[KEYMAP_IT][KEY_KP9] = (keymap_t){0x4939, 0x4939, 0x4900, 0x4900}; // 0x0049
+-    keymaps[KEYMAP_IT][KEY_KP4] = (keymap_t){0x4B34, 0x4B34, 0x4B00, 0x4B00}; // 0x004B
+-    keymaps[KEYMAP_IT][KEY_KP5] = (keymap_t){0x4C35, 0x4C35, 0x4C00, 0x4C00}; // 0x004C
+-    keymaps[KEYMAP_IT][KEY_KP6] = (keymap_t){0x4D36, 0x4D36, 0x4D00, 0x4D00}; // 0x004D
+-    keymaps[KEYMAP_IT][KEY_KP1] = (keymap_t){0x4F31, 0x4F31, 0x4F00, 0x4F00}; // 0x004F
+-    keymaps[KEYMAP_IT][KEY_KP2] = (keymap_t){0x5032, 0x5032, 0x5000, 0x5000}; // 0x0050
+-    keymaps[KEYMAP_IT][KEY_KP3] = (keymap_t){0x5133, 0x5133, 0x5100, 0x5100}; // 0x0051
+-    keymaps[KEYMAP_IT][KEY_KP0] = (keymap_t){0x5230, 0x5230, 0x5200, 0x5200}; // 0x0052
+-
+-    keymaps[KEYMAP_IT][KEY_KP_DEC] = (keymap_t){0x532E, 0x532E, 0x5300, 0x5300}; // 0x0053
+-
+-    // == US KEY MAPPING =================================================
+-    //                 Keys                Normal  Shifted Ctrl    Alt
+-    keymaps[KEYMAP_US][KEY_A] = (keymap_t){0x1E61, 0x1E41, 0x1E01, 0x1E00}; // 0x001E  A
+-    keymaps[KEYMAP_US][KEY_B] = (keymap_t){0x3062, 0x3042, 0x3002, 0x3000}; // 0x0030  B
+-    keymaps[KEYMAP_US][KEY_C] = (keymap_t){0x2E63, 0x2E43, 0x2E03, 0x2E00}; // 0x002E  C
+-    keymaps[KEYMAP_US][KEY_D] = (keymap_t){0x2064, 0x2044, 0x2004, 0x2000}; // 0x0020  D
+-    keymaps[KEYMAP_US][KEY_E] = (keymap_t){0x1265, 0x1245, 0x1205, 0x1200}; // 0x0012  E
+-    keymaps[KEYMAP_US][KEY_F] = (keymap_t){0x2166, 0x2146, 0x2106, 0x2100}; // 0x0021  F
+-    keymaps[KEYMAP_US][KEY_G] = (keymap_t){0x2267, 0x2247, 0x2207, 0x2200}; // 0x0022  G
+-    keymaps[KEYMAP_US][KEY_H] = (keymap_t){0x2368, 0x2348, 0x2308, 0x2300}; // 0x0023  H
+-    keymaps[KEYMAP_US][KEY_I] = (keymap_t){0x1769, 0x1749, 0x1709, 0x1700}; // 0x0017  I
+-    keymaps[KEYMAP_US][KEY_J] = (keymap_t){0x246A, 0x244A, 0x240A, 0x2400}; // 0x0024  J
+-    keymaps[KEYMAP_US][KEY_K] = (keymap_t){0x256B, 0x254B, 0x250B, 0x2500}; // 0x0025  K
+-    keymaps[KEYMAP_US][KEY_L] = (keymap_t){0x266C, 0x264C, 0x260C, 0x2600}; // 0x0026  L
+-    keymaps[KEYMAP_US][KEY_M] = (keymap_t){0x326D, 0x324D, 0x320D, 0x3200}; // 0x0032  M
+-    keymaps[KEYMAP_US][KEY_N] = (keymap_t){0x316E, 0x314E, 0x310E, 0x3100}; // 0x0031  N
+-    keymaps[KEYMAP_US][KEY_O] = (keymap_t){0x186F, 0x184F, 0x180F, 0x1800}; // 0x0018  O
+-    keymaps[KEYMAP_US][KEY_P] = (keymap_t){0x1970, 0x1950, 0x1910, 0x1900}; // 0x0019  P
+-    keymaps[KEYMAP_US][KEY_Q] = (keymap_t){0x1071, 0x1051, 0x1011, 0x1000}; // 0x0010  Q
+-    keymaps[KEYMAP_US][KEY_R] = (keymap_t){0x1372, 0x1352, 0x1312, 0x1300}; // 0x0013  R
+-    keymaps[KEYMAP_US][KEY_S] = (keymap_t){0x1F73, 0x1F53, 0x1F13, 0x1F00}; // 0x001F  S
+-    keymaps[KEYMAP_US][KEY_T] = (keymap_t){0x1474, 0x1454, 0x1414, 0x1400}; // 0x0014  T
+-    keymaps[KEYMAP_US][KEY_U] = (keymap_t){0x1675, 0x1655, 0x1615, 0x1600}; // 0x0016  U
+-    keymaps[KEYMAP_US][KEY_V] = (keymap_t){0x2F76, 0x2F56, 0x2F16, 0x2F00}; // 0x002F  V
+-    keymaps[KEYMAP_US][KEY_W] = (keymap_t){0x1177, 0x1157, 0x1117, 0x1100}; // 0x0011  W
+-    keymaps[KEYMAP_US][KEY_X] = (keymap_t){0x2D78, 0x2D58, 0x2D18, 0x2D00}; // 0x002D  X
+-    keymaps[KEYMAP_US][KEY_Y] = (keymap_t){0x1579, 0x1559, 0x1519, 0x1500}; // 0x0015  Y
+-    keymaps[KEYMAP_US][KEY_Z] = (keymap_t){0x2C7A, 0x2C5A, 0x2C1A, 0x2C00}; // 0x002C  Z
+-
+-    keymaps[KEYMAP_US][KEY_1] = (keymap_t){0x0231, 0x0221, 0x0000, 0x7800}; // 0x0002  1 !
+-    keymaps[KEYMAP_US][KEY_2] = (keymap_t){0x0332, 0x0340, 0x0300, 0x7900}; // 0x0003  2 @
+-    keymaps[KEYMAP_US][KEY_3] = (keymap_t){0x0433, 0x0423, 0x0000, 0x7A00}; // 0x0004  3 #
+-    keymaps[KEYMAP_US][KEY_4] = (keymap_t){0x0534, 0x0524, 0x0000, 0x7B00}; // 0x0005  4 $
+-    keymaps[KEYMAP_US][KEY_5] = (keymap_t){0x0635, 0x0625, 0x0000, 0x7C00}; // 0x0006  5 %
+-    keymaps[KEYMAP_US][KEY_6] = (keymap_t){0x0736, 0x075E, 0x071E, 0x7D00}; // 0x0007  6 ^
+-    keymaps[KEYMAP_US][KEY_7] = (keymap_t){0x0837, 0x0826, 0x0000, 0x7E00}; // 0x0008  7 &
+-    keymaps[KEYMAP_US][KEY_8] = (keymap_t){0x0938, 0x092A, 0x0000, 0x7F00}; // 0x0009  8 *
+-    keymaps[KEYMAP_US][KEY_9] = (keymap_t){0x0A39, 0x0A28, 0x0000, 0x8000}; // 0x000A  9 (
+-    keymaps[KEYMAP_US][KEY_0] = (keymap_t){0x0B30, 0x0B29, 0x0000, 0x8100}; // 0x000B  0 )
+-
+-    keymaps[KEYMAP_US][KEY_GRAVE]         = (keymap_t){0x2900 + 0x60, 0x2900 + 0x7E, 0x0000, 0x2900}; // 0x0029  ` ~
+-    keymaps[KEYMAP_US][KEY_APOSTROPHE]    = (keymap_t){0x0C00 + 0x2D, 0x0C00 + 0x5F, 0x0000, 0x0C00}; // 0x000C  - _
+-    keymaps[KEYMAP_US][KEY_I_ACC]         = (keymap_t){0x0D00 + 0x3D, 0x0D00 + 0x2B, 0x0000, 0x0D00}; // 0x000D  = +
+-    keymaps[KEYMAP_US][KEY_LEFT_BRAKET]   = (keymap_t){0x1A00 + 0x5B, 0x1A00 + 0x7B, 0x0000, 0x1A00}; // 0x001A  [ {
+-    keymaps[KEYMAP_US][KEY_RIGHT_BRAKET]  = (keymap_t){0x1B00 + 0x5D, 0x1B00 + 0x7D, 0x0000, 0x1B00}; // 0x001B  ] }
+-    keymaps[KEYMAP_US][KEY_SEMICOLON]     = (keymap_t){0x2700 + 0x3B, 0x2700 + 0x3A, 0x0000, 0x2700}; // 0x0027  ; :
+-    keymaps[KEYMAP_US][KEY_DOUBLE_QUOTES] = (keymap_t){0x2800 + 0x27, 0x2800 + 0x22, 0x0000, 0x2800}; // 0x0028  ' "
+-    keymaps[KEYMAP_US][KEY_BACKSLASH]     = (keymap_t){0x2B00 + 0x5C, 0x2B00 + 0x7C, 0x0000, 0x2B00}; // 0x002B  \ |
+-    keymaps[KEYMAP_US][KEY_COMMA]         = (keymap_t){0x3300 + 0x2C, 0x3300 + 0x3C, 0x0000, 0x3300}; // 0x0033  , <
+-    keymaps[KEYMAP_US][KEY_PERIOD]        = (keymap_t){0x3400 + 0x2E, 0x3400 + 0x3E, 0x0000, 0x3400}; // 0x0034  . >
+-    keymaps[KEYMAP_US][KEY_MINUS]         = (keymap_t){0x3500 + 0x2F, 0x3500 + 0x3F, 0x0000, 0x3500}; // 0x0035  / ?
+-
+-    keymaps[KEYMAP_US][KEY_F1]  = (keymap_t){0x3B00, 0x5400, 0x5E00, 0x6800}; // 0x003B  F1
+-    keymaps[KEYMAP_US][KEY_F2]  = (keymap_t){0x3C00, 0x5500, 0x5F00, 0x6900}; // 0x003C  F2
+-    keymaps[KEYMAP_US][KEY_F3]  = (keymap_t){0x3D00, 0x5600, 0x6000, 0x6A00}; // 0x003D  F3
+-    keymaps[KEYMAP_US][KEY_F4]  = (keymap_t){0x3E00, 0x5700, 0x6100, 0x6B00}; // 0x003E  F4
+-    keymaps[KEYMAP_US][KEY_F5]  = (keymap_t){0x3F00, 0x5800, 0x6200, 0x6C00}; // 0x003F  F5
+-    keymaps[KEYMAP_US][KEY_F6]  = (keymap_t){0x4000, 0x5900, 0x6300, 0x6D00}; // 0x0040  F6
+-    keymaps[KEYMAP_US][KEY_F7]  = (keymap_t){0x4100, 0x5A00, 0x6400, 0x6E00}; // 0x0041  F7
+-    keymaps[KEYMAP_US][KEY_F8]  = (keymap_t){0x4200, 0x5B00, 0x6500, 0x6F00}; // 0x0042  F8
+-    keymaps[KEYMAP_US][KEY_F9]  = (keymap_t){0x4300, 0x5C00, 0x6600, 0x7000}; // 0x0043  F9
+-    keymaps[KEYMAP_US][KEY_F10] = (keymap_t){0x4400, 0x5D00, 0x6700, 0x7100}; // 0x0044  F10
+-    keymaps[KEYMAP_US][KEY_F11] = (keymap_t){0x5700, 0x5900, 0x5B00, 0x5D00}; // 0x0057  F11
+-    keymaps[KEYMAP_US][KEY_F12] = (keymap_t){0x5800, 0x5A00, 0x5C00, 0x5E00}; // 0x0058  F12
+-
+-    keymaps[KEYMAP_US][KEY_BACKSPACE] = (keymap_t){0x0E08, 0x0E08, 0x0E7F, 0x0E00}; // 0x000E  BackSpace
+-    keymaps[KEYMAP_US][KEY_ENTER]     = (keymap_t){0x1C0D, 0x1C0D, 0x1C0A, 0xA600}; // 0x001C  Enter
+-    keymaps[KEYMAP_US][KEY_ESCAPE]    = (keymap_t){0x011B, 0x011B, 0x011B, 0x0100}; // 0x0001  Esc
+-    keymaps[KEYMAP_US][KEY_TAB]       = (keymap_t){0x0F09, 0x0F00, 0x9400, 0xA500}; // 0x000F  Tab
+-    keymaps[KEYMAP_US][KEY_SPACE]     = (keymap_t){0x3920, 0x3920, 0x3920, 0x3920}; // 0x0039  SpaceBar
+-
+-    keymaps[KEYMAP_US][KEY_INSERT]    = (keymap_t){0x5200, 0x5230, 0x9200, 0xA200}; // 0xE052  Ins
+-    keymaps[KEYMAP_US][KEY_HOME]      = (keymap_t){0x4700, 0x4737, 0x7700, 0x9700}; // 0xE047  Home
+-    keymaps[KEYMAP_US][KEY_PAGE_UP]   = (keymap_t){0x4900, 0x4939, 0x8400, 0x9900}; // 0xE049  PgUp
+-    keymaps[KEYMAP_US][KEY_DELETE]    = (keymap_t){0x5300, 0x532E, 0x9300, 0xA300}; // 0xE053  Del
+-    keymaps[KEYMAP_US][KEY_END]       = (keymap_t){0x4F00, 0x4F31, 0x7500, 0x9F00}; // 0xE04F  End
+-    keymaps[KEYMAP_US][KEY_PAGE_DOWN] = (keymap_t){0x5100, 0x5133, 0x7600, 0xA100}; // 0xE051  PgDn
+-
+-    keymaps[KEYMAP_US][KEY_UP_ARROW]    = (keymap_t){0x4800, 0x4838, 0x8D00, 0x9800}; // 0xE048  Up Arrow
+-    keymaps[KEYMAP_US][KEY_DOWN_ARROW]  = (keymap_t){0x5000, 0x5032, 0x9100, 0xA000}; // 0xE050  Down Arrow
+-    keymaps[KEYMAP_US][KEY_LEFT_ARROW]  = (keymap_t){0x4B00, 0x4B34, 0x7300, 0x9B00}; // 0xE04B  Left Arrow
+-    keymaps[KEYMAP_US][KEY_RIGHT_ARROW] = (keymap_t){0x4D00, 0x4D36, 0x7400, 0x9D00}; // 0xE04D  Right Arrow
+-
+-    keymaps[KEYMAP_US][KEY_KP_DIV]    = (keymap_t){0x352F, 0x352F, 0x3500, 0x3500}; // 0xE035  Kp.Div
+-    keymaps[KEYMAP_US][KEY_KP_MUL]    = (keymap_t){0x372A, 0x372A, 0x3700, 0x3700}; // 0x0037  Kp.Mul
+-    keymaps[KEYMAP_US][KEY_KP_SUB]    = (keymap_t){0x4A2D, 0x4A2D, 0x4A00, 0x4A00}; // 0x004A  Kp.Sub
+-    keymaps[KEYMAP_US][KEY_KP_ADD]    = (keymap_t){0x4E2B, 0x4E2B, 0x4E00, 0x4E00}; // 0x004E  Kp.Add
+-    keymaps[KEYMAP_US][KEY_KP_RETURN] = (keymap_t){0xE01C, 0xE01C, 0x1C00, 0x1C00}; // 0xE01C  Kp.Enter
+-
+-    keymaps[KEYMAP_US][KEY_KP7] = (keymap_t){0x4737, 0x4737, 0x4700, 0x4700}; // 0x0047
+-    keymaps[KEYMAP_US][KEY_KP8] = (keymap_t){0x4838, 0x4838, 0x4800, 0x4800}; // 0x0048
+-    keymaps[KEYMAP_US][KEY_KP9] = (keymap_t){0x4939, 0x4939, 0x4900, 0x4900}; // 0x0049
+-    keymaps[KEYMAP_US][KEY_KP4] = (keymap_t){0x4B34, 0x4B34, 0x4B00, 0x4B00}; // 0x004B
+-    keymaps[KEYMAP_US][KEY_KP5] = (keymap_t){0x4C35, 0x4C35, 0x4C00, 0x4C00}; // 0x004C
+-    keymaps[KEYMAP_US][KEY_KP6] = (keymap_t){0x4D36, 0x4D36, 0x4D00, 0x4D00}; // 0x004D
+-    keymaps[KEYMAP_US][KEY_KP1] = (keymap_t){0x4F31, 0x4F31, 0x4F00, 0x4F00}; // 0x004F
+-    keymaps[KEYMAP_US][KEY_KP2] = (keymap_t){0x5032, 0x5032, 0x5000, 0x5000}; // 0x0050
+-    keymaps[KEYMAP_US][KEY_KP3] = (keymap_t){0x5133, 0x5133, 0x5100, 0x5100}; // 0x0051
+-    keymaps[KEYMAP_US][KEY_KP0] = (keymap_t){0x5230, 0x5230, 0x5200, 0x5200}; // 0x0052
+-
+-    keymaps[KEYMAP_US][KEY_KP_DEC] = (keymap_t){0x532E, 0x532E, 0x5300, 0x5300}; // 0x0053
+-
+-    // == GERMAN KEY MAPPING =================================================
+-    // TODO: Currently the german umlauts are replaced by their "base" vowel
+-    //                 Keys                Normal  Shifted Ctrl    Alt
+-    keymaps[KEYMAP_DE][KEY_A] = (keymap_t){0x1E61, 0x1E41, 0x1E01, 0x1E00}; // 0x001E  A
+-    keymaps[KEYMAP_DE][KEY_B] = (keymap_t){0x3062, 0x3042, 0x3002, 0x3000}; // 0x0030  B
+-    keymaps[KEYMAP_DE][KEY_C] = (keymap_t){0x2E63, 0x2E43, 0x2E03, 0x2E00}; // 0x002E  C
+-    keymaps[KEYMAP_DE][KEY_D] = (keymap_t){0x2064, 0x2044, 0x2004, 0x2000}; // 0x0020  D
+-    keymaps[KEYMAP_DE][KEY_E] = (keymap_t){0x1265, 0x1245, 0x1205, 0x1200}; // 0x0012  E
+-    keymaps[KEYMAP_DE][KEY_F] = (keymap_t){0x2166, 0x2146, 0x2106, 0x2100}; // 0x0021  F
+-    keymaps[KEYMAP_DE][KEY_G] = (keymap_t){0x2267, 0x2247, 0x2207, 0x2200}; // 0x0022  G
+-    keymaps[KEYMAP_DE][KEY_H] = (keymap_t){0x2368, 0x2348, 0x2308, 0x2300}; // 0x0023  H
+-    keymaps[KEYMAP_DE][KEY_I] = (keymap_t){0x1769, 0x1749, 0x1709, 0x1700}; // 0x0017  I
+-    keymaps[KEYMAP_DE][KEY_J] = (keymap_t){0x246A, 0x244A, 0x240A, 0x2400}; // 0x0024  J
+-    keymaps[KEYMAP_DE][KEY_K] = (keymap_t){0x256B, 0x254B, 0x250B, 0x2500}; // 0x0025  K
+-    keymaps[KEYMAP_DE][KEY_L] = (keymap_t){0x266C, 0x264C, 0x260C, 0x2600}; // 0x0026  L
+-    keymaps[KEYMAP_DE][KEY_M] = (keymap_t){0x326D, 0x324D, 0x320D, 0x3200}; // 0x0032  M
+-    keymaps[KEYMAP_DE][KEY_N] = (keymap_t){0x316E, 0x314E, 0x310E, 0x3100}; // 0x0031  N
+-    keymaps[KEYMAP_DE][KEY_O] = (keymap_t){0x186F, 0x184F, 0x180F, 0x1800}; // 0x0018  O
+-    keymaps[KEYMAP_DE][KEY_P] = (keymap_t){0x1970, 0x1950, 0x1910, 0x1900}; // 0x0019  P
+-    keymaps[KEYMAP_DE][KEY_Q] = (keymap_t){0x1071, 0x1051, 0x1011, 0x1040}; // 0x0010  Q @
+-    keymaps[KEYMAP_DE][KEY_R] = (keymap_t){0x1372, 0x1352, 0x1312, 0x1300}; // 0x0013  R
+-    keymaps[KEYMAP_DE][KEY_S] = (keymap_t){0x1F73, 0x1F53, 0x1F13, 0x1F00}; // 0x001F  S
+-    keymaps[KEYMAP_DE][KEY_T] = (keymap_t){0x1474, 0x1454, 0x1414, 0x1400}; // 0x0014  T
+-    keymaps[KEYMAP_DE][KEY_U] = (keymap_t){0x1675, 0x1655, 0x1615, 0x1600}; // 0x0016  U
+-    keymaps[KEYMAP_DE][KEY_V] = (keymap_t){0x2F76, 0x2F56, 0x2F16, 0x2F00}; // 0x002F  V
+-    keymaps[KEYMAP_DE][KEY_W] = (keymap_t){0x1177, 0x1157, 0x1117, 0x1100}; // 0x0011  W
+-    keymaps[KEYMAP_DE][KEY_X] = (keymap_t){0x2D78, 0x2D58, 0x2D18, 0x2D00}; // 0x002D  X
+-    keymaps[KEYMAP_DE][KEY_Y] = (keymap_t){0x1579, 0x1559, 0x1519, 0x1500}; // 0x0015  Y
+-    keymaps[KEYMAP_DE][KEY_Z] = (keymap_t){0x2C7A, 0x2C5A, 0x2C1A, 0x2C00}; // 0x002C  Z
+-
+-    keymaps[KEYMAP_DE][KEY_1] = (keymap_t){0x0231, 0x0221, 0x0200, 0x0200}; // 0x0002  1 !
+-    keymaps[KEYMAP_DE][KEY_2] = (keymap_t){0x0332, 0x0322, 0x0300, 0x0300}; // 0x0003  2 "
+-    keymaps[KEYMAP_DE][KEY_3] = (keymap_t){0x0433, 0x2BA7, 0x0000, 0x0400}; // 0x0004  3 §
+-    keymaps[KEYMAP_DE][KEY_4] = (keymap_t){0x0534, 0x0524, 0x0000, 0x7B00}; // 0x0005  4 $
+-    keymaps[KEYMAP_DE][KEY_5] = (keymap_t){0x0635, 0x0625, 0x0000, 0x7C00}; // 0x0006  5 %
+-    keymaps[KEYMAP_DE][KEY_6] = (keymap_t){0x0736, 0x0726, 0x071E, 0x7D00}; // 0x0007  6 &
+-    keymaps[KEYMAP_DE][KEY_7] = (keymap_t){0x0837, 0x082F, 0x0000, 0x087B}; // 0x0008  7 / {
+-    keymaps[KEYMAP_DE][KEY_8] = (keymap_t){0x0938, 0x0928, 0x0000, 0x095B}; // 0x0009  8 ( [
+-    keymaps[KEYMAP_DE][KEY_9] = (keymap_t){0x0A39, 0x0A29, 0x0000, 0x0A5D}; // 0x000A  9 ) ]
+-    keymaps[KEYMAP_DE][KEY_0] = (keymap_t){0x0B30, 0x0B3D, 0x0000, 0x0B7D}; // 0x000B  0 = }
+-
+-    keymaps[KEYMAP_DE][KEY_GRAVE]         = (keymap_t){0x0D5E, 0x28A7, 0x0000, 0x2900}; // 0x0029  ^ °
+-    keymaps[KEYMAP_DE][KEY_APOSTROPHE]    = (keymap_t){0x0C27, 0x0C3F, 0x0000, 0x0C5C}; // 0x000C  sz ? '\'
+-    keymaps[KEYMAP_DE][KEY_I_ACC]         = (keymap_t){0x0D00, 0x0D00, 0x0000, 0x0000}; // 0x000D  ` ´
+-    keymaps[KEYMAP_DE][KEY_LEFT_BRAKET]   = (keymap_t){0x1A75, 0x1A55, 0x0000, 0x0000}; // 0x001A  ü Ü
+-    keymaps[KEYMAP_DE][KEY_RIGHT_BRAKET]  = (keymap_t){0x1B2B, 0x1B2A, 0x0000, 0x1B7E}; // 0x001B  + * ~
+-    keymaps[KEYMAP_DE][KEY_SEMICOLON]     = (keymap_t){0x276F, 0x274F, 0x0000, 0x0000}; // 0x0027  ö Ö
+-    keymaps[KEYMAP_DE][KEY_DOUBLE_QUOTES] = (keymap_t){0x2861, 0x2841, 0x0000, 0x0000}; // 0x0028  ä Ä
+-    keymaps[KEYMAP_DE][KEY_BACKSLASH]     = (keymap_t){0x2B23, 0x2B27, 0x0000, 0x0000}; // 0x002B  # '
+-    keymaps[KEYMAP_DE][KEY_KP_LESS]       = (keymap_t){0x563C, 0x563E, 0x0000, 0x567C}; // 0x0056  < > |
+-    keymaps[KEYMAP_DE][KEY_COMMA]         = (keymap_t){0x332C, 0x333B, 0x0000, 0x3300}; // 0x0033  , ;
+-    keymaps[KEYMAP_DE][KEY_PERIOD]        = (keymap_t){0x342E, 0x343A, 0x0000, 0x3400}; // 0x0034  . :
+-    keymaps[KEYMAP_DE][KEY_MINUS]         = (keymap_t){0x352D, 0x355F, 0x0000, 0x0000}; // 0x0035  - _
+-
+-    keymaps[KEYMAP_DE][KEY_F1]  = (keymap_t){0x3B00, 0x5400, 0x5E00, 0x6800}; // 0x003B  F1
+-    keymaps[KEYMAP_DE][KEY_F2]  = (keymap_t){0x3C00, 0x5500, 0x5F00, 0x6900}; // 0x003C  F2
+-    keymaps[KEYMAP_DE][KEY_F3]  = (keymap_t){0x3D00, 0x5600, 0x6000, 0x6A00}; // 0x003D  F3
+-    keymaps[KEYMAP_DE][KEY_F4]  = (keymap_t){0x3E00, 0x5700, 0x6100, 0x6B00}; // 0x003E  F4
+-    keymaps[KEYMAP_DE][KEY_F5]  = (keymap_t){0x3F00, 0x5800, 0x6200, 0x6C00}; // 0x003F  F5
+-    keymaps[KEYMAP_DE][KEY_F6]  = (keymap_t){0x4000, 0x5900, 0x6300, 0x6D00}; // 0x0040  F6
+-    keymaps[KEYMAP_DE][KEY_F7]  = (keymap_t){0x4100, 0x5A00, 0x6400, 0x6E00}; // 0x0041  F7
+-    keymaps[KEYMAP_DE][KEY_F8]  = (keymap_t){0x4200, 0x5B00, 0x6500, 0x6F00}; // 0x0042  F8
+-    keymaps[KEYMAP_DE][KEY_F9]  = (keymap_t){0x4300, 0x5C00, 0x6600, 0x7000}; // 0x0043  F9
+-    keymaps[KEYMAP_DE][KEY_F10] = (keymap_t){0x4400, 0x5D00, 0x6700, 0x7100}; // 0x0044  F10
+-    keymaps[KEYMAP_DE][KEY_F11] = (keymap_t){0x5700, 0x5900, 0x5B00, 0x5D00}; // 0x0057  F11
+-    keymaps[KEYMAP_DE][KEY_F12] = (keymap_t){0x5800, 0x5A00, 0x5C00, 0x5E00}; // 0x0058  F12
+-
+-    keymaps[KEYMAP_DE][KEY_BACKSPACE] = (keymap_t){0x0E08, 0x0E08, 0x0E7F, 0x0E00}; // 0x000E  BackSpace
+-    keymaps[KEYMAP_DE][KEY_ENTER]     = (keymap_t){0x1C0D, 0x1C0D, 0x1C0A, 0xA600}; // 0x001C  Enter
+-    keymaps[KEYMAP_DE][KEY_ESCAPE]    = (keymap_t){0x011B, 0x011B, 0x011B, 0x0100}; // 0x0001  Esc
+-    keymaps[KEYMAP_DE][KEY_TAB]       = (keymap_t){0x0F09, 0x0F00, 0x9400, 0xA500}; // 0x000F  Tab
+-    keymaps[KEYMAP_DE][KEY_SPACE]     = (keymap_t){0x3920, 0x3920, 0x3920, 0x3920}; // 0x0039  SpaceBar
+-
+-    keymaps[KEYMAP_DE][KEY_INSERT]    = (keymap_t){0x5200, 0x5230, 0x9200, 0xA200}; // 0xE052  Ins
+-    keymaps[KEYMAP_DE][KEY_HOME]      = (keymap_t){0x4700, 0x4737, 0x7700, 0x9700}; // 0xE047  Home
+-    keymaps[KEYMAP_DE][KEY_PAGE_UP]   = (keymap_t){0x4900, 0x4939, 0x8400, 0x9900}; // 0xE049  PgUp
+-    keymaps[KEYMAP_DE][KEY_DELETE]    = (keymap_t){0x5300, 0x532E, 0x9300, 0xA300}; // 0xE053  Del
+-    keymaps[KEYMAP_DE][KEY_END]       = (keymap_t){0x4F00, 0x4F31, 0x7500, 0x9F00}; // 0xE04F  End
+-    keymaps[KEYMAP_DE][KEY_PAGE_DOWN] = (keymap_t){0x5100, 0x5133, 0x7600, 0xA100}; // 0xE051  PgDn
+-
+-    keymaps[KEYMAP_DE][KEY_UP_ARROW]    = (keymap_t){0x4800, 0x4838, 0x8D00, 0x9800}; // 0xE048  Up Arrow
+-    keymaps[KEYMAP_DE][KEY_DOWN_ARROW]  = (keymap_t){0x5000, 0x5032, 0x9100, 0xA000}; // 0xE050  Down Arrow
+-    keymaps[KEYMAP_DE][KEY_LEFT_ARROW]  = (keymap_t){0x4B00, 0x4B34, 0x7300, 0x9B00}; // 0xE04B  Left Arrow
+-    keymaps[KEYMAP_DE][KEY_RIGHT_ARROW] = (keymap_t){0x4D00, 0x4D36, 0x7400, 0x9D00}; // 0xE04D  Right Arrow
+-
+-    keymaps[KEYMAP_DE][KEY_KP_DIV]    = (keymap_t){0x352F, 0x352F, 0x3500, 0x3500}; // 0xE035  Kp.Div
+-    keymaps[KEYMAP_DE][KEY_KP_MUL]    = (keymap_t){0x372A, 0x372A, 0x3700, 0x3700}; // 0x0037  Kp.Mul
+-    keymaps[KEYMAP_DE][KEY_KP_SUB]    = (keymap_t){0x4A2D, 0x4A2D, 0x4A00, 0x4A00}; // 0x004A  Kp.Sub
+-    keymaps[KEYMAP_DE][KEY_KP_ADD]    = (keymap_t){0x4E2B, 0x4E2B, 0x4E00, 0x4E00}; // 0x004E  Kp.Add
+-    keymaps[KEYMAP_DE][KEY_KP_RETURN] = (keymap_t){0xE01C, 0xE01C, 0x1C00, 0x1C00}; // 0xE01C  Kp.Enter
+-
+-    keymaps[KEYMAP_DE][KEY_KP7] = (keymap_t){0x4737, 0x4737, 0x4700, 0x4700}; // 0x0047
+-    keymaps[KEYMAP_DE][KEY_KP8] = (keymap_t){0x4838, 0x4838, 0x4800, 0x4800}; // 0x0048
+-    keymaps[KEYMAP_DE][KEY_KP9] = (keymap_t){0x4939, 0x4939, 0x4900, 0x4900}; // 0x0049
+-    keymaps[KEYMAP_DE][KEY_KP4] = (keymap_t){0x4B34, 0x4B34, 0x4B00, 0x4B00}; // 0x004B
+-    keymaps[KEYMAP_DE][KEY_KP5] = (keymap_t){0x4C35, 0x4C35, 0x4C00, 0x4C00}; // 0x004C
+-    keymaps[KEYMAP_DE][KEY_KP6] = (keymap_t){0x4D36, 0x4D36, 0x4D00, 0x4D00}; // 0x004D
+-    keymaps[KEYMAP_DE][KEY_KP1] = (keymap_t){0x4F31, 0x4F31, 0x4F00, 0x4F00}; // 0x004F
+-    keymaps[KEYMAP_DE][KEY_KP2] = (keymap_t){0x5032, 0x5032, 0x5000, 0x5000}; // 0x0050
+-    keymaps[KEYMAP_DE][KEY_KP3] = (keymap_t){0x5133, 0x5133, 0x5100, 0x5100}; // 0x0051
+-    keymaps[KEYMAP_DE][KEY_KP0] = (keymap_t){0x5230, 0x5230, 0x5200, 0x5200}; // 0x0052
+-
+-    keymaps[KEYMAP_DE][KEY_KP_DEC] = (keymap_t){0x532E, 0x532E, 0x5300, 0x5300}; // 0x0053
+-}
+-
+-/// @}
+diff --git a/kernel/src/fs/ext2.c b/kernel/src/fs/ext2.c
+index f21020b..06dd94f 100644
+--- a/kernel/src/fs/ext2.c
++++ b/kernel/src/fs/ext2.c
+@@ -1968,11 +1968,11 @@ static ssize_t ext2_write_inode_data(
+     uint32_t end_offset  = (inode->size >= offset + nbyte) ? (offset + nbyte) : (inode->size);
+     // Convert the offset/size to some starting/end iblock numbers.
+     uint32_t start_block = offset / fs->block_size;
+-    uint32_t end_block   = end_offset / fs->block_size;
++    uint32_t end_block   = (end_offset - 1) / fs->block_size;
+     // What's the offset into the start block.
+     uint32_t start_off   = offset % fs->block_size;
+     // How much bytes to read for the end block.
+-    uint32_t end_size    = end_offset - (end_block * fs->block_size);
++    uint32_t end_size    = end_offset - 1 - (end_block * fs->block_size);
+ 
+ #ifdef EXT2_FULL_DEBUG
+     pr_debug("ext2_write_inode_data(inode: %4u, offset: %4u, nbyte: %4u)\n", inode_index, offset, nbyte);
+@@ -1996,7 +1996,7 @@ static ssize_t ext2_write_inode_data(
+             left = start_off;
+         }
+         if (block_index == end_block) {
+-            right = end_size - 1;
++            right = end_size;
+         }
+ 
+         // Only read the block if it exists AND we're doing a partial write.
+diff --git a/kernel/src/io/debug.c b/kernel/src/io/debug.c
+index 1020065..f018f59 100644
+--- a/kernel/src/io/debug.c
++++ b/kernel/src/io/debug.c
+@@ -112,7 +112,7 @@ const char *dec_to_binary(unsigned long value, unsigned length)
+     return buffer;
+ }
+ 
+-void dbg_putchar(char c) { outportb(SERIAL_COM1, (uint8_t)c); }
++void dbg_putchar(char c) { if (c == '\n') outportb(SERIAL_COM1, '\r'); outportb(SERIAL_COM1, (uint8_t)c); }
+ 
+ void dbg_puts(const char *s)
+ {
+diff --git a/kernel/src/io/proc_video.c b/kernel/src/io/proc_video.c
+index b02cf73..f0d7727 100644
+--- a/kernel/src/io/proc_video.c
++++ b/kernel/src/io/proc_video.c
+@@ -13,7 +13,6 @@
+ #include "bits/termios-struct.h"
+ #include "ctype.h"
+ #include "drivers/keyboard/keyboard.h"
+-#include "drivers/keyboard/keymap.h"
+ #include "errno.h"
+ #include "fcntl.h"
+ #include "fs/procfs.h"
+diff --git a/kernel/src/io/video.c b/kernel/src/io/video.c
+index 1571258..c93bb9b 100644
+--- a/kernel/src/io/video.c
++++ b/kernel/src/io/video.c
+@@ -16,6 +16,8 @@
+ #include "stdio.h"
+ #include "string.h"
+ 
++#define SERIAL_COM2 (0x02F8)
++
+ #define HEIGHT                   25                   ///< The height of the screen (rows).
+ #define WIDTH                    80                   ///< The width of the screen (columns).
+ #define W2                       (WIDTH * 2)          ///< The width of the screen in bytes.
+@@ -133,89 +135,6 @@ static inline unsigned __get_y(void)
+     return (pointer - ADDR) / (WIDTH * 2);
+ }
+ 
+-/// @brief Draws the given character at the current cursor position.
+-/// @param c The character to draw.
+-static inline void __draw_char(char c)
+-{
+-    // If we are scrolled, unscroll first to show current content.
+-    if (scrolled_lines) {
+-        video_scroll_up(scrolled_lines);
+-    }
+-
+-    // Calculate the end of the current line.
+-    unsigned int current_row = (pointer - ADDR) / W2;
+-    char *line_end           = ADDR + ((current_row + 1) * W2);
+-
+-    // Shift characters within the current line to make room for insertion.
+-    if (pointer < line_end - 2) {
+-        size_t bytes_to_shift = (line_end - 2) - pointer;
+-        if (bytes_to_shift > 0) {
+-            memmove(pointer + 2, pointer, bytes_to_shift);
+-        }
+-    }
+-
+-    // Write the character and its color attribute.
+-    *pointer       = c;
+-    *(pointer + 1) = color;
+-
+-    // Advance the pointer to the next character position.
+-    pointer += 2;
+-
+-    // If we've reached the end of the line, wrap to the next line.
+-    if (pointer >= line_end) {
+-        pointer = line_end;
+-    }
+-
+-    // If pointer goes past the end of the screen, scroll up and reset.
+-    if (pointer >= ADDR + TOTAL_SIZE) {
+-        video_shift_one_line_up();
+-        pointer = ADDR + TOTAL_SIZE - W2;
+-    }
+-}
+-
+-/// @brief Hides the VGA cursor.
+-void __video_hide_cursor(void)
+-{
+-    outportb(VGA_CRTC_INDEX, VGA_CURSOR_START);
+-    unsigned char cursor_start = inportb(VGA_CRTC_DATA);
+-    // Set the most significant bit to disable the cursor.
+-    outportb(VGA_CRTC_DATA, cursor_start | 0x20);
+-}
+-
+-/// @brief Shows the VGA cursor by clearing the disable bit.
+-void __video_show_cursor(void)
+-{
+-    // Read current cursor start register
+-    outportb(VGA_CRTC_INDEX, VGA_CURSOR_START);
+-    unsigned char cursor_start = inportb(VGA_CRTC_DATA);
+-    // Clear bit 5 to enable cursor, keep other bits
+-    outportb(VGA_CRTC_INDEX, VGA_CURSOR_START);
+-    outportb(VGA_CRTC_DATA, cursor_start & ~0x20);
+-}
+-
+-/// @brief Sets the VGA cursor shape by specifying the start and end scan lines.
+-/// @param start The starting scan line of the cursor (0-15).
+-/// @param end The ending scan line of the cursor (0-15).
+-void __video_set_cursor_shape(unsigned char start, unsigned char end)
+-{
+-    // Ensure start is less than or equal to end for visible cursor
+-    if (start > end) {
+-        start = 0;
+-        end   = 15;
+-    }
+-
+-    // Set the cursor's start scan line with cursor enabled (bit 5 = 0)
+-    outportb(VGA_CRTC_INDEX, VGA_CURSOR_START);
+-    outportb(VGA_CRTC_DATA, start & 0x1F);
+-
+-    // Set the cursor's end scan line
+-    outportb(VGA_CRTC_INDEX, VGA_CURSOR_END);
+-    outportb(VGA_CRTC_DATA, end & 0x1F);
+-
+-    // Explicitly ensure cursor is visible
+-    __video_show_cursor();
+-}
+-
+ /// @brief Issues a command to move the cursor to the given position.
+ /// @param x The x coordinate.
+ /// @param y The y coordinate.
+@@ -312,7 +231,6 @@ static inline void __move_cursor_backward(int erase, int amount)
+             break;
+         }
+     }
+-    video_update_cursor_position();
+ }
+ 
+ /// @brief Moves the cursor forward by the specified amount.
+@@ -333,314 +251,20 @@ static inline void __move_cursor_forward(int erase, int amount)
+             break;
+         }
+     }
+-    video_update_cursor_position();
+-}
+-
+-/// @brief Parses the cursor shape escape code and sets the cursor shape accordingly.
+-/// @param shape The integer representing the cursor shape code.
+-static inline void __parse_cursor_escape_code(int shape)
+-{
+-    switch (shape) {
+-    case 0: // Default blinking block cursor
+-    case 2: // Blinking block cursor
+-        __video_set_cursor_shape(0, 15);
+-        break;
+-    case 1: // Steady block cursor
+-        __video_set_cursor_shape(0, 15);
+-        break;
+-    case 3: // Blinking underline cursor
+-        __video_set_cursor_shape(13, 15);
+-        break;
+-    case 4: // Steady underline cursor
+-        __video_set_cursor_shape(13, 15);
+-        break;
+-    case 5: // Blinking vertical bar cursor
+-        __video_set_cursor_shape(0, 1);
+-        break;
+-    case 6: // Steady vertical bar cursor
+-        __video_set_cursor_shape(0, 1);
+-        break;
+-    default:
+-        // Handle any other cases if needed
+-        break;
+-    }
+ }
+ 
+ void video_init(void)
+ {
+-    // Initialize color lookup tables from the ANSI color mapping.
+-    for (size_t i = 0; i < count_of(ansi_color_map); ++i) {
+-        uint8_t code = ansi_color_map[i].ansi_color;
+-        uint8_t vid  = ansi_color_map[i].video_color;
+-        if (code <= 107) {
+-            // Populate foreground color map for codes 0, 30-37, 90-97.
+-            if ((code == 0) || ((code >= 30) && (code <= 37)) || ((code >= 90) && (code <= 97))) {
+-                fg_color_map[code] = vid;
+-            } else {
+-                // Populate background color map for codes 40-47, 100-107.
+-                bg_color_map[code] = vid;
+-            }
+-        }
+-    }
+-    // Clear the screen and set default cursor shape.
+-    video_clear();
+ 
+-    // Set up cursor with known good values
+-    // Use default blinking block cursor (scan lines 0-15)
+-    outportb(VGA_CRTC_INDEX, VGA_CURSOR_START);
+-    outportb(VGA_CRTC_DATA, 0x00); // Start at line 0, bit 5 clear (enabled)
+-
+-    outportb(VGA_CRTC_INDEX, VGA_CURSOR_END);
+-    outportb(VGA_CRTC_DATA, 0x0F); // End at line 15
+-
+-    // Explicitly show cursor
+-    __video_show_cursor();
+ }
+ 
+ void video_putc(int c)
+ {
+-    // Handle ANSI escape sequence start.
+-    if (c == '\033') {
+-        escape_index = 0;
+-        memset(escape_buffer, 0, sizeof(escape_buffer));
+-        return;
++    while (!(inportb(SERIAL_COM2 + 5) & (1 << 5))) {
++        // wait for TX buffer to be empty
+     }
+ 
+-    // Process escape sequence characters.
+-    if (escape_index >= 0) {
+-        // Handle special single-character escape sequences (not CSI).
+-        if (escape_index == 0) {
+-            // ESC c - RIS (Reset to Initial State) - Full terminal reset.
+-            if (c == 'c') {
+-                // Clear the screen.
+-                video_clear();
+-                // Reset to default colors.
+-                color = 0x07;
+-                // Reset cursor shape.
+-                __parse_cursor_escape_code(0);
+-                // Reset scrollback buffer.
+-                escape_index = -1;
+-                return;
+-            }
+-            // ESC [ - Start CSI sequence.
+-            else if (c == '[') {
+-                escape_index = 1;
+-                return;
+-            }
+-            // Unknown escape sequence, abort.
+-            else {
+-                escape_index = -1;
+-                return;
+-            }
+-        }
+-        // Check for buffer overflow.
+-        if (escape_index >= sizeof(escape_buffer) - 1) {
+-            escape_index = -1;
+-            return;
+-        }
+-        // Store character in escape buffer.
+-        escape_buffer[escape_index++] = c;
+-        escape_buffer[escape_index]   = 0;
+-
+-        // Process escape sequence when we hit a letter (command character).
+-        if (isalpha(c)) {
+-            // Remove the command character from the buffer.
+-            if (escape_index > 1) {
+-                escape_buffer[--escape_index] = 0;
+-            } else {
+-                escape_index = -1;
+-            }
+-
+-            // ESC [ <n> C - Cursor forward.
+-            if (c == 'C') {
+-                int amount = atoi(&escape_buffer[1]);
+-                if (amount <= 0)
+-                    amount = 1;
+-                __move_cursor_forward(false, amount);
+-            }
+-            // ESC [ <n> D - Cursor backward.
+-            else if (c == 'D') {
+-                int amount = atoi(&escape_buffer[1]);
+-                if (amount <= 0)
+-                    amount = 1;
+-                __move_cursor_backward(false, amount);
+-            }
+-            // ESC [ <n> A - Cursor up.
+-            else if (c == 'A') {
+-                int amount = atoi(&escape_buffer[1]);
+-                if (amount <= 0)
+-                    amount = 1;
+-                for (int i = 0; i < amount; ++i) {
+-                    unsigned int y = __get_y();
+-                    if (y > 0) {
+-                        pointer -= W2;
+-                    }
+-                }
+-                video_update_cursor_position();
+-            }
+-            // ESC [ <n> B - Cursor down.
+-            else if (c == 'B') {
+-                int amount = atoi(&escape_buffer[1]);
+-                if (amount <= 0)
+-                    amount = 1;
+-                for (int i = 0; i < amount; ++i) {
+-                    unsigned int y = __get_y();
+-                    if (y < HEIGHT - 1) {
+-                        pointer += W2;
+-                    }
+-                }
+-                video_update_cursor_position();
+-            }
+-            // ESC [ <n> m or ESC [ <n>;<n> m - Set color/attributes.
+-            else if (c == 'm') {
+-                // Note: escape_buffer data starts at index 1 (we skip '[' at index 0).
+-                char *token = &escape_buffer[1];
+-                char *saveptr;
+-
+-                // Empty sequence means reset (ESC [ m is same as ESC [ 0 m).
+-                if (escape_buffer[1] == '\0') {
+-                    __set_color(0);
+-                } else {
+-                    // Parse each semicolon-separated parameter.
+-                    while ((token = strtok_r(token, ";", &saveptr)) != NULL) {
+-                        int code = atoi(token);
+-                        __set_color(code);
+-                        token = NULL;
+-                    }
+-                }
+-            }
+-            // ESC [ <n> J - Clear screen.
+-            else if (c == 'J') {
+-                int mode = atoi(&escape_buffer[1]);
+-                if (mode == 0) {
+-                    // Clear from cursor to end of screen.
+-                    memset(pointer, 0, (ADDR + TOTAL_SIZE) - pointer);
+-                } else if (mode == 1) {
+-                    // Clear from start of screen to cursor (inclusive).
+-                    memset(ADDR, 0, pointer - ADDR + 2);
+-                } else if (mode == 3) {
+-                    // Clear entire screen AND scrollback buffer.
+-                    video_clear();
+-                } else {
+-                    // Mode 2 or default: Clear entire screen (but preserve scrollback).
+-                    memset(ADDR, 0, TOTAL_SIZE);
+-                    pointer        = ADDR;
+-                    scrolled_lines = 0;
+-                    video_update_cursor_position();
+-                }
+-            }
+-            // ESC [ <row>;<col> H or f - Set cursor position.
+-            else if ((c == 'H') || (c == 'f')) {
+-                char *semicolon = strchr(&escape_buffer[1], ';');
+-                if (semicolon != NULL) {
+-                    *semicolon     = '\0';
+-                    unsigned int y = atoi(&escape_buffer[1]) - 1;
+-                    unsigned int x = atoi(semicolon + 1) - 1;
+-                    if (x >= WIDTH)
+-                        x = WIDTH - 1;
+-                    if (y >= HEIGHT)
+-                        y = HEIGHT - 1;
+-                    pointer = ADDR + (y * WIDTH * 2 + x * 2);
+-                } else {
+-                    pointer = ADDR;
+-                }
+-                video_update_cursor_position();
+-            }
+-            // ESC [ <n> q - Set cursor shape.
+-            else if (c == 'q') {
+-                __parse_cursor_escape_code(atoi(&escape_buffer[1]));
+-            }
+-            // ESC [ <n> K - Erase in line.
+-            else if (c == 'K') {
+-                int mode                 = atoi(&escape_buffer[1]);
+-                unsigned int current_row = (pointer - ADDR) / W2;
+-                char *line_start         = ADDR + (current_row * W2);
+-                char *line_end           = line_start + W2;
+-
+-                if (mode == 0) {
+-                    // Clear from cursor to end of line.
+-                    memset(pointer, 0, line_end - pointer);
+-                } else if (mode == 1) {
+-                    // Clear from start of line to cursor.
+-                    memset(line_start, 0, pointer - line_start + 2);
+-                } else if (mode == 2) {
+-                    // Clear entire line.
+-                    memset(line_start, 0, W2);
+-                }
+-            }
+-            // ESC [ s - Save cursor position.
+-            else if (c == 's') {
+-                saved_pointer = pointer;
+-            }
+-            // ESC [ u - Restore cursor position.
+-            else if (c == 'u') {
+-                // Validate saved pointer is within screen bounds.
+-                if (saved_pointer >= ADDR && saved_pointer < ADDR + TOTAL_SIZE) {
+-                    pointer = saved_pointer;
+-                }
+-                video_update_cursor_position();
+-            }
+-            // ESC [ <n> S - Custom: scroll down (show older lines).
+-            else if (c == 'S') {
+-                int lines_to_scroll = atoi(&escape_buffer[1]);
+-                if (lines_to_scroll < 0)
+-                    lines_to_scroll = 0;
+-                video_scroll_down(lines_to_scroll);
+-                escape_index = -1;
+-                return;
+-            }
+-            // ESC [ <n> T - Custom: scroll up (show newer lines).
+-            else if (c == 'T') {
+-                int lines_to_scroll = atoi(&escape_buffer[1]);
+-                if (lines_to_scroll < 0)
+-                    lines_to_scroll = 0;
+-                video_scroll_up(lines_to_scroll);
+-                escape_index = -1;
+-                return;
+-            }
+-            escape_index = -1;
+-        }
+-        return;
+-    }
+-
+-    // Handle normal characters (not in escape sequence).
+-    if (c == '\n') {
+-        video_new_line();
+-    } else if (c == '\b') {
+-        __move_cursor_backward(true, 1);
+-    } else if (c == '\r') {
+-        video_cartridge_return();
+-    } else if (c == 127) {
+-        // DEL key - delete character at cursor position.
+-        unsigned int current_row = (pointer - ADDR) / W2;
+-        char *line_end           = ADDR + ((current_row + 1) * W2);
+-
+-        // Shift characters left on the current line only.
+-        size_t bytes_to_move = line_end - (pointer + 2);
+-        if (bytes_to_move > 0) {
+-            memmove(pointer, pointer + 2, bytes_to_move);
+-        }
+-        // Clear the last character position of the line.
+-        *(line_end - 2) = ' ';
+-        *(line_end - 1) = color;
+-
+-        // Update cursor position to reflect the deletion.
+-        if (!batch_cursor_updates) {
+-            video_update_cursor_position();
+-        }
+-        return;
+-    } else if ((c >= 0x20) && (c <= 0x7E)) {
+-        // Printable ASCII character.
+-        __draw_char(c);
+-    } else {
+-        // Ignore other control characters.
+-        return;
+-    }
+-
+-    // Update cursor position unless we're batching updates.
+-    if (!batch_cursor_updates) {
+-        video_update_cursor_position();
+-    }
++    outportb(SERIAL_COM2, (uint8_t)c);
+ }
+ 
+ void video_puts(const char *str)
+@@ -649,27 +273,11 @@ void video_puts(const char *str)
+     if (!str) {
+         return;
+     }
+-    // Batch cursor updates for efficiency.
+-    batch_cursor_updates = 1;
++
+     // Output each character in the string.
+     while ((*str) != 0) {
+         video_putc((*str++));
+     }
+-    // Re-enable cursor updates and sync position.
+-    batch_cursor_updates = 0;
+-    video_update_cursor_position();
+-}
+-
+-void video_update_cursor_position(void)
+-{
+-    // Ensure there's a character at the cursor position for VGA hardware cursor visibility.
+-    // VGA cursor needs a non-null character cell to display over.
+-    if (pointer[0] == 0) {
+-        pointer[0] = ' ';   // Character
+-        pointer[1] = color; // Attribute
+-    }
+-    // Convert byte pointer to character coordinates (divide by 2 since each char uses 2 bytes).
+-    __video_set_cursor_position(((pointer - ADDR) / 2U) % WIDTH, ((pointer - ADDR) / 2U) / WIDTH);
+ }
+ 
+ void video_move_cursor(unsigned int x, unsigned int y)
+@@ -681,8 +289,6 @@ void video_move_cursor(unsigned int x, unsigned int y)
+         y = HEIGHT - 1;
+     // Calculate pointer position (each character is 2 bytes).
+     pointer = ADDR + ((y * WIDTH * 2) + (x * 2));
+-    // Update hardware cursor to match.
+-    video_update_cursor_position();
+ }
+ 
+ void video_get_cursor_position(unsigned int *x, unsigned int *y)
+@@ -719,40 +325,16 @@ void video_clear(void)
+     pointer        = ADDR;
+     // Reset scrolling state.
+     scrolled_lines = 0;
+-    video_update_cursor_position();
+ }
+ 
+ void video_new_line(void)
+ {
+-    // If we're viewing scrollback, unscroll first to show current content.
+-    if (scrolled_lines) {
+-        video_scroll_up(scrolled_lines);
+-    }
+-
+-    // Move pointer to the start of the next line.
+-    pointer = ADDR + ((pointer - ADDR) / W2 + 1) * W2;
+-    // Check if we've gone past the bottom of the screen.
+-    if (pointer >= ADDR + TOTAL_SIZE) {
+-        // Scroll up by one line and move content into scrollback.
+-        video_shift_one_line_up();
+-        // Position cursor at the beginning of the last line.
+-        pointer = ADDR + TOTAL_SIZE - W2;
+-    }
+-    video_update_cursor_position();
++    video_putc('\n');
+ }
+ 
+ void video_cartridge_return(void)
+ {
+-    // If we're viewing scrollback, unscroll first to show current content.
+-    if (scrolled_lines) {
+-        video_scroll_up(scrolled_lines);
+-    }
+-
+-    // Calculate which row we're on.
+-    unsigned int current_row = (pointer - ADDR) / W2;
+-    // Move pointer to the beginning of the current line.
+-    pointer                  = ADDR + (current_row * W2);
+-    video_update_cursor_position();
++    video_putc('\r'); // TODO: might require ANSI code
+ }
+ 
+ /// @brief Shifts the buffer up or down by one line.
+@@ -854,32 +436,3 @@ void video_shift_one_page_down(void)
+     }
+ }
+ 
+-void video_scroll_up(int lines)
+-{
+-    // Validate input: clamp to reasonable bounds.
+-    if (lines < 0) {
+-        lines = 0;
+-    }
+-    if (lines > scrolled_lines) {
+-        lines = scrolled_lines;
+-    }
+-    // Scroll up by the specified number of lines.
+-    for (int i = 0; i < lines; ++i) {
+-        video_shift_one_line_up();
+-    }
+-}
+-
+-void video_scroll_down(int lines)
+-{
+-    // Validate input: clamp to reasonable bounds.
+-    if (lines < 0) {
+-        lines = 0;
+-    }
+-    if (lines > STORED_PAGES * HEIGHT) {
+-        lines = STORED_PAGES * HEIGHT;
+-    }
+-    // Scroll down by the specified number of lines.
+-    for (int i = 0; i < lines; ++i) {
+-        video_shift_one_line_down();
+-    }
+-}
+diff --git a/kernel/src/kernel.c b/kernel/src/kernel.c
+index 6feb414..fb41c26 100644
+--- a/kernel/src/kernel.c
++++ b/kernel/src/kernel.c
+@@ -15,7 +15,6 @@
+ #include "descriptor_tables/idt.h"
+ #include "drivers/ata/ata.h"
+ #include "drivers/keyboard/keyboard.h"
+-#include "drivers/keyboard/keymap.h"
+ #include "drivers/mem.h"
+ #include "drivers/ps2.h"
+ #include "drivers/rtc.h"
+@@ -383,14 +382,6 @@ int kmain(boot_info_t *boot_informations)
+         printf("Setting up keyboard driver...");
+         keyboard_initialize();
+         print_ok();
+-        // Set the keymap type.
+-#ifdef USE_KEYMAP_US
+-        set_keymap_type(KEYMAP_US);
+-#elif USE_KEYMAP_DE
+-        set_keymap_type(KEYMAP_DE);
+-#else
+-        set_keymap_type(KEYMAP_IT);
+-#endif
+ 
+         keyboard_enable();
+     } else {

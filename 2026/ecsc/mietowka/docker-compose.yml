@@ -1,0 +1,4 @@
+services:
+  mietowka:
+    build: .
+    ports: [3737:3737]
